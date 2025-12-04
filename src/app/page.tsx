@@ -1,35 +1,38 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import InteractiveDemo from '@/components/sections/InteractiveDemo';
+import Navbar from '@/components/sections/Navbar';
+import Hero from '@/components/sections/Hero';
+import Problem from '@/components/sections/Problem';
+import Solution from '@/components/sections/Solution';
+import Emotional from '@/components/sections/Emotional';
+import LeadForm from '@/components/sections/LeadForm';
 
 export default function LandingPage() {
-  const [screenWidth, setScreenWidth] = useState(0);
-
-  useEffect(() => {
-    // 브라우저에서만 실행
-    if (typeof window !== "undefined") {
-      const width = window.innerWidth;
-      setScreenWidth(width);
-    }
-  }, []);
-
-  // screenWidth가 0일 때는 아직 클라이언트에서 계산되지 않았다는 의미
-  if (screenWidth === 0) return null;
-
   return (
-    <div style={{ width: "100vw" }}>
-      <Image
-        src="/images/landing.png"
-        alt="img"
-        priority
-        // layout="responsive" // 반응형 이미지
-        width={5750} // 원본 너비
-        height={32768} // 원본 높이
-        sizes="97vw" // 화면 크기별 최적화
-        objectFit="cover" // 비율 유지하며 화면 꽉 채우기
-        quality={90}
-      />
-    </div>
+    <main className="min-h-screen">
+      <InteractiveDemo />
+      <Navbar />
+      <div id="hero-section">
+        <Hero />
+      </div>
+      <Problem />
+      <Solution />
+      <Emotional />
+      <LeadForm />
+      
+      {/* Footer */}
+      <footer className="bg-secondary-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-2xl font-bold text-primary mb-4 font-display">ZELLY</h3>
+          <p className="text-secondary-400 text-sm mb-4">
+            AI로 정리하는 반려동물 성장 앨범
+          </p>
+          <p className="text-secondary-500 text-xs">
+            © 2024 Zelly. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </main>
   );
 }
