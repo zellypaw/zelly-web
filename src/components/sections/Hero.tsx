@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Button from '../common/Button';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -13,14 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-mesh">
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
-      
-      {/* Background Blobs for extra depth */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-zelly-pink/10 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-zelly-blue/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-32 md:pb-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
@@ -58,23 +51,41 @@ export default function Hero() {
             소중한 순간만 쏙 골라 앨범으로 만들어 드릴게요.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons (App Stores) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button 
-              onClick={scrollToForm} 
-              size="lg" 
-              className="w-full sm:w-auto h-16 px-10 text-xl font-bold rounded-2xl shadow-lg shadow-zelly-pink/20"
-            >
-              지금 바로 시작하기
-            </Button>
-            <button className="w-full sm:w-auto px-8 py-4 text-secondary-600 font-bold hover:text-secondary-900 transition-colors">
-              더 알아보기 →
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button 
+                onClick={scrollToForm} 
+                className="transition-transform hover:scale-105 active:scale-95 duration-200"
+              >
+                <div className="relative h-[50px] w-[165px]">
+                  <Image
+                    src="/assets/app-store-badge.svg"
+                    alt="Download on the App Store"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </button>
+              <button 
+                onClick={scrollToForm} 
+                className="transition-transform hover:scale-105 active:scale-95 duration-200"
+              >
+                <div className="relative h-[50px] w-[165px]">
+                  <Image
+                    src="/assets/google-play-badge.png"
+                    alt="Get it on Google Play"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </button>
+            </div>
           </motion.div>
 
           {/* Mockup Section */}
@@ -86,8 +97,7 @@ export default function Hero() {
           >
             <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-white/30 backdrop-blur-md rounded-[40px] border border-white/50 shadow-2xl overflow-hidden group">
               {/* Inner content placeholder */}
-              <div className="absolute inset-4 rounded-[32px] bg-gradient-to-br from-white/80 to-white/40 flex items-center justify-center border border-white/40 overflow-hidden">
-                <div className="absolute inset-0 bg-mesh opacity-30"></div>
+              <div className="absolute inset-4 rounded-[32px] bg-gradient-to-br from-white/90 to-white/60 flex items-center justify-center border border-white/40 overflow-hidden">
                 
                 {/* Visualizing "AI Organizing" */}
                 <div className="relative z-10 flex flex-col items-center">

@@ -1,29 +1,23 @@
 'use client';
 
 import Navbar from '@/components/sections/Navbar';
-import Hero from '@/components/sections/Hero';
-import Problem from '@/components/sections/Problem';
-import Solution from '@/components/sections/Solution';
-import Emotional from '@/components/sections/Emotional';
-import LeadForm from '@/components/sections/LeadForm';
+import AiImageDemo from '@/components/sections/AiImageDemo';
 
-export default function LandingPage() {
+export default function DemoPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <Navbar />
+    <main className="min-h-screen bg-mesh relative overflow-hidden">
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
       
-      <div id="hero-section">
-        <Hero />
+      {/* Background Blobs for extra depth */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-zelly-pink/10 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-zelly-blue/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+      <Navbar />
+      <div className="relative z-10 pt-24 pb-12">
+        <AiImageDemo />
       </div>
 
-      <Problem />
-      <Solution />
-      <Emotional />
-      
-      <div id="lead-form">
-        <LeadForm />
-      </div>
-      
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -33,7 +33,7 @@ export default function AiImageDemo() {
   };
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="py-20 bg-transparent overflow-hidden">
       <Container>
         <div className="text-center mb-12">
           <motion.div 

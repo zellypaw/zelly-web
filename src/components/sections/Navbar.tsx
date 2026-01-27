@@ -1,37 +1,73 @@
 'use client';
 
 import React from 'react';
-import Button from '../common/Button';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Button from '../common/Button';
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+  
   const scrollToForm = () => {
-    const formElement = document.getElementById('lead-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
+    if (pathname !== '/') {
+      router.push('/#lead-form');
+    } else {
+      const formElement = document.getElementById('lead-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
+  const navLinks = [
+    { name: '소개', href: '/' },
+    { name: 'AI 데모', href: '/demo' },
+    { name: '수요조사', href: '/survey' },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-lg border-b border-white/20">
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-secondary-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-24">
+        <div className="flex justify-between items-center h-[60px]">
           {/* Logo */}
-          <div className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="relative w-24 h-8 md:w-32 md:h-10">
+          <Link 
+            href="/"
+            className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
+          >
+            <div className="relative w-40 h-[38px]">
               <Image 
                 src="/assets/zelly_title.png" 
                 alt="ZELLY" 
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 priority
               />
             </div>
+          </Link>
+
+          {/* Navigation Links - Desktop */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`text-base font-bold transition-colors hover:text-secondary-900 ${
+                    isActive ? 'text-secondary-900' : 'text-secondary-500'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
-          <div>
-            <Button onClick={scrollToForm} size="md" className="font-bold px-6 py-2.5 rounded-xl shadow-md">
+          <div className="flex items-center">
+            <Button onClick={scrollToForm} size="sm" className="font-bold px-4 py-1.5 rounded-lg text-sm shadow-sm">
               사전예약 하기
             </Button>
           </div>
