@@ -26,7 +26,7 @@ export default function Solution() {
               AI가 다 아니까
             </h3>
             <p className="text-lg text-secondary-700 leading-relaxed">
-              여러 마리를 키워도 '두부'인지 '콩이'인지<br />
+              여러 마리를 키워도 &apos;두부&apos;인지 &apos;콩이&apos;인지<br />
               AI가 얼굴을 식별하여 자동으로 분류합니다.
             </p>
           </div>

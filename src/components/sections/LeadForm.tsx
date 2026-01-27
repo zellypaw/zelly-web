@@ -25,7 +25,7 @@ export default function LeadForm() {
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6 leading-tight">
             지금 사전 알림 신청하면,<br />
-            <span className="text-primary">'AI 프로필 변신 이용권'</span>
+            <span className="text-primary">&apos;AI 프로필 변신 이용권&apos;</span>
             <br />
             100% 무료로 드립니다.
           </h2>

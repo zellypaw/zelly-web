@@ -13,68 +13,116 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 py-16 md:py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-mesh">
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+      
+      {/* Background Blobs for extra depth */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-zelly-pink/10 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-zelly-blue/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-32 md:pb-24">
         <div className="text-center max-w-4xl mx-auto">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-sm border border-zelly-pink/20 text-zelly-pink text-sm font-semibold mb-8 shadow-sm"
+          >
+            <span className="mr-2">✨</span>
+            AI가 자동으로 정리하는 우리 아이 성장앨범
+          </motion.div>
+
           {/* Headline */}
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 mb-6 leading-tight"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-secondary-900 mb-8 leading-[1.1] tracking-tight"
           >
-            강아지 사진만 33,422장...<br />
-            언제 다 정리하나요?
+            강아지 사진 정리,<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zelly-pink to-[#FF5C8D]">
+              이제 AI에게 맡기세요.
+            </span>
           </motion.h2>
 
           {/* Sub-headline */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-secondary-700 mb-10 leading-relaxed"
+            className="text-xl md:text-2xl lg:text-3xl text-secondary-700 mb-12 leading-relaxed max-w-2xl mx-auto font-medium"
           >
-            용량 부족 경고, 이제 그만.<br className="md:hidden" />
-            AI가 당신의 강아지 사진만 쏙 골라 '성장앨범'으로 만들어 드립니다.
+            매일 쌓이는 수천 장의 사진들 중에서<br className="hidden md:block" />
+            소중한 순간만 쏙 골라 앨범으로 만들어 드릴게요.
           </motion.p>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button onClick={scrollToForm} size="lg" className="animate-pulse-subtle">
-              3초 만에 AI 앨범 정리 시작하기
+            <Button 
+              onClick={scrollToForm} 
+              size="lg" 
+              className="w-full sm:w-auto h-16 px-10 text-xl font-bold rounded-2xl shadow-lg shadow-zelly-pink/20"
+            >
+              지금 바로 시작하기
             </Button>
+            <button className="w-full sm:w-auto px-8 py-4 text-secondary-600 font-bold hover:text-secondary-900 transition-colors">
+              더 알아보기 →
+            </button>
           </motion.div>
 
-          {/* Visual Placeholder - Before/After comparison */}
+          {/* Mockup Section */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-20 relative px-4"
           >
-            <div className="bg-white rounded-2xl p-6 shadow-xl">
-              <div className="aspect-[9/16] bg-secondary-100 rounded-xl flex items-center justify-center mb-4">
-                <div className="text-center p-4">
-                  <div className="text-6xl mb-4">😰</div>
-                  <p className="font-bold text-red-500 text-lg mb-2">Storage Full</p>
-                  <p className="text-secondary-600 text-sm">어지럽게 섞인 33,422장</p>
+            <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-white/30 backdrop-blur-md rounded-[40px] border border-white/50 shadow-2xl overflow-hidden group">
+              {/* Inner content placeholder */}
+              <div className="absolute inset-4 rounded-[32px] bg-gradient-to-br from-white/80 to-white/40 flex items-center justify-center border border-white/40 overflow-hidden">
+                <div className="absolute inset-0 bg-mesh opacity-30"></div>
+                
+                {/* Visualizing "AI Organizing" */}
+                <div className="relative z-10 flex flex-col items-center">
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white shadow-xl flex items-center justify-center text-6xl md:text-8xl"
+                  >
+                    🐶
+                  </motion.div>
+                  <div className="mt-8 space-y-3">
+                    <div className="h-4 w-48 bg-zelly-pink/20 rounded-full animate-pulse"></div>
+                    <div className="h-4 w-32 bg-zelly-pink/10 rounded-full animate-pulse mx-auto"></div>
+                  </div>
                 </div>
               </div>
-              <p className="text-center text-secondary-500 font-medium text-sm">Before</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-xl">
-              <div className="aspect-[9/16] bg-gradient-1 rounded-xl flex items-center justify-center mb-4">
-                <div className="text-center p-4">
-                  <div className="text-6xl mb-4">✨</div>
-                  <p className="font-bold text-primary text-lg mb-2">Organized!</p>
-                  <p className="text-secondary-600 text-sm">우리 강아지만 깔끔하게</p>
-                </div>
-              </div>
-              <p className="text-center text-primary font-medium text-sm">After</p>
+              
+              {/* Floating Decorative Elements */}
+              <motion.div 
+                animate={{ y: [-10, 10, -10] }} 
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute top-10 right-10 w-20 h-20 bg-white rounded-2xl shadow-lg border border-white flex items-center justify-center text-3xl"
+              >
+                📸
+              </motion.div>
+              <motion.div 
+                animate={{ y: [10, -10, 10] }} 
+                transition={{ duration: 3.5, repeat: Infinity }}
+                className="absolute bottom-10 left-10 w-20 h-20 bg-white rounded-2xl shadow-lg border border-white flex items-center justify-center text-3xl"
+              >
+                🪄
+              </motion.div>
             </div>
           </motion.div>
         </div>
