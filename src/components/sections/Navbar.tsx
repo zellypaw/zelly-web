@@ -17,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-secondary-100 shadow-sm">
+    <nav className="fixed top-0 w-full z-50 bg-zelly-bg-secondary/80 backdrop-blur-lg border-b border-zelly-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[60px]">
           {/* Logo */}
@@ -49,7 +49,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base font-bold transition-colors hover:text-secondary-900 text-secondary-500"
+                    className="text-base font-bold transition-colors hover:text-zelly-text-primary text-zelly-text-secondary"
                   >
                     {link.name}
                   </a>
@@ -60,8 +60,8 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-base font-bold transition-colors hover:text-secondary-900 ${
-                    isActive ? 'text-secondary-900' : 'text-secondary-500'
+                  className={`text-base font-bold transition-colors hover:text-zelly-text-primary ${
+                    isActive ? 'text-zelly-text-primary' : 'text-zelly-text-secondary'
                   }`}
                 >
                   {link.name}
@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-secondary-500 hover:text-secondary-900 focus:outline-none p-2"
+              className="text-zelly-text-secondary hover:text-zelly-text-primary focus:outline-none p-2"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,7 +85,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-secondary-100 py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-zelly-bg-secondary/95 backdrop-blur-xl border-t border-zelly-border py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -99,7 +99,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-bold py-2 text-secondary-500 hover:text-secondary-900 transition-colors"
+                    className="text-lg font-bold py-2 text-zelly-text-secondary hover:text-zelly-text-primary transition-colors"
                   >
                     {link.name}
                   </a>
@@ -111,8 +111,8 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-bold py-2 transition-colors hover:text-secondary-900 ${
-                    isActive ? 'text-secondary-900' : 'text-secondary-500'
+                  className={`text-lg font-bold py-2 transition-colors hover:text-zelly-text-primary ${
+                    isActive ? 'text-zelly-text-primary' : 'text-zelly-text-secondary'
                   }`}
                 >
                   {link.name}

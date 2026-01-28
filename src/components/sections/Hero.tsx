@@ -13,31 +13,18 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-32 md:pb-24">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zelly-bg-primary">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-44 md:pb-24">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/50 backdrop-blur-sm border border-zelly-pink/20 text-zelly-pink text-sm font-semibold mb-8 shadow-sm"
-          >
-            <span className="mr-2">✨</span>
-            AI가 자동으로 정리하는 우리 아이 성장앨범
-          </motion.div>
-
-          {/* Headline */}
+          {/* Headline (Main Title) */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-secondary-900 mb-8 leading-[1.1] tracking-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-black text-zelly-text-primary mb-8 leading-[1.1] tracking-tight"
           >
-            강아지 사진 정리,<br />
-            <span className="text-zelly-pink">
-              이제 AI에게 맡기세요.
-            </span>
+            갤러리에 잠든 귀여움이<br />기록이 되는 순간
+            {/* <span className="text-zelly-pink">젤리</span> */}
           </motion.h2>
 
           {/* Sub-headline */}
@@ -45,10 +32,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl lg:text-3xl text-secondary-700 mb-12 leading-relaxed max-w-2xl mx-auto font-medium"
+            className="text-lg md:text-xl lg:text-2xl text-zelly-text-secondary mb-12 leading-relaxed max-w-2xl mx-auto font-medium"
           >
-            매일 쌓이는 수천 장의 사진들 중에서<br className="hidden md:block" />
-            소중한 순간만 쏙 골라 앨범으로 만들어 드릴게요.
+            우리 아이와 함께한 모든 순간을<br className="hidden md:block" />
+            AI가 자동으로 기록하고 앨범으로 만들어 드립니다.
           </motion.p>
 
           {/* CTA Buttons (App Stores) */}
@@ -95,9 +82,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-20 relative px-4"
           >
-            <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-white/30 backdrop-blur-md rounded-[40px] border border-white/50 shadow-2xl overflow-hidden group">
+            <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-zelly-bg-secondary/30 backdrop-blur-md rounded-[40px] border border-zelly-bg-secondary/50 shadow-2xl overflow-hidden group">
               {/* Inner content placeholder */}
-              <div className="absolute inset-4 rounded-[32px] bg-white flex items-center justify-center border border-white/40 overflow-hidden">
+              <div className="absolute inset-4 rounded-[32px] bg-zelly-bg-secondary flex items-center justify-center border border-zelly-bg-secondary/40 overflow-hidden">
                 
                 {/* Visualizing "AI Organizing" */}
                 <div className="relative z-10 flex flex-col items-center">
@@ -107,7 +94,7 @@ export default function Hero() {
                       rotate: [0, 5, -5, 0]
                     }}
                     transition={{ duration: 4, repeat: Infinity }}
-                    className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white shadow-xl flex items-center justify-center text-6xl md:text-8xl"
+                    className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-zelly-bg-secondary shadow-xl flex items-center justify-center text-6xl md:text-8xl"
                   >
                     🐶
                   </motion.div>
@@ -122,14 +109,14 @@ export default function Hero() {
               <motion.div 
                 animate={{ y: [-10, 10, -10] }} 
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-10 right-10 w-20 h-20 bg-white rounded-2xl shadow-lg border border-white flex items-center justify-center text-3xl"
+                className="absolute top-10 right-10 w-20 h-20 bg-zelly-bg-secondary rounded-2xl shadow-lg border border-zelly-bg-secondary flex items-center justify-center text-3xl"
               >
                 📸
               </motion.div>
               <motion.div 
                 animate={{ y: [10, -10, 10] }} 
                 transition={{ duration: 3.5, repeat: Infinity }}
-                className="absolute bottom-10 left-10 w-20 h-20 bg-white rounded-2xl shadow-lg border border-white flex items-center justify-center text-3xl"
+                className="absolute bottom-10 left-10 w-20 h-20 bg-zelly-bg-secondary rounded-2xl shadow-lg border border-zelly-bg-secondary flex items-center justify-center text-3xl"
               >
                 🪄
               </motion.div>

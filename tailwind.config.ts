@@ -9,32 +9,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Zelly Brand Colors
+        // Zelly Brand Colors (Using CSS variables from globals.css)
         zelly: {
-          pink: '#FF1C69',
-          pinkDark: '#C2185B',
-          blue: '#2979FF',
-          neutral: 'rgba(0, 0, 0, 0.7)',
-          neutralText: 'rgba(0, 0, 0, 0.87)',
-          neutralDown: 'rgba(0, 0, 0, 0.6)',
+          bg: {
+            primary: 'var(--color-bg-primary)',
+            secondary: 'var(--color-bg-secondary)',
+          },
+          text: {
+            primary: 'var(--color-text-primary)',
+            secondary: 'var(--color-text-secondary)',
+            tertiary: 'var(--color-text-tertiary)',
+            placeholder: 'var(--color-text-placeholder)',
+          },
+          border: 'var(--color-border)',
+          pink: 'var(--color-accent-pink)',
+          pinkHover: 'var(--color-button-hover)',
+          yellow: 'var(--color-accent-yellow)',
+          green: 'var(--color-accent-green)',
         },
         primary: {
-          DEFAULT: '#FF1C69',
-          light: '#FF79B0',
-          dark: '#C2185B',
+          DEFAULT: 'var(--color-accent-pink)',
+          light: '#FF79B0', // Keep some fallbacks or add new ones if needed
+          dark: 'var(--color-button-hover)',
         },
         secondary: {
-          DEFAULT: '#2979FF',
-          50: '#FAFAFA',
-          100: '#F5F5F5',
+          DEFAULT: 'var(--color-text-secondary)',
+          50: 'var(--color-bg-primary)',
+          100: 'var(--color-border)',
           200: '#EEEEEE',
           300: '#E0E0E0',
           400: '#BDBDBD',
-          500: '#9E9E9E',
+          500: 'var(--color-text-tertiary)',
           600: '#757575',
           700: '#616161',
           800: '#424242',
-          900: '#212121',
+          900: 'var(--color-text-primary)',
         },
         // Gradient palette colors
         purple: {

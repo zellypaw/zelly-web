@@ -14,14 +14,14 @@ export default function Problem() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#f3f3f3]">
+    <section className="py-16 md:py-24 bg-zelly-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div
           {...fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zelly-text-primary mb-4">
             지우긴 아깝고, 찾기는 힘들고...<br />
             디지털 호더링을 겪고 계신가요?
           </h2>

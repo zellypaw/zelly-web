@@ -20,8 +20,8 @@ export default function Button({
   const baseStyles = 'font-semibold rounded-full transition-all duration-300 inline-block text-center disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantStyles = {
-    primary: 'bg-primary text-white hover:scale-105 hover:shadow-2xl shadow-lg enabled:cursor-pointer',
-    secondary: 'bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white enabled:cursor-pointer',
+    primary: 'bg-zelly-pink text-white hover:bg-zelly-pinkHover hover:scale-105 hover:shadow-2xl shadow-lg enabled:cursor-pointer',
+    secondary: 'bg-zelly-bg-secondary text-zelly-pink border-2 border-zelly-pink hover:bg-zelly-pink hover:text-white enabled:cursor-pointer',
   };
   
   const sizeStyles = {
