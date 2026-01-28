@@ -1,12 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
   
   const navLinks = [
     { name: '소개', href: '/' },
@@ -35,7 +37,7 @@ export default function Navbar() {
           </Link>
 
           {/* Navigation Links - Desktop */}
-          <div className="flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               const isExternal = link.href.startsWith('http');
@@ -67,8 +69,59 @@ export default function Navbar() {
               );
             })}
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-secondary-500 hover:text-secondary-900 focus:outline-none p-2"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-secondary-100 py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
+          <div className="flex flex-col space-y-4">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              const isExternal = link.href.startsWith('http');
+              
+              if (isExternal) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-bold py-2 text-secondary-500 hover:text-secondary-900 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-bold py-2 transition-colors hover:text-secondary-900 ${
+                    isActive ? 'text-secondary-900' : 'text-secondary-500'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
