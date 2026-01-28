@@ -13,7 +13,7 @@ export default function Solution() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-secondary-50">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Feature 1: AI Auto-Tagging */}
         <motion.div

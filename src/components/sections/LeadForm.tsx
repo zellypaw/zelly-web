@@ -13,12 +13,12 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="py-24 md:py-32 bg-gradient-to-br from-primary/10 via-purple-100 to-pink-100">
+    <section id="lead-form" className="py-24 md:py-32 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center mb-12">
           {/* Hook with Gift Icon */}
           <div className="mb-6 flex justify-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-cta flex items-center justify-center shadow-lg">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg">
               <Gift className="w-8 h-8 text-white" />
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function LeadForm() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-cta text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl text-lg"
+                  className="w-full bg-primary text-white font-bold py-4 px-8 rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl text-lg"
                 >
                   무료 쿠폰 받고 사전예약 완료 →
                 </button>

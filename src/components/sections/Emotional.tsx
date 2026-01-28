@@ -13,7 +13,7 @@ export default function Emotional() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <section className="py-24 md:py-32 bg-[#f3f3f3]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center">
           {/* Icon */}

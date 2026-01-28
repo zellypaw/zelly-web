@@ -35,7 +35,7 @@ export default function Hero() {
             className="text-5xl md:text-7xl lg:text-8xl font-black text-secondary-900 mb-8 leading-[1.1] tracking-tight"
           >
             강아지 사진 정리,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zelly-pink to-[#FF5C8D]">
+            <span className="text-zelly-pink">
               이제 AI에게 맡기세요.
             </span>
           </motion.h2>
@@ -63,9 +63,9 @@ export default function Hero() {
                 onClick={scrollToForm} 
                 className="transition-transform hover:scale-105 active:scale-95 duration-200"
               >
-                <div className="relative h-[50px] w-[165px]">
+                <div className="relative h-[44px] w-[146px]">
                   <Image
-                    src="/assets/app-store-badge.svg"
+                    src="/assets/appstore.png"
                     alt="Download on the App Store"
                     fill
                     className="object-contain"
@@ -76,9 +76,9 @@ export default function Hero() {
                 onClick={scrollToForm} 
                 className="transition-transform hover:scale-105 active:scale-95 duration-200"
               >
-                <div className="relative h-[50px] w-[165px]">
+                <div className="relative h-[44px] w-[146px]">
                   <Image
-                    src="/assets/google-play-badge.png"
+                    src="/assets/googleplay.png"
                     alt="Get it on Google Play"
                     fill
                     className="object-contain"
@@ -97,7 +97,7 @@ export default function Hero() {
           >
             <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-white/30 backdrop-blur-md rounded-[40px] border border-white/50 shadow-2xl overflow-hidden group">
               {/* Inner content placeholder */}
-              <div className="absolute inset-4 rounded-[32px] bg-gradient-to-br from-white/90 to-white/60 flex items-center justify-center border border-white/40 overflow-hidden">
+              <div className="absolute inset-4 rounded-[32px] bg-white flex items-center justify-center border border-white/40 overflow-hidden">
                 
                 {/* Visualizing "AI Organizing" */}
                 <div className="relative z-10 flex flex-col items-center">

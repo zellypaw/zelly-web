@@ -20,7 +20,7 @@ export default function Button({
   const baseStyles = 'font-semibold rounded-full transition-all duration-300 inline-block text-center disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantStyles = {
-    primary: 'bg-gradient-cta text-white hover:scale-105 hover:shadow-2xl shadow-lg enabled:cursor-pointer',
+    primary: 'bg-primary text-white hover:scale-105 hover:shadow-2xl shadow-lg enabled:cursor-pointer',
     secondary: 'bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white enabled:cursor-pointer',
   };
   

@@ -4,13 +4,12 @@ interface CardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  gradient: 'gradient-1' | 'gradient-2' | 'gradient-3' | 'gradient-4';
 }
 
-export default function Card({ icon, title, description, gradient }: CardProps) {
+export default function Card({ icon, title, description }: CardProps) {
   return (
     <div 
-      className={`bg-${gradient} rounded-3xl p-8 md:p-10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300`}
+      className="bg-white rounded-3xl p-8 md:p-10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-secondary-100"
     >
       <div className="mb-6">
         {icon}

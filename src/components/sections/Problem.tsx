@@ -14,7 +14,7 @@ export default function Problem() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-[#f3f3f3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div
@@ -34,7 +34,6 @@ export default function Problem() {
               icon={<AlertTriangle className="w-12 h-12 text-red-400" />}
               title="저장 공간 부족의 스트레스"
               description="33,422장의 사진으로 가득 찬 휴대폰, 소중한 순간 담을 공간이 없어요"
-              gradient="gradient-1"
             />
           </motion.div>
 
@@ -43,7 +42,6 @@ export default function Problem() {
               icon={<Search className="w-12 h-12 text-orange-400" />}
               title="수천 장 속 인생샷 찾기"
               description="수천 장 속에 파묻힌 우리 아이 인생샷, 찾으려면 한참 스크롤..."
-              gradient="gradient-2"
             />
           </motion.div>
 
@@ -52,7 +50,6 @@ export default function Problem() {
               icon={<CloudOff className="w-12 h-12 text-blue-400" />}
               title="복잡한 백업, 미루다 날린 추억"
               description="클라우드는 복잡하고, 백업은 귀찮아서 미루다가 영영 잃어버린 소중한 사진들"
-              gradient="gradient-3"
             />
           </motion.div>
         </div>
