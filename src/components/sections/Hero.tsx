@@ -3,6 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const Spline = dynamic(() => import('@splinetool/react-spline'), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-zelly-bg-secondary/10 animate-pulse rounded-3xl" />
+});
 
 export default function Hero() {
   const scrollToForm = () => {
@@ -13,7 +19,20 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zelly-bg-primary">
+    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden">
+      {/* Background Spline 3D Scene - Sticky for stability */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="sticky top-0 h-screen w-full">
+          <div className="absolute w-[calc(100%+120px)] h-[calc(100%+120px)] md:-bottom-18 -right-20 opacity-60">
+            <Spline
+              scene="https://prod.spline.design/SJudlP2qYsZKICJ4/scene.splinecode" 
+            />
+          </div>
+          {/* Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-zelly-bg-primary via-transparent to-zelly-bg-primary pointer-events-none" />
+        </div>
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-44 pb-32 md:pt-44 md:pb-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
@@ -91,54 +110,6 @@ export default function Hero() {
                   />
                 </div>
               </button>
-            </div>
-          </motion.div>
-
-          {/* Mockup Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-20 relative px-4"
-          >
-            <div className="relative mx-auto max-w-[800px] aspect-[16/10] bg-zelly-bg-secondary/30 backdrop-blur-md rounded-[40px] border border-zelly-bg-secondary/50 shadow-2xl overflow-hidden group">
-              {/* Inner content placeholder */}
-              <div className="absolute inset-4 rounded-[32px] bg-zelly-bg-secondary flex items-center justify-center border border-zelly-bg-secondary/40 overflow-hidden">
-                
-                {/* Visualizing "AI Organizing" */}
-                <div className="relative z-10 flex flex-col items-center">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.05, 1],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-zelly-bg-secondary shadow-xl flex items-center justify-center text-6xl md:text-8xl"
-                  >
-                    🐶
-                  </motion.div>
-                  <div className="mt-8 space-y-3">
-                    <div className="h-4 w-48 bg-zelly-pink/20 rounded-full animate-pulse"></div>
-                    <div className="h-4 w-32 bg-zelly-pink/10 rounded-full animate-pulse mx-auto"></div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating Decorative Elements */}
-              <motion.div 
-                animate={{ y: [-10, 10, -10] }} 
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-10 right-10 w-20 h-20 bg-zelly-bg-secondary rounded-2xl shadow-lg border border-zelly-bg-secondary flex items-center justify-center text-3xl"
-              >
-                📸
-              </motion.div>
-              <motion.div 
-                animate={{ y: [10, -10, 10] }} 
-                transition={{ duration: 3.5, repeat: Infinity }}
-                className="absolute bottom-10 left-10 w-20 h-20 bg-zelly-bg-secondary rounded-2xl shadow-lg border border-zelly-bg-secondary flex items-center justify-center text-3xl"
-              >
-                🪄
-              </motion.div>
             </div>
           </motion.div>
         </div>
