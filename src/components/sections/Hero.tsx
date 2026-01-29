@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden">
+    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden snap-start">
       {/* Background Spline 3D Scene - Sticky for stability */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="sticky top-0 h-screen w-full">

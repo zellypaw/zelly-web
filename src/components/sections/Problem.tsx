@@ -14,8 +14,8 @@ export default function Problem() {
   };
 
   return (
-    <section id="problem-section" className="py-16 md:py-24 bg-zelly-bg-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="problem-section" className="min-h-screen flex items-center snap-start bg-zelly-bg-primary py-20">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div
           {...fadeInUp}

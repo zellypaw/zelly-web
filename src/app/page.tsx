@@ -9,20 +9,14 @@ import LeadForm from '@/components/sections/LeadForm';
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white">
       <Navbar />
       
-      <div id="hero-section">
-        <Hero />
-      </div>
-
+      <Hero />
       <Problem />
       <Solution />
       <Emotional />
-      
-      <div id="lead-form">
-        <LeadForm />
-      </div>
+      <LeadForm />
       
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">

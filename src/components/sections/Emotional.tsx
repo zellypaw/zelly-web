@@ -13,8 +13,8 @@ export default function Emotional() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-zelly-bg-primary">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center snap-start bg-zelly-bg-primary py-20">
+      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center">
           {/* Icon */}
           <div className="mb-8 flex justify-center">

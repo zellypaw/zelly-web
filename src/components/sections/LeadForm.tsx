@@ -13,8 +13,8 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="py-24 md:py-32 bg-zelly-bg-secondary">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="lead-form" className="min-h-screen flex items-center snap-start bg-zelly-bg-secondary py-20">
+      <div className="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center mb-12">
           {/* Hook with Gift Icon */}
           <div className="mb-6 flex justify-center">
