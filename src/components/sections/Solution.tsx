@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
 
 interface SolutionItem {
@@ -34,23 +34,35 @@ const solutions: SolutionItem[] = [
 
 const ImageSlider = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef(null);
+  const isInView = useInView(sliderRef, { amount: 0.3 });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [images.length, isInView]);
 
   return (
-    <div className="relative w-full aspect-[9/18.5] max-w-[280px] mx-auto group">
-      {/* Phone Frame Mockup - Improved for better fit */}
-      <div className="absolute inset-0 border-[10px] border-gray-900 rounded-[3rem] shadow-2xl z-20 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-gray-900 rounded-b-2xl z-30 pointer-events-none" />
-      
-      {/* Screen Container with Padding to avoid clipping */}
-      <div className="relative w-full h-full p-[2px] rounded-[2.8rem] overflow-hidden bg-gray-900">
-        <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-white">
+    <div ref={sliderRef} className="relative w-full max-w-[280px] mx-auto group">
+      {/* Container that tightly wraps the image regardless of screen size */}
+      <div className="relative rounded-[2rem] overflow-hidden bg-white shadow-[0_0_0_5px_rgba(17,24,39,0.9),0_25px_50px_-12px_rgba(0,0,0,0.25)]">
+        
+        {/* Ghost Image: This invisible image defines the perfect natural aspect ratio of your screenshots */}
+        <Image
+          src={images[0]}
+          alt="Ratio helper"
+          width={1125} // Standard high-res width
+          height={2436} // Standard high-res height
+          className="w-full h-auto invisible pointer-events-none"
+          unoptimized
+        />
+
+        {/* Actual Slider: Sits perfectly on top of the ghost image */}
+        <div className="absolute inset-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -58,14 +70,16 @@ const ImageSlider = ({ images }: { images: string[] }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0"
+              className="w-full h-full"
             >
               <Image
                 src={images[currentIndex]}
                 alt={`Feature screen ${currentIndex + 1}`}
                 fill
-                className="object-cover"
-                sizes="280px"
+                className="object-contain" // Sharp and perfect fit since parent matches ratio
+                quality={100}
+                priority
+                unoptimized // No compression artifacts for text
               />
             </motion.div>
           </AnimatePresence>
@@ -99,40 +113,51 @@ export default function Solution() {
           }`}
         >
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-            <div className={`flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-20`}>
-              {/* Image Slider Component (Always Left) */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="flex-1 w-full flex md:justify-end"
-              >
-                <div className="w-full max-w-sm flex justify-center">
-                  <ImageSlider images={solution.images} />
-                </div>
-              </motion.div>
-
-              {/* Text Content (Always Right) */}
+            <div className={`flex flex-col md:flex-row items-center justify-center gap-0 lg:gap-20`}>
+              {/* Text Content */}
+              {/* Mobile: Always first | Desktop: Swaps to right if index is odd */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="flex-1 w-full flex flex-col md:items-start"
+                className={`flex-1 w-full flex flex-col items-center md:items-start ${
+                  index % 2 === 1 ? 'md:order-2 md:items-start' : 'md:items-end'
+                }`}
               >
-                <div className="max-w-md w-full">
-                  <h3 className="text-3xl md:text-5xl font-bold text-zelly-text-primary mb-8 leading-tight break-keep">
+                <div className="max-w-sm w-full text-center md:text-left">
+                  <h3 className="text-2xl md:text-4xl font-bold text-zelly-text-primary mb-6 md:mb-8 leading-tight break-keep text-balance">
                     {solution.title.split('\n').map((line, i) => (
+                      <React.Fragment key={i}>
+                        {line}
+                        <br className="hidden md:block" />
+                      </React.Fragment>
+                    ))}
+                  </h3>
+                  <p className="text-md md:text-lg text-zelly-text-secondary leading-relaxed break-keep font-medium opacity-90">
+                    {solution.description.split('\n').map((line, i) => (
                       <React.Fragment key={i}>
                         {line}
                         <br />
                       </React.Fragment>
                     ))}
-                  </h3>
-                  <p className="text-lg md:text-xl text-zelly-text-secondary leading-relaxed whitespace-pre-line break-keep font-medium">
-                    {solution.description}
                   </p>
+                </div>
+              </motion.div>
+
+              {/* Image Slider Component */}
+              {/* Mobile: Always second, smaller size, and has top margin | Desktop: Swaps to left if index is odd */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className={`flex-1 w-full flex justify-center mt-12 md:mt-0 ${
+                  index % 2 === 1 ? 'md:order-1 md:justify-end' : 'md:justify-start'
+                }`}
+              >
+                <div className="w-full max-w-[210px] md:max-w-sm flex justify-center md:scale-100">
+                  <ImageSlider images={solution.images} />
                 </div>
               </motion.div>
             </div>

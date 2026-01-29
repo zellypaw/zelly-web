@@ -3,12 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-const Spline = dynamic(() => import('@splinetool/react-spline'), { 
-  ssr: false,
-  loading: () => <div className="w-full h-full bg-zelly-bg-secondary/10 animate-pulse rounded-3xl" />
-});
 
 export default function Hero() {
   const scrollToForm = () => {
@@ -26,21 +20,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden snap-start">
-      {/* Background Spline 3D Scene - Sticky for stability */}
+    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden snap-start flex items-center justify-center">
+      {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="sticky top-0 h-screen w-full">
-          <div className="absolute w-[calc(100%+120px)] h-[calc(100%+120px)] md:-bottom-18 -right-20 opacity-60">
-            <Spline
-              scene="https://prod.spline.design/SJudlP2qYsZKICJ4/scene.splinecode" 
-            />
-          </div>
-          {/* Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-zelly-bg-primary via-transparent to-zelly-bg-primary pointer-events-none" />
-        </div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-zelly-pink/10 rounded-full blur-3xl opacity-50" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-44 pb-32 md:pt-44 md:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-32 md:py-24">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
