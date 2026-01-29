@@ -14,7 +14,7 @@ export default function Problem() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-zelly-bg-primary">
+    <section id="problem-section" className="py-16 md:py-24 bg-zelly-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div

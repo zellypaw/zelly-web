@@ -18,6 +18,13 @@ export default function Hero() {
     }
   };
 
+  const scrollToNext = () => {
+    const nextSection = document.getElementById('problem-section');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden">
       {/* Background Spline 3D Scene - Sticky for stability */}
@@ -114,6 +121,41 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
+        onClick={scrollToNext}
+      >
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="flex flex-col items-center gap-2"
+        >
+          <svg 
+            width="32" 
+            height="32" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="text-zelly-text-secondary/50"
+          >
+            <path d="M7 10l5 5 5-5" />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
