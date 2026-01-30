@@ -1,12 +1,63 @@
-'use client';
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Loader2 } from 'lucide-react';
+import Script from 'next/script';
+
+declare global {
+  interface Window {
+    turnstile: {
+      render: (
+        container: string | HTMLElement,
+        params: {
+          sitekey: string;
+          callback?: (token: string) => void;
+          'expired-callback'?: () => void;
+          'error-callback'?: () => void;
+          theme?: 'light' | 'dark' | 'auto';
+          size?: 'normal' | 'compact' | 'flexible';
+        }
+      ) => string;
+      reset: (widgetId?: string) => void;
+      remove: (widgetId?: string) => void;
+      getResponse: (widgetId?: string) => string | undefined;
+    };
+  }
+}
 
 export default function LeadForm() {
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
-  const [submittedContact, setSubmittedContact] = React.useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedContact, setSubmittedContact] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Cloudflare Turnstile 초기화
+  useEffect(() => {
+    const renderTurnstile = () => {
+      const container = document.getElementById('turnstile-container');
+      if (container && window.turnstile) {
+        container.innerHTML = '';
+        window.turnstile.render('#turnstile-container', {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '',
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(null),
+          'error-callback': () => setTurnstileToken(null),
+        });
+      }
+    };
+
+    if (window.turnstile) {
+      renderTurnstile();
+    } else {
+      // 스크립트 로드 대기
+      const checkTurnstile = setInterval(() => {
+        if (window.turnstile) {
+          renderTurnstile();
+          clearInterval(checkTurnstile);
+        }
+      }, 500);
+      return () => clearInterval(checkTurnstile);
+    }
+  }, [isSubmitted]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -16,14 +67,14 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="min-h-[80vh] flex items-center snap-start bg-zelly-bg-primary py-24">
+    <section id="lead-form" className="min-h-[80vh] flex items-center snap-start bg-zelly-bg-primary pt-24 pb-12">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
             Zelly의 정식 런칭 소식을<br />
             가장 먼저 받아보시겠어요?
           </h2>
-          <p className="text-zelly-text-secondary text-base max-w-lg mx-auto leading-relaxed opacity-80">
+          <p className="text-zelly-text-secondary text-base max-w-lg mx-auto leading-relaxed opacity-40">
             사전 신청해주시는 분들께는 정식 서비스 시작일에 맞춰<br />
             감사의 마음을 담은 작은 선물을 함께 보내드립니다.
           </p>
@@ -34,25 +85,70 @@ export default function LeadForm() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-xl mx-auto"
         >
+          <Script 
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
+            strategy="afterInteractive"
+          />
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              if (isLoading) return;
+
               const formData = new FormData(e.currentTarget);
               const contact = formData.get('contact') as string;
               const agreed = formData.get('agree');
+              const hpField = formData.get('hp_field') as string;
               
               if (!agreed) {
                 alert('개인정보 수집 및 이용에 동의해주세요.');
                 return;
               }
+
+              if (!turnstileToken) {
+                alert('보안 검증이 진행 중이거나 실패했습니다. 잠시 후 다시 시도해주세요.');
+                return;
+              }
+
+              setIsLoading(true);
               
-              console.log('🎉 사전예약 신청:', { contact, agreed });
-              setSubmittedContact(contact);
-              setIsSubmitted(true);
-              e.currentTarget.reset();
+              try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/lead/`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    contact,
+                    agreed: true,
+                    turnstileToken,
+                    metadata: {
+                      hp_field: hpField,
+                      userAgent: navigator.userAgent,
+                      screenSize: `${window.innerWidth}x${window.innerHeight}`
+                    }
+                  }),
+                });
+
+                if (response.ok) {
+                  setSubmittedContact(contact);
+                  setIsSubmitted(true);
+                } else {
+                  const errorData = await response.json();
+                  alert(errorData.detail || '신청 처리 중 오류가 발생했습니다.');
+                }
+              } catch (error) {
+                console.error('API Error:', error);
+                alert('서버와 통신 중 오류가 발생했습니다. 네트워크 상태를 확인해주세요.');
+              } finally {
+                setIsLoading(false);
+              }
             }}
             className="space-y-6"
           >
+            {/* Honeypot Field (Invisible to users) */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <input type="text" name="hp_field" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="bg-white rounded-2xl border border-zelly-border p-2 shadow-sm focus-within:shadow-md transition-shadow duration-300 flex flex-col sm:flex-row gap-2">
               <div className="flex-1 min-w-0">
                 <input
@@ -75,9 +171,14 @@ export default function LeadForm() {
 
               <button
                 type="submit"
-                className="bg-zelly-text-primary hover:bg-black text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap"
+                disabled={isLoading}
+                className="bg-zelly-text-primary hover:bg-black text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
               >
-                신청하기
+                {isLoading ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  '신청하기'
+                )}
               </button>
             </div>
 
@@ -101,6 +202,11 @@ export default function LeadForm() {
               </p>
             </div>
           </form>
+
+          {/* Turnstile Widget */}
+          <div className="mt-12 flex justify-center opacity-80 hover:opacity-100 transition-opacity">
+            <div id="turnstile-container"></div>
+          </div>
         </motion.div>
 
         {/* Success Modal */}
