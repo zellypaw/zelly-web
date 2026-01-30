@@ -1,10 +1,13 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Gift } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function LeadForm() {
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [submittedContact, setSubmittedContact] = React.useState('');
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     whileInView: { opacity: 1, y: 0 },
@@ -13,111 +16,137 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="min-h-screen flex items-center snap-start bg-zelly-bg-secondary py-20">
-      <div className="max-w-3xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          {/* Hook with Gift Icon */}
-          <div className="mb-6 flex justify-center">
-            <div className="w-16 h-16 rounded-full bg-zelly-pink flex items-center justify-center shadow-lg">
-              <Gift className="w-8 h-8 text-white" />
-            </div>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zelly-text-primary mb-6 leading-tight">
-            지금 사전 알림 신청하면,<br />
-            <span className="text-zelly-pink">&apos;AI 프로필 변신 이용권&apos;</span>
-            <br />
-            100% 무료로 드립니다.
+    <section id="lead-form" className="min-h-[80vh] flex items-center snap-start bg-zelly-bg-primary py-24">
+      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
+            Zelly의 정식 런칭 소식을<br />
+            가장 먼저 받아보시겠어요?
           </h2>
-
-          <p className="text-zelly-text-secondary text-sm md:text-base">
-            출시 알림 외에 다른 목적으로 사용되지 않습니다.
+          <p className="text-zelly-text-secondary text-base max-w-lg mx-auto leading-relaxed opacity-80">
+            사전 신청해주시는 분들께는 정식 서비스 시작일에 맞춰<br />
+            감사의 마음을 담은 작은 선물을 함께 보내드립니다.
           </p>
         </motion.div>
 
-        {/* Typeform Embed */}
         <motion.div
           {...fadeInUp}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-zelly-bg-secondary rounded-3xl shadow-2xl p-8 md:p-12 border border-zelly-border"
+          className="max-w-xl mx-auto"
         >
-          {/* Typeform 임베드 placeholder */}
-          <div className="text-center">
-            <div className="mb-8">
-              <div className="w-full bg-zelly-bg-primary rounded-xl p-8">
-                <p className="text-zelly-text-primary font-medium mb-4">
-                  📝 Typeform 임베드 위치
-                </p>
-                <p className="text-zelly-text-secondary text-sm mb-6">
-                  Typeform에서 폼을 생성 후 아래 형식으로 임베드 코드를 추가하세요:
-                </p>
-                <div className="bg-zelly-text-primary text-zelly-green font-mono text-xs p-4 rounded-lg text-left overflow-x-auto">
-                  <pre>{`<div data-tf-widget="YOUR_FORM_ID" 
-     style="width:100%;height:400px;">
-</div>
-<script src="//embed.typeform.com/next/embed.js">
-</script>`}</pre>
-                </div>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const contact = formData.get('contact') as string;
+              const agreed = formData.get('agree');
+              
+              if (!agreed) {
+                alert('개인정보 수집 및 이용에 동의해주세요.');
+                return;
+              }
+              
+              console.log('🎉 사전예약 신청:', { contact, agreed });
+              setSubmittedContact(contact);
+              setIsSubmitted(true);
+              e.currentTarget.reset();
+            }}
+            className="space-y-6"
+          >
+            <div className="bg-white rounded-2xl border border-zelly-border p-2 shadow-sm focus-within:shadow-md transition-shadow duration-300 flex flex-col sm:flex-row gap-2">
+              <div className="flex-1 min-w-0">
+                <input
+                  type="text"
+                  name="contact"
+                  placeholder="이메일 또는 휴대폰 번호"
+                  required
+                  pattern="^(01[016789]-?\d{3,4}-?\d{4}|[^\s@]+@[^\s@]+\.[^\s@]+)$"
+                  onInvalid={(e) => {
+                    const target = e.target as HTMLInputElement;
+                    target.setCustomValidity('올바른 휴대폰 번호 또는 이메일 형식을 입력해주세요.');
+                  }}
+                  onInput={(e) => {
+                    const target = e.target as HTMLInputElement;
+                    target.setCustomValidity('');
+                  }}
+                  className="w-full px-5 py-4 bg-transparent border-none focus:ring-0 text-zelly-text-primary placeholder:text-zelly-text-placeholder text-base"
+                />
               </div>
-            </div>
 
-            {/* 임시 폼 (Typeform 연동 전까지 사용) */}
-            <div className="border-t border-zelly-border pt-8">
-              <p className="text-zelly-text-secondary text-sm mb-4">
-                또는 임시로 아래 폼을 사용하세요 (콘솔 로그만 출력):
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.currentTarget);
-                  const contact = formData.get('contact');
-                  const agreed = formData.get('agree');
-                  
-                  if (!agreed) {
-                    alert('개인정보 수집 및 이용에 동의해주세요.');
-                    return;
-                  }
-                  
-                  console.log('🎉 사전예약 신청:', { contact, agreed });
-                  alert(`사전예약이 완료되었습니다!\n연락처: ${contact}`);
-                  e.currentTarget.reset();
-                }}
-                className="space-y-6"
+              <button
+                type="submit"
+                className="bg-zelly-text-primary hover:bg-black text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 whitespace-nowrap"
               >
-                <div>
-                  <input
-                    type="text"
-                    name="contact"
-                    placeholder="휴대폰 번호 또는 이메일 입력"
-                    required
-                    pattern="^(01[016789]-?\d{3,4}-?\d{4}|[^\s@]+@[^\s@]+\.[^\s@]+)$"
-                    className="w-full px-6 py-4 border-2 border-zelly-border rounded-xl focus:outline-none focus:border-zelly-pink text-lg bg-zelly-bg-primary"
-                  />
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="agree"
-                    name="agree"
-                    required
-                    className="mt-1 w-5 h-5 accent-zelly-pink cursor-pointer"
-                  />
-                  <label htmlFor="agree" className="text-left text-zelly-text-secondary text-sm cursor-pointer">
-                    개인정보 수집 및 이용에 동의합니다 (필수)
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-zelly-pink text-white font-bold py-4 px-8 rounded-xl hover:bg-zelly-pinkHover hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl text-lg"
-                >
-                  무료 쿠폰 받고 사전예약 완료 →
-                </button>
-              </form>
+                신청하기
+              </button>
             </div>
-          </div>
+
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-2 group cursor-pointer">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  name="agree"
+                  required
+                  className="w-4 h-4 rounded border-zelly-border text-zelly-text-primary focus:ring-zelly-text-primary cursor-pointer"
+                />
+                <label htmlFor="agree" className="text-zelly-text-tertiary text-xs cursor-pointer select-none group-hover:text-zelly-text-secondary transition-colors">
+                  개인정보 수집 및 이용에 동의합니다 (필수)
+                </label>
+              </div>
+              
+              <p className="text-zelly-text-tertiary text-[11px] leading-relaxed text-center opacity-60">
+                * 입력하신 소중한 정보는 서비스 런칭 알림 외에 어떠한 목적으로도 사용되지 않으며,<br />
+                런칭 알림 발송 직후 즉시 파기됩니다.
+              </p>
+            </div>
+          </form>
         </motion.div>
+
+        {/* Success Modal */}
+        <AnimatePresence>
+          {isSubmitted && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsSubmitted(false)}
+                className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              >
+                {/* Modal Content */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="bg-white rounded-3xl p-8 md:p-12 max-w-sm w-full shadow-2xl text-center relative overflow-hidden"
+                >
+                  <div className="relative z-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-green-500 mb-6">
+                      <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-zelly-text-primary mb-3">신청이 완료되었습니다!</h3>
+                    <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
+                      정식 런칭일에 <span className="font-semibold text-zelly-text-primary">{submittedContact}</span>님께<br />
+                      가장 먼저 기쁜 소식을 전해드릴게요.
+                    </p>
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="w-full bg-zelly-text-primary hover:bg-black text-white py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-black/5"
+                    >
+                      확인
+                    </button>
+                  </div>
+
+                  {/* Subtle Background Pattern */}
+                  <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-32 h-32 bg-zelly-pink/5 rounded-full blur-3xl after:content-['']" />
+                </motion.div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
