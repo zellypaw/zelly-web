@@ -20,6 +20,12 @@ const solutions: SolutionItem[] = [
   },
   {
     id: 2,
+    title: "AI가 도와주는 사진정리",
+    description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 인스타에 올리기엔 그저 소소한 순간들이 젤리를 통해 함께 웃고 공감하는 연결고리가 됩니다.",
+    images: ["/images/family-01.PNG", "/images/family-02.PNG", "/images/family-03.PNG", "/images/family-04.PNG"] // Placeholder
+  },
+  {
+    id: 3,
     title: "사진 한 장으로 시작되는 우리 가족의 대화",
     description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 인스타에 올리기엔 그저 소소한 순간들이 젤리를 통해 함께 웃고 공감하는 연결고리가 됩니다.",
     images: ["/images/family-01.PNG", "/images/family-02.PNG", "/images/family-03.PNG", "/images/family-04.PNG"] // Placeholder
@@ -27,8 +33,8 @@ const solutions: SolutionItem[] = [
   {
     id: 3,
     title: "우리 아이의 마법 같은 변신",
-    description: "젤리 AI로 우리 강아지를 특별한 주인공으로 만들어 보세요.\n호그와트 마법사부터 멋진 배트맨까지,\n배경은 지우고 소중한 순간만 남겨드립니다.",
-    images: ["/images/ai-01.PNG", "/images/ai-02.PNG"]
+    description: "우리 강아지를 특별한 주인공으로 만들어 보세요.\n호그와트 마법사부터 멋진 배트맨까지,\n젤리 AI로 상상하는 모든 순간을 현실로!",
+    images: ["/images/ai-01.PNG", "/images/ai-02.PNG", "/images/ai-03.PNG"]
   },
 ];
 
