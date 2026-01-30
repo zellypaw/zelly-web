@@ -14,22 +14,22 @@ interface SolutionItem {
 const solutions: SolutionItem[] = [
   {
     id: 1,
+    title: "반려생활의 모든 순간을 한눈에",
+    description: "개월 수에 맞춰 자동으로 정리되는 앨범과 한눈에 보는 나만의 베스트컷, 채워가는 맛이 있는 달력뷰까지. 반려동물 라이프로그에 최적화된 UX를 경험하세요.",
+    images: ["/images/viewer-01.PNG", "/images/viewer-02.PNG", "/images/viewer-03.PNG", "/images/viewer-04.PNG"] // Placeholder
+  },
+  {
+    id: 2,
+    title: "사진 한 장으로 시작되는 우리 가족의 대화",
+    description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 인스타에 올리기엔 그저 소소한 순간들이 젤리를 통해 함께 웃고 공감하는 연결고리가 됩니다.",
+    images: ["/images/family-01.PNG", "/images/family-02.PNG", "/images/family-03.PNG", "/images/family-04.PNG"] // Placeholder
+  },
+  {
+    id: 3,
     title: "우리 아이의 마법 같은 변신",
     description: "젤리 AI로 우리 강아지를 특별한 주인공으로 만들어 보세요.\n호그와트 마법사부터 멋진 배트맨까지,\n배경은 지우고 소중한 순간만 남겨드립니다.",
     images: ["/images/ai-01.PNG", "/images/ai-02.PNG"]
   },
-  {
-    id: 2,
-    title: "섞여 있어도 괜찮아요,\nAI가 다 아니까",
-    description: "여러 마리를 키워도 '두부'인지 '콩이'인지\nAI가 얼굴을 식별하여 자동으로 분류합니다.\n찾고 싶은 아이의 사진만 쏙쏙 골라보세요.",
-    images: ["/images/ai-01.PNG", "/images/ai-02.PNG"] // Placeholder
-  },
-  {
-    id: 3,
-    title: "우리 가족끼리만 보는\n시크릿 앨범",
-    description: "인스타에 올리기엔 소소하지만, 지우긴 아까운 사진들.\n가족을 초대해서 함께 보고, 댓글도 남겨보세요.\n우리만의 소중한 추억 저장소가 됩니다.",
-    images: ["/images/ai-01.PNG", "/images/ai-02.PNG"] // Placeholder
-  }
 ];
 
 const ImageSlider = ({ images }: { images: string[] }) => {
