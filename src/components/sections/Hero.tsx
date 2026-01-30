@@ -77,14 +77,14 @@ export default function Hero() {
             </div>
 
             {/* Desktop: App Store Badges */}
-            <div className="hidden sm:flex flex-wrap items-center justify-center gap-4">
+            <div className="hidden sm:flex flex-wrap items-center justify-center gap-8">
               <button 
                 onClick={scrollToForm} 
                 className="transition-transform hover:scale-105 active:scale-95 duration-200"
               >
                 <div className="relative h-[44px] w-[146px]">
                   <Image
-                    src="/assets/appstore.png"
+                    src="/assets/appstore.svg"
                     alt="Download on the App Store"
                     fill
                     className="object-contain"
@@ -97,7 +97,7 @@ export default function Hero() {
               >
                 <div className="relative h-[44px] w-[146px]">
                   <Image
-                    src="/assets/googleplay.png"
+                    src="/assets/googleplay.svg"
                     alt="Get it on Google Play"
                     fill
                     className="object-contain"

@@ -13,7 +13,6 @@ export default function Navbar() {
   const navLinks = [
     { name: '소개', href: '/' },
     { name: 'AI 데모', href: '/demo' },
-    { name: '설문조사 이벤트', href: 'https://tally.so/r/WORAGk' },
   ];
 
   return (
@@ -27,7 +26,7 @@ export default function Navbar() {
             >
             <div className="relative w-40 h-[38px]">
               <Image 
-                src="/assets/zelly_title.png" 
+                src="/assets/logo_whole.svg" 
                 alt="ZELLY" 
                 fill
                 className="object-contain object-left"
