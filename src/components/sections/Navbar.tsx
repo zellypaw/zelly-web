@@ -24,7 +24,7 @@ export default function Navbar() {
               href="/"
               className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity"
             >
-            <div className="relative w-40 h-[38px]">
+            <div className="relative w-28 h-[28px] sm:w-36 sm:h-[36px]">
               <Image 
                 src="/assets/logo_whole.svg" 
                 alt="ZELLY" 
