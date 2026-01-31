@@ -26,6 +26,9 @@ export default function LandingPage() {
               © 2026 Zelly Team. All rights reserved.
             </p>
             <div className="flex gap-6">
+              <a href="/contact" className="text-zelly-text-tertiary hover:text-zelly-text-primary text-sm transition-colors">
+                Contact
+              </a>
               <a href="/privacy" className="text-zelly-text-tertiary hover:text-zelly-text-primary text-sm transition-colors">
                 개인정보처리방침
               </a>
