@@ -67,7 +67,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="min-h-[80vh] flex items-center snap-start bg-zelly-bg-primary pt-24 pb-12">
+    <section id="lead-form" className="min-h-[80vh] flex items-center bg-zelly-bg-primary pt-24 pb-12">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">

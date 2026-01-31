@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ChevronLeft, Mail, MapPin, Copy, Check } from 'lucide-react';
+import { Mail, MapPin, Copy, Check } from 'lucide-react';
 import Script from 'next/script';
+import SubPageHeader from '@/components/SubPageHeader';
 
 export default function ContactPage() {
   const [copied, setCopied] = React.useState(false);
@@ -48,33 +47,9 @@ export default function ContactPage() {
       />
 
       {/* Header */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-zelly-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
-          <div className="flex-1 flex justify-start">
-            <Link 
-              href="/" 
-              className="flex items-center gap-1 text-zelly-text-secondary hover:text-zelly-text-primary transition-colors group"
-            >
-              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-              <span className="text-sm font-medium hidden sm:block">돌아가기</span>
-            </Link>
-          </div>
-          
-          <div className="flex-shrink-0 flex items-center justify-center">
-            <Image 
-              src="/assets/ZELLY.svg" 
-              alt="ZELLY" 
-              width={80} 
-              height={24} 
-              className="h-6 w-auto"
-            />
-          </div>
+      <SubPageHeader />
 
-          <div className="flex-1" />
-        </div>
-      </nav>
-
-      <main className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <main className="pt-24 sm:pt-32 pb-24 px-6 sm:px-8 lg:px-10 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-stretch">
           {/* Contact Info */}
           <div className="lg:col-span-2 pt-1 pl-2 lg:pl-4">
