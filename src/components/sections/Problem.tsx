@@ -40,16 +40,11 @@ export default function Problem() {
           </div>
 
           {/* Main Message */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="mb-4 md:mb-8"
-          >
+          <div className="mb-4 md:mb-8">
              <p className="text-xl md:text-3xl lg:text-3xl text-gray-900 leading-tight font-bold max-w-4xl mx-auto whitespace-pre-wrap break-keep">
               {"우리 아이와의 소중한 추억들, \n이제 잊혀지지 않게 젤리가 도와드릴게요."}
             </p>
-          </motion.div>
+          </div>
 
           {/* 3D Scrolling Problems */}
           <div className="w-full relative">
