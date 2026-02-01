@@ -163,7 +163,7 @@ export default function Solution() {
                   index % 2 === 1 ? 'md:order-1 md:justify-end' : 'md:justify-start'
                 }`}
               >
-                <div className="w-full max-w-[210px] md:max-w-sm flex justify-center md:scale-100">
+                <div className="w-full max-w-[190px] md:max-w-sm flex justify-center md:scale-100">
                   <ImageSlider images={solution.images} />
                 </div>
               </motion.div>

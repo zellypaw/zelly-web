@@ -67,7 +67,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="min-h-[80vh] flex items-center bg-zelly-bg-primary pt-24 pb-12">
+    <section id="lead-form" className="min-h-screen flex items-center bg-zelly-bg-primary pt-32 pb-24">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
@@ -75,7 +75,7 @@ export default function LeadForm() {
             가장 먼저 받아보시겠어요?
           </h2>
           <p className="text-zelly-text-secondary text-base max-w-lg mx-auto leading-relaxed opacity-40">
-            사전 신청해주시는 분들께는 정식 서비스 시작일에 맞춰<br />
+            사전 신청해주시는 분들께는 정식 서비스 시작일에<br />
             감사의 마음을 담은 작은 선물을 함께 보내드립니다.
           </p>
         </motion.div>
@@ -196,8 +196,8 @@ export default function LeadForm() {
                 </label>
               </div>
               
-              <p className="text-zelly-text-tertiary text-[11px] leading-relaxed text-center opacity-60">
-                * 입력하신 소중한 정보는 서비스 런칭 알림 외에 어떠한 목적으로도 사용되지 않으며,<br />
+              <p className="text-zelly-text-tertiary text-[11px] leading-relaxed text-center opacity-60 break-keep text-balance">
+                * 입력하신 소중한 정보는 서비스 런칭 알림 외에 어떠한 목적으로도 사용되지 않으며,<br className="hidden md:block" />
                 런칭 알림 발송 직후 즉시 파기됩니다.
               </p>
             </div>
