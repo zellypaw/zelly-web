@@ -114,6 +114,7 @@ export default function Solution() {
       {solutions.map((solution, index) => (
         <section 
           key={solution.id}
+          id={index === 0 ? "solution-section" : undefined}
           className={`min-h-screen flex items-center py-20 snap-start overflow-hidden ${
             index % 2 === 1 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
