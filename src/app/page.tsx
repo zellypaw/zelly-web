@@ -16,7 +16,7 @@ export default function LandingPage() {
       <Problem />
       <Solution />
       <Emotional />
-      <div className="snap-start bg-white">
+      <div className="snap-start bg-white min-h-screen md:h-screen flex flex-col">
         <LeadForm />
         
         {/* Footer */}
