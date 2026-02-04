@@ -12,8 +12,32 @@ export interface Notice {
 }
 
 export const NOTICES: Notice[] = [
+  {
+    id: 4,
+    title: '서비스 개선을 위한 설문조사 이벤트 안내',
+    date: '2026.02.04',
+    badge: '진행중',
+    content: `안녕하세요. Zelly 팀입니다.
+
+Zelly는 반려인분들의 실질적인 고민을 해결하고, 꼭 필요한 기능을 먼저 제공해드리기 위해 서비스 기능 개발 우선순위를 검토하고 있습니다.
+
+여러분의 소중한 의견이 Zelly의 미래가 됩니다. 잠시 시간을 내어 설문에 참여해 주시면 감사하겠습니다.
+
+[설문 안내]
+• 설문 주제: 서비스 기능 우선순위 및 사용자 니즈 파악
+• 참여 대상: 반려동물과 함께하고 계신 모든 분
+• 참여 혜택: 추첨을 통해 <span style="font-weight: bold; color: #046241;">☕️ 스타벅스 아메리카노 모바일 쿠폰</span> 및 <span style="font-weight: bold;">🎁 Zelly 프리미엄 연간 구독권</span> 증정
+• 소요 시간: 약 2~3분
+
+더 나은 Zelly를 함께 만들어주세요. 참여해 주신 분들께는 진심으로 감사 드립니다.`,
+    href: '/notice/4',
+    cta: {
+      label: '설문 참여하기',
+      url: 'https://tally.so/r/LZPl9J/?mixpanel_id={mixpanel_id}' // Placeholder URL for Tally form
+    }
+  },
   { 
-    id: 1, 
+    id: 3, 
     title: '테스터 모집 안내', 
     date: '2026.02.01', 
     badge: '모집중',
@@ -30,7 +54,7 @@ export const NOTICES: Notice[] = [
 • 우수 혜택: 활동 우수자에게는 <span style="font-weight: bold; color: #046241;">☕️ 스타벅스 기프트카드 10만원권</span>
 
 많은 참여 부탁드립니다. 감사합니다.`,
-    href: '/notice/1',
+    href: '/notice/3',
     cta: {
       label: '신청하기',
       url: 'https://tally.so/r/81xyql' // Placeholder URL for Tally form
@@ -60,7 +84,7 @@ Zelly가 2026년 1월 27일부로 「벤처기업육성에 관한 특별법」 �
     href: '/notice/2' 
   },
   {
-    id: 3,
+    id: 1,
     title: '경기창업혁신공간 입주기업 선정',
     date: '2025.12.15',
     content: `안녕하세요. Zelly 팀입니다.
@@ -77,6 +101,6 @@ Zelly가 (재)경기도경제과학진흥원 북부벤처센터에서 주관하�
 
 새로운 공간에서 더 크게 도약할 Zelly의 행보를 응원해 주세요.
 감사합니다.`,
-    href: '/notice/3'
+    href: '/notice/1'
   },
 ];
