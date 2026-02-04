@@ -4,7 +4,7 @@ import Container from '../common/Container';
 
 export default function Footer() {
   return (
-    <footer className="hidden md:block bg-transparent py-10 md:py-16">
+    <footer className="hidden md:block relative z-20 bg-transparent py-10 md:py-16">
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-zelly-text-tertiary text-sm">
