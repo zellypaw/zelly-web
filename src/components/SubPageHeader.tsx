@@ -33,9 +33,9 @@ export default function SubPageHeader({
           <Image 
             src="/assets/ZELLY.svg" 
             alt="ZELLY" 
-            width={80} 
-            height={24} 
-            className="h-6 w-auto"
+            width={70} 
+            height={20} 
+            className="h-5 w-auto"
             priority
           />
         </div>
