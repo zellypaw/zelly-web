@@ -115,7 +115,7 @@ export default function Solution() {
         <section 
           key={solution.id}
           id={index === 0 ? "solution-section" : undefined}
-          className={`min-h-screen flex items-center py-20 snap-start overflow-hidden ${
+          className={`min-h-screen flex items-center pt-24 pb-20 md:py-20 snap-start overflow-hidden ${
             index % 2 === 1 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
         >
@@ -141,7 +141,7 @@ export default function Solution() {
                       </React.Fragment>
                     ))}
                   </h3>
-                  <p className="text-md md:text-lg text-zelly-text-secondary leading-relaxed break-keep font-medium opacity-90">
+                  <p className="text-sm md:text-lg text-zelly-text-secondary leading-relaxed break-keep font-medium opacity-90">
                     {solution.description.split('\n').map((line, i) => (
                       <React.Fragment key={i}>
                         {line}
@@ -159,11 +159,11 @@ export default function Solution() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className={`flex-1 w-full flex justify-center mt-12 md:mt-0 ${
+                className={`flex-1 w-full flex justify-center mt-8 md:mt-0 ${
                   index % 2 === 1 ? 'md:order-1 md:justify-end' : 'md:justify-start'
                 }`}
               >
-                <div className="w-full max-w-[190px] md:max-w-sm flex justify-center md:scale-100">
+                <div className="w-full max-w-[180px] md:max-w-sm flex justify-center md:scale-100">
                   <ImageSlider images={solution.images} />
                 </div>
               </motion.div>
