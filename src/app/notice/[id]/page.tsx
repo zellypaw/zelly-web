@@ -5,6 +5,7 @@ import Footer from '@/components/sections/Footer';
 import { NOTICES } from '@/lib/notices';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
+import NoticeCTA from '@/components/notice/NoticeCTA';
 
 export function generateStaticParams() {
   return NOTICES.map((notice) => ({
@@ -84,16 +85,10 @@ export default async function NoticeDetailPage({ params }: PageProps) {
               />
 
               {notice.cta && (
-                <div className="mt-10 md:mt-14">
-                  <a 
-                    href={notice.cta.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white text-lg font-bold rounded-2xl hover:bg-zelly-pink transition-all transform hover:-translate-y-1 shadow-lg shadow-slate-900/10 hover:shadow-zelly-pink/20"
-                  >
-                    {notice.cta.label}
-                  </a>
-                </div>
+                <NoticeCTA 
+                  url={notice.cta.url} 
+                  label={notice.cta.label} 
+                />
               )}
             </div>
 
