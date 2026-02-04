@@ -116,7 +116,7 @@ export default function Solution() {
           key={solution.id}
           id={index === 0 ? "solution-section" : undefined}
           className={`min-h-screen flex items-center pt-24 pb-20 md:py-20 snap-start overflow-hidden ${
-            index % 2 === 1 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
+            index % 2 === 0 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
         >
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">

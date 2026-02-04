@@ -19,7 +19,7 @@ const PROBLEMS = [
 
 export default function Problem() {
   return (
-    <section id="problem-section" className="relative min-h-screen flex items-center snap-start bg-white py-24 overflow-hidden">
+    <section id="problem-section" className="relative min-h-screen flex items-center snap-start bg-zelly-bg-primary py-24 overflow-hidden">
       <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

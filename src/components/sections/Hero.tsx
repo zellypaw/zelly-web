@@ -15,7 +15,7 @@ export default function Hero() {
 
 
   return (
-    <section className="relative min-h-screen bg-zelly-bg-primary overflow-hidden snap-start flex items-center justify-center">
+    <section className="relative min-h-screen bg-zelly-bg-secondary overflow-hidden snap-start flex items-center justify-center">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-zelly-pink/10 rounded-full blur-3xl opacity-50" />
