@@ -24,15 +24,4 @@ export const NOTICES: Notice[] = [
     href: '/notice/1' 
   },
   { id: 2, title: 'TOSS 대출모집서비스 이용약관 변경 안내', date: '2026.01.06', content: '약관 변경 안내 본문입니다...', href: '/notice/2' },
-  { id: 3, title: '11월 대출신청 이벤트 당첨자 안내', date: '2025.12.26', content: '당첨자 안내 본문입니다...', href: '/notice/3' },
-  { id: 4, title: '라이브 쇼핑 보기 서비스명 변경에 따른 약관 개정 안내', date: '2025.12.23', content: '약관 개정 안내 본문입니다...', href: '/notice/4' },
-  { id: 5, title: '더치페이, 연락처 송금 수취 한도 정책 적용 안내', date: '2025.12.23', content: '정책 적용 안내 본문입니다...', href: '/notice/5' },
-  { id: 6, title: '마이데이터 서비스 약관 변경 안내', date: '2025.12.10', content: '약관 변경 안내 본문입니다...', href: '/notice/6' },
-  { id: 7, title: '토스프라임 영화 혜택 변경 안내', date: '2025.12.01', content: '혜택 변경 안내 본문입니다...', href: '/notice/7' },
-  { id: 8, title: '시스템 점검 안내 (2025년 11월 15일)', date: '2025.11.10', content: '점검 안내 본문입니다...', href: '/notice/8' },
-  { id: 9, title: '개인정보 처리방침 개정 안내', date: '2025.11.05', content: '개정 안내 본문입니다...', href: '/notice/9' },
-  { id: 10, title: '안정적인 서비스 제공을 위한 서버 점검', date: '2025.10.28', content: '서버 점검 본문입니다...', href: '/notice/10' },
-  { id: 11, title: '신규 포인트 적립 혜택 업데이트', date: '2025.10.15', content: '혜택 업데이트 본문입니다...', href: '/notice/11' },
-  { id: 12, title: '고객 센터 운영 시간 변경 안내', date: '2025.10.01', content: '시간 변경 안내 본문입니다...', href: '/notice/12' },
-  { id: 13, title: 'Zelly 신규 기능 출시 안내', date: '2025.09.20', content: '기능 출시 안내 본문입니다...', href: '/notice/13' },
 ];

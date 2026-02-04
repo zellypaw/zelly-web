@@ -77,9 +77,9 @@ export default async function NoticeDetailPage({ params }: PageProps) {
             <div className="mt-12 md:mt-20">
               <Link 
                 href="/notice"
-                className="inline-flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-slate-100 hover:bg-slate-200 text-slate-600 text-sm md:text-base font-bold rounded-xl md:rounded-2xl transition-colors"
+                className="group inline-flex items-center gap-2 -ml-5 md:-ml-6 px-5 py-2.5 md:px-6 md:py-3 text-slate-500 hover:text-zelly-pink text-sm md:text-base font-bold transition-all"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={18} className="text-slate-400 group-hover:text-zelly-pink transition-colors" />
                 목록으로 돌아가기
               </Link>
             </div>
