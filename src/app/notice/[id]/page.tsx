@@ -58,9 +58,19 @@ export default async function NoticeDetailPage({ params }: PageProps) {
               <h1 className="text-2xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4 leading-tight">
                 {notice.title}
               </h1>
-              <p className="text-base md:text-lg text-slate-400">
-                {notice.date}
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="text-base md:text-lg text-slate-400">
+                  {notice.date}
+                </p>
+                {notice.badge && (
+                  <>
+                    <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                    <span className="text-xs md:text-sm font-medium text-zelly-pink bg-zelly-pink/5 px-2 py-0.5 rounded-full border border-zelly-pink/10">
+                      {notice.badge}
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
             
             {/* Divider */}
@@ -68,9 +78,23 @@ export default async function NoticeDetailPage({ params }: PageProps) {
             
             {/* Content Section */}
             <div className="max-w-none">
-              <div className="text-slate-700 text-[16px] md:text-lg leading-[1.6] md:leading-relaxed whitespace-pre-wrap break-keep">
-                {notice.content}
-              </div>
+              <div 
+                className="text-slate-700 text-[16px] md:text-lg leading-[1.6] md:leading-relaxed whitespace-pre-wrap break-keep"
+                dangerouslySetInnerHTML={{ __html: notice.content }}
+              />
+
+              {notice.cta && (
+                <div className="mt-10 md:mt-14">
+                  <a 
+                    href={notice.cta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white text-lg font-bold rounded-2xl hover:bg-zelly-pink transition-all transform hover:-translate-y-1 shadow-lg shadow-slate-900/10 hover:shadow-zelly-pink/20"
+                  >
+                    {notice.cta.label}
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Back Button */}

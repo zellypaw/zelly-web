@@ -82,9 +82,16 @@ export default function NoticePage() {
                     <h2 className="text-lg md:text-xl font-bold text-slate-800 group-hover:text-zelly-pink transition-colors line-clamp-2">
                       {notice.title}
                     </h2>
-                    <p className="text-sm md:text-base text-slate-400">
-                      {notice.date}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm md:text-base text-slate-400">
+                        {notice.date}
+                      </p>
+                      {notice.badge && (
+                        <span className="text-[10px] md:text-[11px] font-semibold text-zelly-pink bg-zelly-pink/5 px-2 py-0.5 rounded-full border border-zelly-pink/10">
+                          {notice.badge}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </Link>
               ))}
