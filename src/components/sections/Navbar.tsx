@@ -13,6 +13,7 @@ export default function Navbar() {
   const navLinks = [
     { name: '소개', href: '/' },
     { name: 'AI 데모', href: '/demo' },
+    { name: '공지사항', href: '/notice' },
   ];
 
   return (
