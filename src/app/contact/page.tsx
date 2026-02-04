@@ -24,7 +24,7 @@ export default function ContactPage() {
         onLoad={() => {
           if (window.naver && window.naver.maps) {
             const mapOptions = {
-              center: new window.naver.maps.LatLng(37.7302, 127.0458), // Approximate coordinates for the address
+              center: new window.naver.maps.LatLng(37.7302, 127.0458),
               zoom: 16,
               zoomControl: false,
               mapTypeControl: false,
@@ -49,17 +49,17 @@ export default function ContactPage() {
       {/* Header */}
       <SubPageHeader />
 
-      <main className="pt-24 sm:pt-32 pb-24 px-6 sm:px-8 lg:px-10 max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-stretch">
+      <main className="pt-20 sm:pt-32 pb-12 px-6 sm:px-8 lg:px-10 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-16 items-stretch">
           {/* Contact Info */}
           <div className="lg:col-span-2 pt-1 pl-2 lg:pl-4">
-            <h1 className="text-4xl font-bold mb-4 tracking-tight">Contact us</h1>
-            <p className="text-zelly-text-secondary text-lg mb-12 leading-relaxed">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 tracking-tight">Contact us</h1>
+            <p className="text-zelly-text-secondary text-base md:text-lg mb-6 md:mb-12 leading-relaxed">
               Zelly 팀에게 궁금한 점이 있으신가요?<br />
               무엇이든 편하게 문의해 주세요.
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-4 md:space-y-8">
               <div className="group">
                 <div className="flex items-center gap-3 text-zelly-pink mb-2">
                   <Mail className="w-5 h-5" />
@@ -67,7 +67,7 @@ export default function ContactPage() {
                 </div>
                 <a 
                   href="mailto:zellypaw@gmail.com" 
-                  className="text-lg text-zelly-text-secondary hover:text-zelly-pink transition-colors leading-relaxed"
+                  className="text-base md:text-lg text-zelly-text-secondary hover:text-zelly-pink transition-colors leading-relaxed"
                 >
                   zellypaw@gmail.com
                 </a>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                   <span className="text-sm font-bold uppercase tracking-wider">Office</span>
                 </div>
-                <p className="text-lg text-zelly-text-secondary leading-relaxed mb-4">
+                <p className="text-base md:text-lg text-zelly-text-secondary leading-relaxed mb-2 md:mb-4">
                   경기도 의정부시 망월로 18-16<br />
                   경기창업혁신공간 북부권 305호
                 </p>
@@ -104,13 +104,13 @@ export default function ContactPage() {
 
           {/* Map Section */}
           <div className="lg:col-span-3 relative">
-            <div className="aspect-square lg:aspect-auto lg:h-full bg-slate-100 rounded-[2rem] overflow-hidden border border-zelly-border shadow-2xl shadow-black/5 relative">
+            <div className="aspect-square md:aspect-auto lg:h-full bg-slate-100 rounded-2xl md:rounded-[2rem] overflow-hidden border border-zelly-border shadow-2xl shadow-black/5 relative">
               <div id="map" className="w-full h-full min-h-[400px]"></div>
               
               {/* Overlay for small guide */}
-              <div className="absolute top-6 left-6 right-6 lg:right-auto lg:max-w-xs bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-lg pointer-events-none z-10">
-                <p className="text-xs text-zelly-pink font-bold uppercase mb-1 text-center lg:text-left">Location</p>
-                <p className="text-sm font-semibold text-zelly-text-primary text-center lg:text-left lg:whitespace-nowrap">
+              <div className="absolute top-4 left-4 right-4 lg:right-auto lg:max-w-xs bg-white/90 backdrop-blur-md p-3 md:p-4 rounded-xl md:rounded-2xl border border-white/20 shadow-lg pointer-events-none z-10">
+                <p className="text-[10px] md:text-xs text-zelly-pink font-bold uppercase mb-0.5 md:mb-1 text-center lg:text-left">Location</p>
+                <p className="text-xs md:text-sm font-semibold text-zelly-text-primary text-center lg:text-left lg:whitespace-nowrap">
                   경기창업혁신공간 북부권(의정부)
                 </p>
               </div>

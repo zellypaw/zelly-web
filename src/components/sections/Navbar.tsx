@@ -118,6 +118,28 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            
+            {/* Added Mobile-only menu items */}
+            <div className="pt-4 mt-4 border-t border-zelly-border flex flex-col space-y-4">
+              <Link
+                href="/privacy"
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-bold py-2 transition-colors hover:text-zelly-text-primary ${
+                  pathname === '/privacy' ? 'text-zelly-text-primary' : 'text-zelly-text-secondary'
+                }`}
+              >
+                개인정보처리방침
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className={`text-lg font-bold py-2 transition-colors hover:text-zelly-text-primary ${
+                  pathname === '/contact' ? 'text-zelly-text-primary' : 'text-zelly-text-secondary'
+                }`}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       )}
