@@ -36,5 +36,27 @@ export const NOTICES: Notice[] = [
       url: 'https://tally.so/r/81xyql' // Placeholder URL for Tally form
     }
   },
-  { id: 2, title: 'TOSS 대출모집서비스 이용약관 변경 안내', date: '2026.01.06', content: '약관 변경 안내 본문입니다...', href: '/notice/2' },
+  { 
+    id: 2, 
+    title: '벤처기업 인증 획득 안내', 
+    date: '2026.01.27', 
+    content: `안녕하세요. Zelly 팀입니다.
+
+Zelly가 2026년 1월 27일부로 「벤처기업육성에 관한 특별법」 제25조의 규정에 따른 <span style="font-weight: bold;">'벤처기업 인증(예비벤처유형)'</span>을 정식으로 획득하였습니다.
+
+이번 벤처기업 인증은 Zelly가 가진 기술력과 서비스의 혁신성을 공식적으로 인정받은 뜻깊은 성과입니다. 
+
+[인증 상세]
+• 인증 일자: 2026년 1월 27일
+• 인증 유형: 예비벤처유형
+• 인증 기관: 『벤처기업법』 제25조 3(벤처기업확인기관의 지정 등)에 지정된 벤처기업확인기관((사)벤처기업협회)
+
+보내주신 성원에 보답할 수 있도록 더욱 발전하는 Zelly가 되겠습니다.
+감사합니다.
+
+<div style="margin-top: 4px;">
+  <img src="/assets/venture_mark.png" alt="벤처기업 인증 마크" style="width: 120px; height: auto;" />
+</div>`,
+    href: '/notice/2' 
+  },
 ];
