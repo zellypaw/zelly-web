@@ -90,6 +90,8 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: Run deployment script
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         run: |
           chmod +x ./scripts/deploy.sh
           ./scripts/deploy.sh
