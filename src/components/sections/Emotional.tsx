@@ -55,7 +55,7 @@ export default function Emotional() {
                   className="w-40 h-40 md:w-56 md:h-56 relative rounded-xl overflow-hidden shadow-md flex-shrink-0"
                 >
                   <Image
-                    src={`/images/pets/pet-gen-${num}.png`}
+                    src={`/images/pets/pet-gen-${num}.webp`}
                     alt={`Pet ${num}`}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-110"

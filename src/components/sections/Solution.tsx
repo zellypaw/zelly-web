@@ -16,25 +16,25 @@ const solutions: SolutionItem[] = [
     id: 1,
     title: "반려생활의 모든 순간을 한눈에",
     description: "개월 수에 맞춰 자동으로 정리되는 앨범과 한눈에 보는 나만의 베스트컷, 채워가는 맛이 있는 달력뷰까지. 반려동물 라이프로그에 최적화된 UX",
-    images: ["/images/viewer-01.PNG", "/images/viewer-02.PNG", "/images/viewer-03.PNG"] // Placeholder
+    images: ["/images/viewer-01.webp", "/images/viewer-02.webp", "/images/viewer-03.webp"] // Placeholder
   },
   {
     id: 2,
     title: "사진 정리가 즐거워지는 마법",
     description: "AI가 사진이든 영상이든 알아서 확인하고 태깅을 척척! 슬라이드 뷰로 넘기다 보면 어느새 사진 정리 끝! 폰 용량은 가볍게, 보관은 안전하게!",
-    images: ["/images/upload-01.PNG", "/images/upload-02.PNG"] // Placeholder
+    images: ["/images/upload-01.webp", "/images/upload-02.webp"] // Placeholder
   },
   {
     id: 3,
     title: "사진 한 장으로 시작되는 우리 가족의 대화",
     description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 인스타에 올리기엔 그저 소소한 순간들이 젤리를 통해 함께 웃고 공감하는 연결고리가 됩니다.",
-    images: ["/images/family-01.PNG", "/images/family-02.PNG", "/images/family-03.PNG"] // Placeholder
+    images: ["/images/family-01.webp", "/images/family-02.webp", "/images/family-03.webp"] // Placeholder
   },
   {
     id: 4,
     title: "우리 아이의 마법 같은 변신",
     description: "우리 강아지를 특별한 주인공으로 만들어 보세요.\n호그와트 마법사부터 멋진 배트맨까지,\n젤리 AI로 상상하는 모든 순간을 현실로!",
-    images: ["/images/ai-01.PNG", "/images/ai-02.PNG", "/images/ai-03.PNG"]
+    images: ["/images/ai-01.webp", "/images/ai-02.webp", "/images/ai-03.webp"]
   },
 ];
 
