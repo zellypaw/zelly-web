@@ -14,11 +14,33 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "젤리 | 반려동물 성장 앨범",
-  description: "33,422장의 반려동물 사진, AI가 자동으로 정리해드립니다. 사전예약 시 AI 코스튬 무료 이용권 증정!",
+  description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
+  keywords: ["반려동물", "강아지", "고양이", "성장앨범", "AI 사진", "젤리", "zelly", "반려동물 갤러리", "클라우드 포토앨범"],
   openGraph: {
     title: "젤리 | 반려동물 성장 앨범",
-    description: "33,422장의 반려동물 사진, AI가 자동으로 정리해드립니다.",
+    description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
+    url: "https://zellypaw.com",
+    siteName: "젤리(Zelly)",
+    locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "/zelly_og_image.png",
+        width: 1200,
+        height: 630,
+        alt: "젤리 | 반려동물 성장 앨범",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "젤리 | 반려동물 성장 앨범",
+    description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
+    images: ["/zelly_og_image.png"],
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
@@ -28,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
