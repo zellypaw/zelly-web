@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
     images: ["/zelly_og_image.png"],
   },
+  verification: {
+    other: {
+      "naver-site-verification": "c8d3ca976c8f8483c8b82456067e4bf6eeeb9e30",
+    },
+  },
   icons: {
     icon: "/icon.png",
     apple: "/icon.png",
