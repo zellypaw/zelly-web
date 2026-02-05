@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zellypaw.com"),
   title: "젤리 | 반려동물 성장 앨범",
   description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
   keywords: ["반려동물", "강아지", "고양이", "성장앨범", "AI 사진", "젤리", "zelly", "반려동물 갤러리", "클라우드 포토앨범"],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/zelly_og_image.png",
+        url: "/preview1200x630.png",
         width: 1200,
         height: 630,
         alt: "젤리 | 반려동물 성장 앨범",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "젤리 | 반려동물 성장 앨범",
     description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
-    images: ["/zelly_og_image.png"],
+    images: ["/preview1200x630.png"],
   },
   verification: {
     other: {
