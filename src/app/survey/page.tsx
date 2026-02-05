@@ -22,7 +22,7 @@ export default function SurveyPage() {
       </div>
 
       {/* Script to handle Tally embedding if needed (Tally often works best with their loader script) */}
-      <script async src="https://tally.so/widgets/embed.js text/javascript"></script>
+      <script async src="https://tally.so/widgets/embed.js"></script>
     </main>
   );
 }

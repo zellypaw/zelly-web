@@ -28,8 +28,8 @@ aws s3 sync ./out s3://zellypaw.com \
     --include "*.html" \
     --cache-control "no-cache, no-store, must-revalidate"
 
-# 5. S3 동기화 (3단계: 필요 없는 옛날 파일들만 삭제)
-# --exclude "*.html"을 붙여서 HTML 파일이 삭제 대상이 되지 않도록 보호합니다.
+# 5. S3 동기화 (3단계: S3에서 이전 에셋 삭제하되 HTML 파일은 유지)
+# 기존에 no-cache 헤더와 함께 동기화된 HTML 파일이 삭제되지 않도록 보호합니다.
 echo "🧹 Cleaning up old assets..."
 aws s3 sync ./out s3://zellypaw.com \
     --delete \
@@ -37,9 +37,13 @@ aws s3 sync ./out s3://zellypaw.com \
 
 # 5. CloudFront 캐시 무효화 (Invalidation)
 echo "🧹 Invalidating CloudFront cache..."
-# 배포 ID: EE7THT3OJQ93N
-aws cloudfront create-invalidation \
-    --distribution-id EE7THT3OJQ93N \
-    --paths "/*"
+# CloudFront 배포 ID는 환경변수 CLOUDFRONT_DISTRIBUTION_ID를 사용합니다.
+if [ -z "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+    echo "⚠️  CLOUDFRONT_DISTRIBUTION_ID is not set, skipping invalidation."
+else
+    aws cloudfront create-invalidation \
+        --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" \
+        --paths "/*"
+fi
 
 echo "✨ Deployment successfully finished!"

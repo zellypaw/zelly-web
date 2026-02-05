@@ -11,19 +11,27 @@ export default function NoticeCTA({ url, label }: NoticeCTAProps) {
   const [finalUrl, setFinalUrl] = useState(url);
 
   useEffect(() => {
-    // 1. Get or generate ID from localStorage
-    let mid = localStorage.getItem('zelly_mixpanel_id');
-    if (!mid) {
-      // Create a unique ID: web_ + 8 chars random string
-      const randomStr = Math.random().toString(36).substring(2, 10);
-      mid = `web_${randomStr}`;
-      localStorage.setItem('zelly_mixpanel_id', mid);
-    }
+    if (typeof window === 'undefined') return;
 
-    // 2. Replace placeholder in URL
-    // If the URL contains {mixpanel_id}, replace it with the stored ID
-    const updatedUrl = url.replace('{mixpanel_id}', mid);
-    setFinalUrl(updatedUrl);
+    try {
+      // 1. Get or generate ID from localStorage
+      let mid = localStorage.getItem('zelly_mixpanel_id');
+      if (!mid) {
+        // Create a unique ID: web_ + 8 chars random string
+        const randomStr = Math.random().toString(36).substring(2, 10);
+        mid = `web_${randomStr}`;
+        localStorage.setItem('zelly_mixpanel_id', mid);
+      }
+
+      // 2. Replace placeholder in URL
+      // If the URL contains {mixpanel_id}, replace it with the stored ID
+      const updatedUrl = url.replace('{mixpanel_id}', mid);
+      setFinalUrl(updatedUrl);
+    } catch (error) {
+      console.warn('Failed to access localStorage:', error);
+      // Fallback: use original URL if localStorage is blocked
+      setFinalUrl(url.replace('{mixpanel_id}', 'web_anonymous'));
+    }
   }, [url]);
 
   return (

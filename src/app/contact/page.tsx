@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React from 'react';
@@ -20,7 +21,7 @@ export default function ContactPage() {
       {/* Naver Maps Script */}
       {/* Note: In a real production environment, you should replace 'YOUR_CLIENT_ID' with your actual Naver Cloud Client ID */}
       <Script 
-        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID || 'ncpKeyId'}&submodules=geocoder`}
+        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID || ''}&submodules=geocoder`}
         onLoad={() => {
           if (window.naver && window.naver.maps) {
             const mapOptions = {
@@ -129,7 +130,6 @@ export default function ContactPage() {
 declare global {
   interface Window {
     naver: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       maps: any;
     };
   }
