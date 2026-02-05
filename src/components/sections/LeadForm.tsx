@@ -90,6 +90,7 @@ export default function LeadForm() {
             strategy="afterInteractive"
           />
           <form
+            data-testid="lead-form"
             onSubmit={async (e) => {
               e.preventDefault();
               if (isLoading) return;
