@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import Script from 'next/script';
@@ -32,6 +33,7 @@ export default function LeadForm() {
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const searchParams = useSearchParams();
 
   // Cloudflare Turnstile 초기화
   useEffect(() => {
@@ -128,7 +130,13 @@ export default function LeadForm() {
                     metadata: {
                       hp_field: hpField,
                       userAgent: navigator.userAgent,
-                      screenSize: `${window.innerWidth}x${window.innerHeight}`
+                      screenSize: `${window.innerWidth}x${window.innerHeight}`,
+                      ...(searchParams.get('utm_source') && { utm_source: searchParams.get('utm_source') }),
+                      ...(searchParams.get('utm_medium') && { utm_medium: searchParams.get('utm_medium') }),
+                      ...(searchParams.get('utm_campaign') && { utm_campaign: searchParams.get('utm_campaign') }),
+                      ...(searchParams.get('utm_term') && { utm_term: searchParams.get('utm_term') }),
+                      ...(searchParams.get('utm_content') && { utm_content: searchParams.get('utm_content') }),
+                      ...(document.referrer && { referrer: document.referrer }),
                     }
                   }),
                 });
