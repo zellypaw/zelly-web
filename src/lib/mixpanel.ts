@@ -17,7 +17,10 @@ export const initMixpanel = () => {
 
 export const trackEvent = (eventName: string, props?: Record<string, unknown>) => {
   if (typeof window !== 'undefined' && MIXPANEL_TOKEN) {
-    mixpanel.track(eventName, props);
+    mixpanel.track(eventName, {
+      ...props,
+      platform: 'web',
+    });
   }
 };
 
