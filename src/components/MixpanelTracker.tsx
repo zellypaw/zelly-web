@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { initMixpanel, trackEvent } from '@/lib/mixpanel';
+import { initMixpanel, trackEvent, identifyUser, setPeopleProperties } from '@/lib/mixpanel';
 
 export default function MixpanelTracker() {
   const pathname = usePathname();
@@ -18,6 +18,12 @@ export default function MixpanelTracker() {
     const utm_campaign = searchParams.get('utm_campaign');
     const utm_term = searchParams.get('utm_term');
     const utm_content = searchParams.get('utm_content');
+    const email = searchParams.get('email');
+
+    if (email) {
+      identifyUser(email);
+      setPeopleProperties({ $email: email });
+    }
 
     trackEvent('Page View', {
       path: pathname,
@@ -28,6 +34,7 @@ export default function MixpanelTracker() {
       utm_content,
       referrer: document.referrer,
     });
+
   }, [pathname, searchParams]);
 
   useEffect(() => {

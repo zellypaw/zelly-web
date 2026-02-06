@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import Script from 'next/script';
 import { sendGAEvent } from '@next/third-parties/google';
-import { trackEvent } from '@/lib/mixpanel';
+import { trackEvent, identifyUser, setPeopleProperties } from '@/lib/mixpanel';
 
 declare global {
   interface Window {
@@ -28,7 +28,8 @@ declare global {
 
 export default function LeadForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submittedContact, setSubmittedContact] = useState('');
+  const [isConflict, setIsConflict] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState('');
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -98,7 +99,7 @@ export default function LeadForm() {
               if (isLoading) return;
 
               const formData = new FormData(e.currentTarget);
-              const contact = formData.get('contact') as string;
+              const email = formData.get('contact') as string;
               const agreed = formData.get('agree');
               const hpField = formData.get('hp_field') as string;
               
@@ -121,7 +122,7 @@ export default function LeadForm() {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    contact,
+                    email,
                     agreed: true,
                     turnstileToken,
                     metadata: {
@@ -133,20 +134,29 @@ export default function LeadForm() {
                 });
 
                 if (response.ok) {
-                  setSubmittedContact(contact);
+                  setSubmittedEmail(email);
                   setIsSubmitted(true);
                   
                   // GA4 Event tracking
                   sendGAEvent({ 
                     event: 'generate_lead', 
-                    value: contact 
+                    value: email 
                   });
 
-                  // Mixpanel Event tracking
+                  // Mixpanel Identification & Event tracking
+                  identifyUser(email);
+                  setPeopleProperties({
+                    $email: email,
+                    $created: new Date().toISOString()
+                  });
+                  
                   trackEvent('Lead Submitted', {
-                    contact: contact,
+                    contact: email,
                     timestamp: new Date().toISOString()
                   });
+                } else if (response.status === 409) {
+                  setSubmittedEmail(email);
+                  setIsConflict(true);
                 } else {
                   const errorData = await response.json();
                   alert(errorData.detail || '신청 처리 중 오류가 발생했습니다.');
@@ -167,14 +177,14 @@ export default function LeadForm() {
             <div className="bg-white rounded-2xl border border-zelly-border p-2 shadow-sm focus-within:shadow-md transition-shadow duration-300 flex flex-col sm:flex-row gap-2">
               <div className="flex-1 min-w-0">
                 <input
-                  type="text"
+                  type="email"
                   name="contact"
-                  placeholder="이메일 또는 휴대폰 번호"
+                  placeholder="이메일 주소를 입력해 주세요"
                   required
-                  pattern="^(01[016789]-?\d{3,4}-?\d{4}|[^\s@]+@[^\s@]+\.[^\s@]+)$"
+                  pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                   onInvalid={(e) => {
                     const target = e.target as HTMLInputElement;
-                    target.setCustomValidity('올바른 휴대폰 번호 또는 이메일 형식을 입력해주세요.');
+                    target.setCustomValidity('올바른 이메일 형식을 입력해주세요.');
                   }}
                   onInput={(e) => {
                     const target = e.target as HTMLInputElement;
@@ -226,14 +236,17 @@ export default function LeadForm() {
 
         {/* Success Modal */}
         <AnimatePresence>
-          {isSubmitted && (
+          {(isSubmitted || isConflict) && (
             <>
               {/* Backdrop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onClick={() => setIsSubmitted(false)}
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setIsConflict(false);
+                }}
                 className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
               >
                 {/* Modal Content */}
@@ -245,16 +258,34 @@ export default function LeadForm() {
                   className="bg-white rounded-3xl p-8 md:p-12 max-w-sm w-full shadow-2xl text-center relative overflow-hidden"
                 >
                   <div className="relative z-10">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-green-500 mb-6">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-zelly-text-primary mb-3">신청이 완료되었습니다!</h3>
-                    <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
-                      정식 런칭일에 <span className="font-semibold text-zelly-text-primary">{submittedContact}</span>님께<br />
-                      가장 먼저 기쁜 소식을 전해드릴게요.
-                    </p>
+                    {isSubmitted ? (
+                      <>
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-green-500 mb-6">
+                          <CheckCircle2 className="w-8 h-8" />
+                        </div>
+                        <h3 className="text-xl font-bold text-zelly-text-primary mb-3">신청이 완료되었습니다!</h3>
+                        <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
+                          정식 런칭일에 <span className="font-semibold text-zelly-text-primary">{submittedEmail}</span>님께<br />
+                          가장 먼저 기쁜 소식을 전해드릴게요.
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-blue-500 mb-6">
+                          <CheckCircle2 className="w-8 h-8" />
+                        </div>
+                        <h3 className="text-xl font-bold text-zelly-text-primary mb-3">이미 신청되었습니다</h3>
+                        <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
+                          <span className="font-semibold text-zelly-text-primary">{submittedEmail}</span>님은 <br />이미 사전 신청이 완료되었습니다.<br />
+                          정식 런칭일에 잊지 않고 소식을 전해드릴게요!
+                        </p>
+                      </>
+                    )}
                     <button
-                      onClick={() => setIsSubmitted(false)}
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setIsConflict(false);
+                      }}
                       className="w-full bg-zelly-text-primary hover:bg-black text-white py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-black/5"
                     >
                       확인
