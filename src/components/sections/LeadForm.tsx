@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import Script from 'next/script';
+import { sendGAEvent } from '@next/third-parties/google';
+import { trackEvent } from '@/lib/mixpanel';
 
 declare global {
   interface Window {
@@ -133,6 +135,18 @@ export default function LeadForm() {
                 if (response.ok) {
                   setSubmittedContact(contact);
                   setIsSubmitted(true);
+                  
+                  // GA4 Event tracking
+                  sendGAEvent({ 
+                    event: 'generate_lead', 
+                    value: contact 
+                  });
+
+                  // Mixpanel Event tracking
+                  trackEvent('Lead Submitted', {
+                    contact: contact,
+                    timestamp: new Date().toISOString()
+                  });
                 } else {
                   const errorData = await response.json();
                   alert(errorData.detail || '신청 처리 중 오류가 발생했습니다.');
