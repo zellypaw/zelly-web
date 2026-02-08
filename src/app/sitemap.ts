@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://zellypaw.com';
 
   // 기본 정적 페이지들
-  const staticRoutes = ['', '/notice', '/contact', '/survey', '/privacy'].map((route) => ({
+  const staticRoutes = ['', '/notice', '/contact', '/privacy'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
