@@ -2,28 +2,24 @@
 
 import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { initMixpanel, trackEvent, identifyUser, setPeopleProperties } from '@/lib/mixpanel';
+import { initMixpanel, trackEvent } from '@/lib/mixpanel';
 
 export default function MixpanelTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Initialize Mixpanel
+    // Initialize Mixpanel once on mount
     initMixpanel();
+  }, []);
 
-    // Track initial page view with UTM parameters
+  useEffect(() => {
+    // Track page view with UTM parameters
     const utm_source = searchParams.get('utm_source');
     const utm_medium = searchParams.get('utm_medium');
     const utm_campaign = searchParams.get('utm_campaign');
     const utm_term = searchParams.get('utm_term');
     const utm_content = searchParams.get('utm_content');
-    const email = searchParams.get('email');
-
-    if (email) {
-      identifyUser(email);
-      setPeopleProperties({ $email: email });
-    }
 
     trackEvent('Page View', {
       path: pathname,

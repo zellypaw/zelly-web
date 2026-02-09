@@ -145,10 +145,9 @@ export default function LeadForm() {
                   setSubmittedEmail(email);
                   setIsSubmitted(true);
                   
-                  // GA4 Event tracking
+                  // GA4 Event tracking (no PII)
                   sendGAEvent({ 
                     event: 'generate_lead', 
-                    value: email 
                   });
 
                   // Mixpanel Identification & Event tracking
@@ -159,7 +158,6 @@ export default function LeadForm() {
                   });
                   
                   trackEvent('Lead Submitted', {
-                    contact: email,
                     timestamp: new Date().toISOString()
                   });
                 } else if (response.status === 409) {
@@ -188,6 +186,7 @@ export default function LeadForm() {
                   type="email"
                   name="contact"
                   placeholder="이메일 주소를 입력해 주세요"
+                  data-testid="lead-form-contact-input"
                   required
                   pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                   onInvalid={(e) => {
