@@ -10,7 +10,7 @@ test.describe('LeadForm Functionality', () => {
     const heading = page.locator('h2', { hasText: 'Zelly의 정식 런칭 소식' });
     await expect(heading).toBeVisible();
 
-    const input = page.getByPlaceholder('이메일 또는 휴대폰 번호');
+    const input = page.getByTestId('lead-form-contact-input');
     await expect(input).toBeVisible();
 
     const button = page.getByRole('button', { name: '신청하기' });
@@ -26,12 +26,12 @@ test.describe('LeadForm Functionality', () => {
     
     // HTML5 validation usually prevents submission. 
     // We can check if the input is still there and focused.
-    const input = page.getByPlaceholder('이메일 또는 휴대폰 번호');
+    const input = page.getByTestId('lead-form-contact-input');
     await expect(input).toHaveAttribute('required', '');
   });
 
   test('should prevent submission without agreement', async ({ page }) => {
-    const input = page.getByPlaceholder('이메일 또는 휴대폰 번호');
+    const input = page.getByTestId('lead-form-contact-input');
     await input.fill('test@example.com');
     
     const button = page.getByRole('button', { name: '신청하기' });
@@ -47,7 +47,7 @@ test.describe('LeadForm Functionality', () => {
 
   test('verify API request destination', async ({ page }) => {
     // Fill form
-    await page.getByPlaceholder('이메일 또는 휴대폰 번호').fill('test@example.com');
+    await page.getByTestId('lead-form-contact-input').fill('test@example.com');
     await page.locator('input[type="checkbox"]').check();
 
     // Mock Turnstile by satisfying the token check if possible

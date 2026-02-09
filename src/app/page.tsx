@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import Navbar from '@/components/sections/Navbar';
 import Hero from '@/components/sections/Hero';
 import Problem from '@/components/sections/Problem';
@@ -18,7 +19,9 @@ export default function LandingPage() {
       <Solution />
       <Emotional />
       <div className="snap-start bg-zelly-bg-primary min-h-screen md:h-screen flex flex-col">
-        <LeadForm />
+        <Suspense>
+          <LeadForm />
+        </Suspense>
         <Footer />
       </div>
     </main>
