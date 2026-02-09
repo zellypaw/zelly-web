@@ -101,7 +101,7 @@ export default function LeadForm() {
               if (isLoading) return;
 
               const formData = new FormData(e.currentTarget);
-              const email = formData.get('contact') as string;
+              const email = formData.get('email') as string;
               const agreed = formData.get('agree');
               const hpField = formData.get('hp_field') as string;
               
@@ -165,7 +165,8 @@ export default function LeadForm() {
                   setIsConflict(true);
                 } else {
                   const errorData = await response.json();
-                  alert(errorData.detail || '신청 처리 중 오류가 발생했습니다.');
+                  console.error('API Error Detail:', errorData);
+                  alert(typeof errorData.detail === 'string' ? errorData.detail : '신청 처리 중 오류가 발생했습니다.');
                 }
               } catch (error) {
                 console.error('API Error:', error);
@@ -184,9 +185,9 @@ export default function LeadForm() {
               <div className="flex-1 min-w-0">
                 <input
                   type="email"
-                  name="contact"
+                  name="email"
                   placeholder="이메일 주소를 입력해 주세요"
-                  data-testid="lead-form-contact-input"
+                  data-testid="lead-form-email-input"
                   required
                   pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                   onInvalid={(e) => {
