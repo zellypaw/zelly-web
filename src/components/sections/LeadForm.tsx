@@ -145,7 +145,7 @@ export default function LeadForm() {
                   setSubmittedEmail(email);
                   setIsSubmitted(true);
                   
-                  // GA4 Event tracking (no PII, no non-numeric value)
+                  // GA4 Event tracking (no PII)
                   sendGAEvent({ 
                     event: 'generate_lead'
                   });

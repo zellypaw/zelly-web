@@ -58,8 +58,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  
   return (
     <html lang="ko">
       <body
@@ -69,7 +67,7 @@ export default function RootLayout({
         <Suspense>
           <MixpanelTracker />
         </Suspense>
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </body>
     </html>
   );
