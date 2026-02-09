@@ -6,11 +6,24 @@ import { NOTICES } from '@/lib/notices';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import NoticeCTA from '@/components/notice/NoticeCTA';
+import { Metadata } from 'next';
 
 export function generateStaticParams() {
   return NOTICES.map((notice) => ({
     id: notice.id.toString(),
   }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const notice = NOTICES.find((n) => n.id === Number(id));
+  
+  return {
+    title: `${notice?.title || '공지사항'} | 젤리`,
+    alternates: {
+      canonical: `/notice/${id}`,
+    },
+  };
 }
 
 interface PageProps {
