@@ -145,10 +145,9 @@ export default function LeadForm() {
                   setSubmittedEmail(email);
                   setIsSubmitted(true);
                   
-                  // GA4 Event tracking
+                  // GA4 Event tracking (no PII, no non-numeric value)
                   sendGAEvent({ 
-                    event: 'generate_lead', 
-                    value: email 
+                    event: 'generate_lead'
                   });
 
                   // Mixpanel Identification & Event tracking
@@ -159,7 +158,6 @@ export default function LeadForm() {
                   });
                   
                   trackEvent('Lead Submitted', {
-                    contact: email,
                     timestamp: new Date().toISOString()
                   });
                 } else if (response.status === 409) {
@@ -190,6 +188,7 @@ export default function LeadForm() {
                   placeholder="이메일 주소를 입력해 주세요"
                   required
                   pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                  data-testid="lead-form-contact-input"
                   onInvalid={(e) => {
                     const target = e.target as HTMLInputElement;
                     target.setCustomValidity('올바른 이메일 형식을 입력해주세요.');
