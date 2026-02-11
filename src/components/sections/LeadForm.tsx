@@ -36,7 +36,6 @@ export default function LeadForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
-
   // Cloudflare Turnstile 초기화
   useEffect(() => {
     const renderTurnstile = () => {
@@ -48,6 +47,7 @@ export default function LeadForm() {
           callback: (token: string) => setTurnstileToken(token),
           'expired-callback': () => setTurnstileToken(null),
           'error-callback': () => setTurnstileToken(null),
+          size: 'normal',
         });
       }
     };
@@ -55,7 +55,6 @@ export default function LeadForm() {
     if (window.turnstile) {
       renderTurnstile();
     } else {
-      // 스크립트 로드 대기
       const checkTurnstile = setInterval(() => {
         if (window.turnstile) {
           renderTurnstile();
@@ -74,9 +73,9 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="flex-1 flex items-center bg-zelly-bg-primary pt-32 pb-24 md:pt-20 md:pb-12 min-h-screen md:min-h-0">
+    <section id="lead-form" className="flex-1 flex items-center bg-zelly-bg-primary pt-24 pb-0 md:pt-20 md:pb-12 min-h-[80vh] md:min-h-0">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-16">
+        <motion.div {...fadeInUp} className="text-center mb-4 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
             Zelly의 정식 런칭 소식을<br />
             가장 먼저 받아보시겠어요?
@@ -238,8 +237,8 @@ export default function LeadForm() {
             </div>
           </form>
 
-          {/* Turnstile Widget */}
-          <div className="mt-12 flex justify-center opacity-80 hover:opacity-100 transition-opacity">
+          {/* Turnstile Widget - Fully visible and recognizable */}
+          <div className="mt-4 md:mt-12 flex justify-center hover:opacity-100 transition-all duration-300 transform scale-[0.8] md:scale-100 origin-center">
             <div id="turnstile-container"></div>
           </div>
         </motion.div>
