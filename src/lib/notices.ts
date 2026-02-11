@@ -13,29 +13,49 @@ export interface Notice {
 
 export const NOTICES: Notice[] = [
   {
-    id: 4,
-    title: '서비스 개선을 위한 설문조사 이벤트 안내',
-    date: '2026.02.04',
-    badge: '진행중',
-    content: `안녕하세요. Zelly 팀입니다.
+    id: 5,
+    title: "경기도 AI 혁신클러스터 입주기업 선정",
+    date: '2026.02.11',
+    content: `안녕하세요, <span style="font-weight: bold;">ZELLY</span> 팀입니다! 🐾
 
-Zelly는 반려인분들의 실질적인 고민을 해결하고, 꼭 필요한 기능을 먼저 제공해드리기 위해 서비스 기능 개발 우선순위를 검토하고 있습니다.
+저희 ZELLY가 경기도와 경기도경제과학진흥원(GBSA)에서 주관하는 <span style="font-weight: bold;">'2025년 경기도 AI 혁신크러스터'</span> 입주 지원 사업에 최종 선정되었다는 기쁜 소식을 전해드립니다. 
 
-여러분의 소중한 의견이 Zelly의 미래가 됩니다. 잠시 시간을 내어 설문에 참여해 주시면 감사하겠습니다.
+이번 사업은 경기도 내 인공지능 기반 산업 생태계 구축을 위해 AI 관련 핵심 기술을 보유한 유망 스타트업을 발굴하고 육성하는 프로젝트입니다. ZELLY는 엄격한 요건 검토와 전문가 발표 평가를 거쳐, <span style="font-weight: bold;">의정부 AI 클러스터(의정부 기업지원센터)</span>를 거점으로 하는 혁신 기업으로 이름을 올리게 되었습니다. 
 
-[설문 안내]
-• 설문 주제: 서비스 기능 우선순위 및 사용자 니즈 파악
-• 참여 대상: 반려동물과 함께하고 계신 모든 분
-• 참여 혜택: 추첨을 통해 <span style="font-weight: bold; color: #046241;">☕️ 스타벅스 아메리카노 모바일 쿠폰</span> 및 <span style="font-weight: bold;">🎁 Zelly 프리미엄 연간 구독권</span> 증정
-• 소요 시간: 약 2~3분
+[ZELLY의 새로운 도약, 의정부 AI 클러스터]
+• 위치: 의정부 기업지원센터 (산단로76번길 89) 
+• 지원 내용: AI 역량 강화 프로그램, 글로벌 진출 및 기술 향상 지원, 전문가 컨설팅 등 
 
-더 나은 Zelly를 함께 만들어주세요. 참여해 주신 분들께는 진심으로 감사 드립니다.`,
-    href: '/notice/4',
-    cta: {
-      label: '설문 참여하기',
-      url: 'https://tally.so/r/LZPl9J/?mixpanel_id={mixpanel_id}' // Placeholder URL for Tally form
-    }
+반려동물과 함께하는 소중한 일상을 더 스마트하게 연결하는 ZELLY의 성장을 앞으로도 지켜봐 주세요. 오는 4월 협약식 이후, 새로운 연구 공간에서 더욱 혁신적인 서비스로 찾아뵙겠습니다!
+
+감사합니다.
+<span style="font-weight: bold;">ZELLY 팀 드림</span>`,
+    href: '/notice/5'
   },
+//   {
+//     id: 4,
+//     title: '서비스 개선을 위한 설문조사 이벤트 안내',
+//     date: '2026.02.04',
+//     badge: '진행중',
+//     content: `안녕하세요. Zelly 팀입니다.
+
+// Zelly는 반려인분들의 실질적인 고민을 해결하고, 꼭 필요한 기능을 먼저 제공해드리기 위해 서비스 기능 개발 우선순위를 검토하고 있습니다.
+
+// 여러분의 소중한 의견이 Zelly의 미래가 됩니다. 잠시 시간을 내어 설문에 참여해 주시면 감사하겠습니다.
+
+// [설문 안내]
+// • 설문 주제: 서비스 기능 우선순위 및 사용자 니즈 파악
+// • 참여 대상: 반려동물과 함께하고 계신 모든 분
+// • 참여 혜택: 추첨을 통해 <span style="font-weight: bold; color: #046241;">☕️ 스타벅스 아메리카노 모바일 쿠폰</span> 및 <span style="font-weight: bold;">🎁 Zelly 프리미엄 연간 구독권</span> 증정
+// • 소요 시간: 약 2~3분
+
+// 더 나은 Zelly를 함께 만들어주세요. 참여해 주신 분들께는 진심으로 감사 드립니다.`,
+//     href: '/notice/4',
+//     cta: {
+//       label: '설문 참여하기',
+//       url: 'https://tally.so/r/LZPl9J/?mixpanel_id={mixpanel_id}' // Placeholder URL for Tally form
+//     }
+//   },
   { 
     id: 3, 
     title: '테스터 모집 안내', 
