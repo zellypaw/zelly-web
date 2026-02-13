@@ -8,11 +8,42 @@ export default function Footer() {
     <footer className="relative z-20 bg-transparent pt-2 pb-10 md:py-12">
       <Container>
         <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 w-full">
-          {/* Copyright */}
+          {/* Copyright & Mobile Threads */}
           <div className="w-full md:w-1/3 text-center md:text-left order-2 md:order-1">
-            <p className="text-zelly-text-tertiary text-[11px] md:text-sm tracking-tight">
-              © 2026 Zelly Team. All rights reserved.
-            </p>
+            <div className="flex items-center justify-center md:justify-start gap-2.5">
+              <p className="text-zelly-text-tertiary text-[11px] md:text-sm tracking-tight">
+                © 2026 Zelly Team<span className="hidden md:inline">. All rights reserved.</span>
+              </p>
+              
+              {/* Mobile unique: Socials inline */}
+              <div className="md:hidden flex items-center gap-2.5">
+                <span className="text-zelly-text-tertiary/20 text-[10px]">|</span>
+                <div className="flex items-center gap-2.5">
+                  <a 
+                    href="https://www.threads.net/@toyaji83" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center transition-opacity active:opacity-60"
+                    aria-label="Threads"
+                  >
+                    <Image 
+                      src="/assets/threads-logo-black.svg" 
+                      alt="Threads" 
+                      width={13} 
+                      height={13} 
+                      className="opacity-40"
+                    />
+                  </a>
+                  <Image 
+                    src="/assets/instgram_logo.svg" 
+                    alt="Instagram" 
+                    width={14} 
+                    height={14} 
+                    className="opacity-40"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Venture Mark - Absolutely centered with optical adjustment (nudge left) */}
@@ -25,18 +56,42 @@ export default function Footer() {
               alt="혁신성장형 벤처기업 인증"
               width={140}
               height={46}
-              className="h-8 md:h-8 w-auto object-contain"
+              className="h-8 md:h-8 w-auto object-contain grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default"
             />
           </div>
 
-          {/* Links - Hidden on mobile, visible on desktop */}
-          <div className="hidden md:flex w-full md:w-1/3 justify-center md:justify-end gap-6 md:gap-8 order-3">
+          {/* Links & Socials - Desktop only */}
+          <div className="hidden md:flex w-full md:w-1/3 justify-end items-center gap-8 order-3">
             <Link href="/contact" className="text-zelly-text-tertiary hover:text-zelly-text-primary text-xs md:text-sm transition-colors font-medium">
               Contact
             </Link>
             <Link href="/privacy" className="text-zelly-text-tertiary hover:text-zelly-text-primary text-xs md:text-sm transition-colors font-medium">
               개인정보처리방침
             </Link>
+            <a 
+              href="https://www.threads.net/@toyaji83" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-zelly-text-tertiary hover:text-zelly-text-primary transition-colors flex items-center justify-center"
+              aria-label="Threads"
+            >
+              <Image 
+                src="/assets/threads-logo-black.svg" 
+                alt="Threads" 
+                width={20} 
+                height={20} 
+                className="w-4 h-4 md:w-5 md:h-5 opacity-60 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            <div className="flex items-center justify-center">
+              <Image 
+                src="/assets/instgram_logo.svg" 
+                alt="Instagram" 
+                width={20} 
+                height={20} 
+                className="w-4 h-4 md:w-5 md:h-5 opacity-60 transition-opacity"
+              />
+            </div>
           </div>
         </div>
       </Container>
