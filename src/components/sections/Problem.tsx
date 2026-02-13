@@ -19,76 +19,155 @@ const PROBLEMS = [
 
 export default function Problem() {
   return (
-    <section id="problem-section" className="relative min-h-screen flex items-center snap-start bg-zelly-bg-primary py-24 overflow-hidden">
-      <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center"
-        >
-          {/* Icon */}
-          <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-[22%] overflow-hidden shrink-0 mb-6">
-            <Image
-              src={iconImg}
-              alt="Zelly Icon"
-              fill
-              className="object-cover transition-transform duration-500 hover:scale-105"
-              priority
-            />
-          </div>
-
-          {/* Main Message */}
-          <div className="mb-4 md:mb-8">
-             <p className="text-xl md:text-3xl lg:text-3xl text-gray-900 leading-tight font-bold max-w-4xl mx-auto whitespace-pre-wrap break-keep">
-              {"우리 아이와의 소중한 추억들, \n이제 잊혀지지 않게 젤리가 도와드릴게요."}
-            </p>
-          </div>
-
-          {/* 3D Scrolling Problems */}
-          <div className="w-full relative">
-            <div 
-              className="h-[240px] md:h-[200px] relative overflow-visible flex items-center justify-center [perspective:1000px] [--radius:110px]"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
-                maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
-              }}
-            >
+    <>
+      {/* 1st Page: Visual Summary - Newly Designed */}
+      <section id="problem-overview" className="relative min-h-screen flex items-center snap-start bg-zelly-bg-primary py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
+          >
+            {/* Problem Image at the Top */}
+            <div className="w-full mb-4 md:mb-8 flex justify-center overflow-hidden">
+              {/* Mobile Image: Slightly larger than screen width for better visibility */}
               <motion.div 
-                className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]"
-                animate={{ rotateX: [0, 360] }}
-                transition={{ 
-                  duration: 40, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="md:hidden relative w-[calc(100%+5rem)] -mx-10 aspect-[1041/1183]"
               >
-                {PROBLEMS.map((text, index) => {
-                  const angle = (index / PROBLEMS.length) * 360;
-                  return (
-                    <div
-                      key={index}
-                      className="absolute w-full px-4 md:px-0 flex items-center justify-center"
-                      style={{
-                        transform: `rotateX(${angle}deg) translateZ(var(--radius))`,
-                        backfaceVisibility: 'hidden',
-                      }}
-                    >
-                      <div className="flex flex-col items-center justify-center w-full max-w-lg">
-                        <p className="text-sm md:text-base lg:text-lg font-medium text-gray-400 leading-snug tracking-tight break-keep drop-shadow-sm italic text-center px-4 text-balance">
-                          &quot;{text}&quot;
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
+                <Image
+                  src="/images/problem_mobile.webp"
+                  alt="Problem situations mobile"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
+
+              {/* Desktop Image: Balanced size (max-w-6xl) */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="hidden md:block relative w-full max-w-6xl aspect-[1696/721]"
+              >
+                <Image
+                  src="/images/problem_desktop.webp"
+                  alt="Problem situations desktop"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </motion.div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-      <ScrollIndicator targetId="solution-section" />
-    </section>
+
+            {/* Tiny Triple Icons (Ellipsis-style separator) */}
+            <div className="flex gap-1.5 md:gap-2 mb-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="relative w-4 h-4 md:w-5 md:h-5 rounded-[22%] overflow-hidden shrink-0 opacity-20">
+                  <Image
+                    src={iconImg}
+                    alt={`Zelly Icon ${i}`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Main Message */}
+            <div className="mb-2">
+               <p className="text-xl md:text-2xl lg:text-2xl text-gray-900 leading-snug font-bold max-w-2xl mx-auto whitespace-pre-wrap break-keep">
+                {"우리 아이와의 소중한 추억,\n혹시 방치되고 있지 않나요?"}
+              </p>
+            </div>
+          </motion.div>
+        </div>
+        <ScrollIndicator targetId="problem-details" />
+      </section>
+
+      {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
+      <section id="problem-details" className="relative min-h-screen flex items-center snap-start bg-white py-24 overflow-hidden">
+        <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
+          >
+            {/* Icon */}
+            <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-[22%] overflow-hidden shrink-0 mb-6">
+              <Image
+                src={iconImg}
+                alt="Zelly Icon"
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                priority
+              />
+            </div>
+
+            {/* Main Message */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="mb-4 md:mb-8"
+            >
+               <p className="text-xl md:text-3xl lg:text-3xl text-gray-900 leading-tight font-bold max-w-4xl mx-auto whitespace-pre-wrap break-keep">
+                {"우리 아이와의 소중한 추억들, \n이제 잊혀지지 않게 젤리가 도와드릴게요."}
+              </p>
+            </motion.div>
+
+            {/* 3D Scrolling Problems */}
+            <div className="w-full relative">
+              <div 
+                className="h-[240px] md:h-[200px] relative overflow-visible flex items-center justify-center [perspective:1000px] [--radius:110px]"
+                style={{
+                  WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+                  maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+                }}
+              >
+                <motion.div 
+                  className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]"
+                  animate={{ rotateX: [0, 360] }}
+                  transition={{ 
+                    duration: 40, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                >
+                  {PROBLEMS.map((text, index) => {
+                    const angle = (index / PROBLEMS.length) * 360;
+                    return (
+                      <div
+                        key={index}
+                        className="absolute w-full px-4 md:px-0 flex items-center justify-center"
+                        style={{
+                          transform: `rotateX(${angle}deg) translateZ(var(--radius))`,
+                          backfaceVisibility: 'hidden',
+                        }}
+                      >
+                        <div className="flex flex-col items-center justify-center w-full max-w-lg">
+                          <p className="text-sm md:text-base lg:text-lg font-medium text-gray-400 leading-snug tracking-tight break-keep drop-shadow-sm italic text-center px-4 text-balance">
+                            &quot;{text}&quot;
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        <ScrollIndicator targetId="solution-section" />
+      </section>
+    </>
   );
 }
