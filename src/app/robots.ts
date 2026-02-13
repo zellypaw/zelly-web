@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://zellypaw.com/sitemap.xml',
+    sitemap: 'https://zelly.co/sitemap.xml',
   };
 }

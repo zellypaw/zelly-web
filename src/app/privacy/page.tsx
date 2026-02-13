@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
               이용자는 언제든지 자신의 개인정보에 대해 열람, 정정, 삭제, 처리정지를 요청할 수 있습니다.
             </p>
             <p className="text-sm sm:text-base text-zelly-text-secondary leading-relaxed break-keep">
-              권리 행사는 운영진 이메일(<span className="text-zelly-text-primary font-medium">zellypaw@gmail.com</span>)을 통해 서면 또는 전자우편으로 신청하실 수 있으며, 서비스는 이에 대해 지체 없이 조치하겠습니다.
+              권리 행사는 운영진 이메일(<span className="text-zelly-text-primary font-medium">info@zelly.co</span>)을 통해 서면 또는 전자우편으로 신청하실 수 있으며, 서비스는 이에 대해 지체 없이 조치하겠습니다.
             </p>
           </section>
 
@@ -129,7 +129,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-zelly-pink font-semibold mb-1 uppercase tracking-wider">Email</p>
-                <p className="text-sm sm:text-base text-zelly-text-primary font-medium">zellypaw@gmail.com</p>
+                <p className="text-sm sm:text-base text-zelly-text-primary font-medium">info@zelly.co</p>
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-zelly-pink font-semibold mb-1 uppercase tracking-wider">공고 및 시행 일자</p>

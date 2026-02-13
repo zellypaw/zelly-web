@@ -67,10 +67,10 @@ export default function ContactPage() {
                   <span className="text-sm font-bold uppercase tracking-wider">Email</span>
                 </div>
                 <a 
-                  href="mailto:zellypaw@gmail.com" 
+                  href="mailto:info@zelly.co" 
                   className="text-base md:text-lg text-zelly-text-secondary hover:text-zelly-pink transition-colors leading-relaxed"
                 >
-                  zellypaw@gmail.com
+                  info@zelly.co
                 </a>
               </div>
 

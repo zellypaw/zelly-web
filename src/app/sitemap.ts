@@ -4,7 +4,7 @@ import { NOTICES } from '@/lib/notices';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://zellypaw.com';
+  const baseUrl = 'https://zelly.co';
 
   // 기본 정적 페이지들
   const staticRoutes = ['', '/notice', '/contact', '/privacy'].map((route) => ({

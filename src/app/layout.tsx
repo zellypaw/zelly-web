@@ -16,14 +16,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zellypaw.com"),
+  metadataBase: new URL("https://zelly.co"),
   title: "젤리 | 반려동물 성장 앨범",
   description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
   keywords: ["반려동물", "강아지", "고양이", "성장앨범", "AI 사진", "젤리", "zelly", "반려동물 갤러리", "클라우드 포토앨범"],
   openGraph: {
     title: "젤리 | 반려동물 성장 앨범",
     description: "갤러리에 잠든 귀여움이 기록이 되는 순간",
-    url: "https://zellypaw.com",
+    url: "https://zelly.co",
     siteName: "젤리(Zelly)",
     locale: "ko_KR",
     type: "website",
