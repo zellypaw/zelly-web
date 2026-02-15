@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 
@@ -10,22 +10,21 @@ export default function EventBanner() {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div 
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          exit={{ 
-            height: 0, 
-            opacity: 0,
-            transition: { 
-              height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-              opacity: { duration: 0.2 }
-            }
-          }}
-          className="w-full overflow-hidden snap-start"
-        >
-          <div className="w-full pt-2.5 pb-2 sm:pb-3 px-2 sm:px-6">
+    <motion.div 
+      data-testid="event-banner"
+      initial={false}
+      animate={{ 
+        height: isVisible ? 'auto' : 0, 
+        opacity: isVisible ? 1 : 0
+      }}
+      transition={{ 
+        height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+        opacity: { duration: 0.25 }
+      }}
+      style={{ overflow: 'hidden' }}
+      className="w-full snap-start"
+    >
+      <div className="w-full pt-2.5 pb-2 sm:pb-3 px-2 sm:px-6">
             <div className="relative max-w-7xl mx-auto">
               <Link href="/event" className="block">
                 <motion.div 
@@ -70,8 +69,6 @@ export default function EventBanner() {
               </button>
             </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    </motion.div>
   );
 }

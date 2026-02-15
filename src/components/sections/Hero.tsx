@@ -10,14 +10,17 @@ export default function Hero() {
 
 
   return (
-    <section className="relative h-full bg-zelly-bg-secondary overflow-hidden flex flex-col items-center">
+    <section 
+      data-testid="hero-section"
+      className="relative h-screen bg-zelly-bg-secondary overflow-hidden flex flex-col items-center pt-[60px] snap-start"
+    >
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-zelly-pink/10 rounded-full blur-3xl opacity-50" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-start pt-24 md:pt-36">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-center pt-4 md:pt-6">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
@@ -103,8 +106,12 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full flex justify-center pb-12">
-        <ScrollIndicator targetId="problem-overview" className="!static !translate-x-0" />
+      <div className="relative z-10 w-full flex justify-center pb-6">
+        <ScrollIndicator 
+          data-testid="scroll-indicator"
+          targetId="problem-overview" 
+          className="!static !translate-x-0" 
+        />
       </div>
     </section>
   );

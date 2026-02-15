@@ -7,9 +7,10 @@ interface ScrollIndicatorProps {
   targetId: string;
   className?: string;
   color?: string;
+  'data-testid'?: string;
 }
 
-export default function ScrollIndicator({ targetId, className = '', color = 'text-zelly-text-secondary/50' }: ScrollIndicatorProps) {
+export default function ScrollIndicator({ targetId, className = '', color = 'text-zelly-text-secondary/50', 'data-testid': testId }: ScrollIndicatorProps) {
   const scrollToTarget = () => {
     const element = document.getElementById(targetId);
     if (element) {
@@ -24,6 +25,7 @@ export default function ScrollIndicator({ targetId, className = '', color = 'tex
       transition={{ delay: 1, duration: 1 }}
       className={`absolute bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer ${className}`}
       onClick={scrollToTarget}
+      data-testid={testId}
     >
       <motion.div
         animate={{
