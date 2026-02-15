@@ -21,6 +21,7 @@ export default function Hero() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
+            layout
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -30,6 +31,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.h2
+            layout
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -41,6 +43,7 @@ export default function Hero() {
 
           {/* Sub-headline */}
           <motion.p
+            layout
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -51,6 +54,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
+            layout
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
