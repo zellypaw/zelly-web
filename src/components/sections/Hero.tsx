@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-center pt-[60px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-start pt-24 md:pt-36">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
