@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import Image from 'next/image';
-import ScrollIndicator from '@/components/common/ScrollIndicator';
 
 export default function Emotional() {
   const fadeInUp = {
@@ -17,7 +17,7 @@ export default function Emotional() {
   const images = Array.from({ length: 20 }, (_, i) => i + 1);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center snap-start bg-zelly-bg-secondary py-20">
+    <section className="relative min-h-full flex flex-col justify-center snap-start bg-zelly-bg-secondary py-12">
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 mb-8 md:mb-16">
         <motion.div {...fadeInUp} className="text-center">
           {/* Icon */}
@@ -33,10 +33,22 @@ export default function Emotional() {
             순간이 옵니다.
           </h2>
 
-          <p className="text-xl md:text-2xl text-zelly-text-secondary leading-relaxed">
+          <p className="text-xl md:text-2xl text-zelly-text-secondary leading-relaxed mb-10">
             소중한 순간이 잊혀지기 전에,<br />
             Zelly로 추억을 정리해 보세요.
           </p>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link 
+              href="/event"
+              className="inline-flex items-center justify-center px-10 py-5 bg-zelly-pink text-white text-lg font-bold rounded-full shadow-lg hover:bg-zelly-pinkHover transition-all duration-300"
+            >
+              지금 시작하기
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -68,7 +80,6 @@ export default function Emotional() {
         </div>
       </motion.div>
 
-      <ScrollIndicator targetId="lead-form" />
     </section>
   );
 }

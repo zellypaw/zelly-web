@@ -1,11 +1,10 @@
-import { Suspense } from 'react';
 import { Metadata } from 'next';
+import EventBanner from '@/components/sections/EventBanner';
 import Navbar from '@/components/sections/Navbar';
 import Hero from '@/components/sections/Hero';
 import Problem from '@/components/sections/Problem';
 import Solution from '@/components/sections/Solution';
 import Emotional from '@/components/sections/Emotional';
-import LeadForm from '@/components/sections/LeadForm';
 import Footer from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
@@ -16,18 +15,17 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <main className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white">
-      <Navbar />
-      
-      <Hero />
-      <Problem />
-      <Solution />
-      <Emotional />
-      <div className="snap-start bg-zelly-bg-primary min-h-screen md:h-screen flex flex-col">
-        <Suspense>
-          <LeadForm />
-        </Suspense>
-        <Footer />
+    <main className="h-screen flex flex-col bg-white overflow-hidden">
+      <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
+        <EventBanner />
+        <Navbar />
+        <Hero />
+        <Problem />
+        <Solution />
+        <Emotional />
+        <div className="snap-start bg-zelly-bg-primary">
+          <Footer />
+        </div>
       </div>
     </main>
   );

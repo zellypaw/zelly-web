@@ -2,27 +2,22 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ScrollIndicator from '@/components/common/ScrollIndicator';
 
 export default function Hero() {
-  const scrollToForm = () => {
-    const formElement = document.getElementById('lead-form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
 
   return (
-    <section className="relative min-h-screen bg-zelly-bg-secondary overflow-hidden snap-start flex items-center justify-center">
+    <section className="relative min-h-full bg-zelly-bg-secondary overflow-hidden snap-start flex flex-col items-center justify-center pt-8 md:pt-12">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-zelly-pink/10 rounded-full blur-3xl opacity-50" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-32 md:py-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-8 md:py-12">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
@@ -63,18 +58,18 @@ export default function Hero() {
           >
             {/* Mobile: Single Pre-registration Button */}
             <div className="block sm:hidden">
-              <button 
-                onClick={scrollToForm}
+              <Link 
+                href="/event"
                 className="inline-block bg-zelly-pink text-white font-bold py-3 px-10 rounded-full hover:bg-zelly-pinkHover active:scale-95 transition-all duration-300 shadow-lg text-base"
               >
                 사전 예약하기 →
-              </button>
+              </Link>
             </div>
 
             {/* Desktop: App Store Badges */}
             <div className="hidden sm:flex flex-wrap items-center justify-center gap-8">
-              <button 
-                onClick={scrollToForm} 
+              <Link 
+                href="/event" 
                 className="transition-transform hover:scale-105 active:scale-95 duration-200"
               >
                 <div className="relative h-[44px] w-[146px]">
@@ -85,9 +80,9 @@ export default function Hero() {
                     className="object-contain"
                   />
                 </div>
-              </button>
-              <button 
-                onClick={scrollToForm} 
+              </Link>
+              <Link 
+                href="/event" 
                 className="transition-transform hover:scale-105 active:scale-95 duration-200"
               >
                 <div className="relative h-[44px] w-[146px]">
@@ -98,7 +93,7 @@ export default function Hero() {
                     className="object-contain"
                   />
                 </div>
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

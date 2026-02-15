@@ -21,7 +21,7 @@ export default function Problem() {
   return (
     <>
       {/* 1st Page: Visual Summary - Newly Designed */}
-      <section id="problem-overview" className="relative min-h-screen flex items-center snap-start bg-zelly-bg-primary py-24 overflow-hidden">
+      <section id="problem-overview" className="relative min-h-full flex items-center snap-start bg-zelly-bg-primary py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -92,7 +92,7 @@ export default function Problem() {
       </section>
 
       {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
-      <section id="problem-details" className="relative min-h-screen flex items-center snap-start bg-white py-24 overflow-hidden">
+      <section id="problem-section" className="relative min-h-full bg-white snap-start flex items-center justify-center overflow-hidden">
         <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
