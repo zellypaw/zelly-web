@@ -17,12 +17,12 @@ export default function EventBanner() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, height: 0, marginTop: 0, paddingTop: 0, paddingBottom: 0 }}
-        className="w-full pt-2.5 pb-3 px-4 sm:px-6"
+        className="w-full pt-2.5 pb-2 sm:pb-3 px-2 sm:px-6"
       >
         <div className="relative max-w-7xl mx-auto">
           <Link href="/event" className="block">
             <motion.div 
-              className="relative bg-[#f8f9fb] rounded-2xl px-6 sm:px-10 shadow-sm border border-gray-100 overflow-hidden group h-[72px] sm:h-[84px]"
+              className="relative bg-[#f8f9fb] rounded-2xl px-4 sm:px-10 shadow-sm border border-gray-100 overflow-hidden group h-[74px] sm:h-[84px]"
               whileHover={{ backgroundColor: "#f2f4f7", y: -1 }}
               transition={{ duration: 0.2 }}
             >

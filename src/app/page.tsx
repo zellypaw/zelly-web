@@ -20,19 +20,19 @@ export default function LandingPage() {
         <div className="snap-start">
           <EventBanner />
         </div>
-        <div className="h-screen flex flex-col snap-start">
+        
+        <div className="sticky top-0 z-50">
           <Navbar />
+        </div>
+
+        <section className="h-screen snap-start">
           <Hero />
-        </div>
-        <div className="snap-start">
-          <Problem />
-        </div>
-        <div className="snap-start">
-          <Solution />
-        </div>
-        <div className="snap-start">
-          <Emotional />
-        </div>
+        </section>
+        
+        <Problem />
+        <Solution />
+        <Emotional />
+        
         <div className="snap-start bg-zelly-bg-primary">
           <Footer />
         </div>
