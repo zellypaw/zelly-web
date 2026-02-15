@@ -17,12 +17,22 @@ export default function LandingPage() {
   return (
     <main className="h-screen flex flex-col bg-white overflow-hidden">
       <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
-        <EventBanner />
-        <Navbar />
-        <Hero />
-        <Problem />
-        <Solution />
-        <Emotional />
+        <div className="snap-start">
+          <EventBanner />
+        </div>
+        <div className="h-screen flex flex-col snap-start">
+          <Navbar />
+          <Hero />
+        </div>
+        <div className="snap-start">
+          <Problem />
+        </div>
+        <div className="snap-start">
+          <Solution />
+        </div>
+        <div className="snap-start">
+          <Emotional />
+        </div>
         <div className="snap-start bg-zelly-bg-primary">
           <Footer />
         </div>

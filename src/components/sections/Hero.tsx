@@ -10,30 +10,30 @@ export default function Hero() {
 
 
   return (
-    <section className="relative min-h-full bg-zelly-bg-secondary overflow-hidden snap-start flex flex-col items-center justify-center pt-8 md:pt-12">
+    <section className="relative flex-1 bg-zelly-bg-secondary overflow-hidden flex flex-col items-center justify-between py-12 md:py-16">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-zelly-pink/10 rounded-full blur-3xl opacity-50" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-8 md:py-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-center -mt-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Eyebrow Headline */}
           <motion.p
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-md md:text-lg font-semibold text-zelly-text-secondary tracking-[0.05em] mb-12 md:mb-8 uppercase"
+            className="text-md md:text-lg font-semibold text-zelly-text-secondary tracking-[0.05em] mb-8 md:mb-6 uppercase"
           >
-            반려동물 라이프로그 플랫폼, <span className="text-zelly-pink">젤리</span>
+            반려동물 라이로그 플랫폼, <span className="text-zelly-pink">젤리</span>
           </motion.p>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[2.65rem] md:text-6xl lg:text-7xl font-black text-zelly-text-primary mb-12 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
+            className="text-[2.65rem] md:text-6xl lg:text-7xl font-black text-zelly-text-primary mb-10 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
           >
             갤러리에 잠든 귀여움이<br />
             기록이 되는 순간
@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-[1.075rem] lg:text-2xl text-zelly-text-secondary mb-12 leading-relaxed max-w-3xl mx-auto font-medium break-keep text-balance"
+            className="text-lg md:text-[1.075rem] lg:text-2xl text-zelly-text-secondary mb-10 leading-relaxed max-w-3xl mx-auto font-medium break-keep text-balance"
           >
             지우기 아까운 수많은 순간들. 젤리의 AI 기술이 갤러리 속 사진과 영상을 완성된 디지털 앨범으로 만들어 드립니다.
           </motion.p>
@@ -99,7 +99,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <ScrollIndicator targetId="problem-section" />
+      <div className="relative z-10 w-full flex justify-center pb-4">
+        <ScrollIndicator targetId="problem-section" className="!static !translate-x-0" />
+      </div>
     </section>
   );
 }
