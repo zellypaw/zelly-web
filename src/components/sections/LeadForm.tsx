@@ -80,10 +80,23 @@ export default function LeadForm() {
             Zelly의 정식 런칭 소식을<br />
             가장 먼저 받아보시겠어요?
           </h2>
-          <p className="text-zelly-text-secondary text-base max-w-lg mx-auto leading-relaxed opacity-40">
-            사전 신청해주시는 분들께는 정식 서비스 시작일에<br />
-            감사의 마음을 담은 작은 선물을 함께 보내드립니다.
-          </p>
+          <div className="flex flex-col items-center gap-4 mt-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zelly-pink/10 text-zelly-pink text-xs font-bold tracking-wider">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zelly-pink opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-zelly-pink"></span>
+              </span>
+              LAUNCHING EVENT
+            </div>
+            
+            <p className="text-zelly-text-secondary text-base md:text-lg max-w-lg mx-auto leading-relaxed">
+              지금 신청하시면 추첨을 통해 <br />
+              <span className="font-bold text-zelly-text-primary relative inline-block bg-gradient-to-r from-zelly-pink/10 to-transparent px-1">
+                30만원 상당의 펫 리조트 숙박권
+              </span>
+              을 드립니다.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -275,7 +288,8 @@ export default function LeadForm() {
                         <h3 className="text-xl font-bold text-zelly-text-primary mb-3">신청이 완료되었습니다!</h3>
                         <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
                           정식 런칭일에 <span className="font-semibold text-zelly-text-primary">{submittedEmail}</span>님께<br />
-                          가장 먼저 기쁜 소식을 전해드릴게요.
+                          가장 먼저 기쁜 소식을 전해드릴게요.<br />
+                          <span className="text-zelly-pink font-medium mt-2 inline-block">숙박권 당첨 결과도 메일로 안내해 드립니다!</span>
                         </p>
                       </>
                     ) : (
