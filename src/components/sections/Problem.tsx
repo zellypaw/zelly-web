@@ -21,8 +21,8 @@ export default function Problem() {
   return (
     <>
       {/* 1st Page: Visual Summary - Newly Designed */}
-      <section id="problem-overview" className="relative h-[100dvh] flex items-center snap-start bg-zelly-bg-primary pt-[60px] pb-6 md:pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-20 mt-[-10dvh] md:mt-0">
+      <section id="problem-overview" className="relative h-[100dvh] flex items-center snap-start bg-zelly-bg-primary pt-[60px] pb-2 md:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center pb-2 md:pb-20 mt-[-2dvh] md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function Problem() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="md:hidden relative w-[calc(100%+5rem)] -mx-10 aspect-[1041/1183]"
+                className="md:hidden relative w-[calc(100%+4rem)] -mx-8 aspect-[1041/1183] max-h-[72dvh]"
               >
                 <Image
                   src="/images/problem_mobile.webp"
@@ -92,8 +92,8 @@ export default function Problem() {
       </section>
 
       {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
-      <section id="problem-section" className="relative h-[100dvh] bg-white snap-start flex items-start sm:items-center justify-center pt-[70px] sm:pt-[60px] pb-6 md:pb-32 overflow-hidden">
-        <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-12 mt-[2vh] sm:mt-0">
+      <section id="problem-section" className="relative h-[100dvh] bg-white snap-start flex items-center justify-center pt-[60px] pb-6 md:pb-32 overflow-hidden">
+        <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-12 mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
