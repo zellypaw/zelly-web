@@ -21,8 +21,8 @@ export default function Problem() {
   return (
     <>
       {/* 1st Page: Visual Summary - Newly Designed */}
-      <section id="problem-overview" className="relative h-screen flex items-center snap-start bg-zelly-bg-primary pt-[60px] pb-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center">
+      <section id="problem-overview" className="relative h-[100dvh] flex items-center snap-start bg-zelly-bg-primary pt-[60px] pb-6 md:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-20 mt-[-10dvh] md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +92,8 @@ export default function Problem() {
       </section>
 
       {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
-      <section id="problem-section" className="relative h-screen bg-white snap-start flex items-center justify-center pt-[60px] overflow-hidden">
-        <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center">
+      <section id="problem-section" className="relative h-[100dvh] bg-white snap-start flex items-start sm:items-center justify-center pt-[70px] sm:pt-[60px] pb-6 md:pb-32 overflow-hidden">
+        <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-12 mt-[2vh] sm:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

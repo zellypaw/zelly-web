@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <main className="h-screen flex flex-col bg-white overflow-hidden">
+    <main className="h-[100dvh] flex flex-col bg-white overflow-hidden">
       <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
         <EventBanner />
         

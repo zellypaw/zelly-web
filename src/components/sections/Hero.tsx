@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section 
       data-testid="hero-section"
-      className="relative h-screen bg-zelly-bg-secondary overflow-hidden flex flex-col items-center pt-[60px] snap-start"
+      className="relative h-[100dvh] bg-zelly-bg-secondary overflow-hidden flex flex-col items-center pt-[60px] snap-start"
     >
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -20,8 +20,8 @@ export default function Hero() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-center pt-4 md:pt-6">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-start sm:justify-center pt-8 md:pt-4 pb-8 md:pb-32">
+        <div className="text-center max-w-4xl mx-auto pt-[8vh] sm:pt-0">
           {/* Eyebrow Headline */}
           <motion.p
             layout

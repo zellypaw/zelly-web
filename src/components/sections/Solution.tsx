@@ -121,11 +121,11 @@ export default function Solution() {
         <section 
           key={solution.id}
           id={index === 0 ? "solution-section" : undefined}
-          className={`h-screen flex items-center pt-[60px] snap-start overflow-hidden ${
+          className={`h-[100dvh] flex items-start sm:items-center pt-[70px] sm:pt-[60px] pb-6 md:pb-32 snap-start overflow-hidden ${
             index % 2 === 0 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
         >
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-4 md:pb-10 mt-[2vh] sm:mt-0">
             <div className={`flex flex-col md:flex-row items-center justify-center gap-0 lg:gap-20`}>
               {/* Text Content */}
               {/* Mobile: Always first | Desktop: Swaps to right if index is odd */}
