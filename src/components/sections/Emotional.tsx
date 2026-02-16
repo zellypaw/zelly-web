@@ -17,8 +17,8 @@ export default function Emotional() {
   const images = Array.from({ length: 20 }, (_, i) => i + 1);
 
   return (
-    <section className="relative h-[100dvh] flex flex-col items-center justify-between md:justify-center snap-start bg-zelly-bg-secondary pt-[60px] pb-2">
-      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-[2vh] md:pt-0">
+    <section className="relative h-[100dvh] flex flex-col items-center justify-center snap-start bg-zelly-bg-secondary pt-[60px] pb-4">
+      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-[2vh] md:pt-0 mb-4 md:mb-16">
         <motion.div {...fadeInUp} className="text-center">
           {/* Icon */}
           <div className="mb-4 md:mb-8 flex justify-center">

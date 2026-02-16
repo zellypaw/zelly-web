@@ -88,7 +88,6 @@ export default function Problem() {
             </div>
           </motion.div>
         </div>
-        <ScrollIndicator targetId="problem-details" />
       </section>
 
       {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
