@@ -5,20 +5,20 @@ import Container from '../common/Container';
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-transparent pt-2 pb-10 md:py-12">
+    <footer className="relative z-20 bg-transparent pt-12 pb-10 md:py-12">
       <Container>
         <div className="relative flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 w-full">
           {/* Copyright & Mobile Threads */}
           <div className="w-full md:w-1/3 text-center md:text-left order-2 md:order-1">
             <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <p className="text-zelly-text-tertiary text-[11px] md:text-sm tracking-tight">
+              <p className="text-zelly-text-tertiary text-sm md:text-sm tracking-tight">
                 © 2026 Zelly Team<span className="hidden md:inline">. All rights reserved.</span>
               </p>
               
               {/* Mobile unique: Socials inline */}
-              <div className="md:hidden flex items-center gap-2.5">
-                <span className="text-zelly-text-tertiary/20 text-[10px]">|</span>
-                <div className="flex items-center gap-2.5">
+              <div className="md:hidden flex items-center gap-3">
+                <span className="text-zelly-text-tertiary/20 text-xs">|</span>
+                <div className="flex items-center gap-4">
                   <a 
                     href="https://www.threads.net/@toyaji83" 
                     target="_blank" 
@@ -29,16 +29,16 @@ export default function Footer() {
                     <Image 
                       src="/assets/threads-logo-black.svg" 
                       alt="Threads" 
-                      width={13} 
-                      height={13} 
+                      width={18} 
+                      height={18} 
                       className="opacity-40"
                     />
                   </a>
                   <Image 
                     src="/assets/instgram_logo.svg" 
                     alt="Instagram" 
-                    width={14} 
-                    height={14} 
+                    width={20} 
+                    height={20} 
                     className="opacity-40"
                   />
                 </div>

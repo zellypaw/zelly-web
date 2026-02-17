@@ -32,25 +32,25 @@ export default function EventBanner() {
                   whileHover={{ backgroundColor: "#f2f4f7", y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="flex flex-row items-center justify-between sm:justify-center gap-3 sm:gap-6 h-full">
-                    {/* Text Content */}
-                    <div className="flex flex-col items-start justify-center">
-                      <span className="text-[10px] sm:text-sm font-medium text-gray-400 mb-0.5 tracking-tight">
-                        젤리 런칭 이벤트
-                      </span>
-                      <p className="text-[#111827] font-bold text-[13px] sm:text-lg tracking-tight leading-tight sm:leading-none pr-6 sm:pr-0">
-                        지금 사전 예약하면 <span className="text-zelly-pink font-extrabold underline decoration-zelly-pink/30 underline-offset-4">펫 리조트 숙박권</span> 증정! 🎁
-                      </p>
-                    </div>
-
+                  <div className="flex flex-row items-center justify-between sm:justify-center gap-1 sm:gap-3 h-full">
                     {/* Event Image */}
-                    <div className="relative h-[65%] sm:h-full aspect-[1584/672] flex-shrink-0">
+                    <div className="relative h-[65%] sm:h-[85%] aspect-[1584/672] flex-shrink-0">
                       <Image 
                         src="/assets/event_banner.png"
                         alt="Event Icon"
                         fill
                         className="object-contain"
                       />
+                    </div>
+
+                    {/* Text Content */}
+                    <div className="flex flex-col items-start justify-center">
+                      <span className="hidden sm:inline-block text-[12px] sm:text-sm font-medium text-gray-400 mb-0.5 tracking-tight">
+                        젤리 런칭 이벤트
+                      </span>
+                      <p className="text-[#111827] font-bold text-[17px] sm:text-lg tracking-tight leading-tight sm:leading-none pr-6 sm:pr-0">
+                        지금 사전 예약하면 <span className="text-zelly-pink font-extrabold underline decoration-zelly-pink/30 underline-offset-4 whitespace-nowrap">펫 리조트 숙박권</span> 증정! 🎁
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -62,7 +62,7 @@ export default function EventBanner() {
                   e.preventDefault();
                   setIsVisible(false);
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-zelly-text-secondary hover:text-zelly-pink transition-colors z-10"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-2 text-zelly-text-secondary hover:text-zelly-pink transition-colors z-10"
                 aria-label="Close banner"
               >
                 <X className="w-4 h-4" />

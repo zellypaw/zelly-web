@@ -15,7 +15,7 @@ const solutions: SolutionItem[] = [
   {
     id: 1,
     title: "손쉬운 태깅으로\n원하는 사진을 즉시 검색",
-    description: "AI가 사진을 분석해 스마트한 태그를 제안해드려요.\n쉽게 분류하고, 방대한 사진 속에서도 원하는\n추억을 태그로 언제나 간편하게 찾아보세요.",
+    description: "AI가 사진을 분석해 스마트한 태그를 제안해드려요.\n쉽게 간편하게 태그로 원하는 사진을 관리하세요.",
     images: ["/images/screen/tag-01.webp", "/images/screen/tag-02.webp", "/images/screen/tag-03.webp"]
   },
   {
@@ -33,7 +33,7 @@ const solutions: SolutionItem[] = [
   {
     id: 4,
     title: "사진 한 장으로 시작되는 우리 가족의 대화",
-    description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 인스타에 올리기엔 그저 소소한 순간들이 젤리를 통해 함께 웃고 공감하는 연결고리가 됩니다.",
+    description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 젤리가 온가족이 웃고 소통하는 공간이 됩니다.",
     images: ["/images/screen/family-01.webp", "/images/screen/family-02.webp", "/images/screen/family-03.webp"] // Placeholder
   },
   {
