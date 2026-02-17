@@ -32,7 +32,7 @@ export default function EventBanner() {
                   whileHover={{ backgroundColor: "#f2f4f7", y: -1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="flex flex-row items-center justify-between sm:justify-center gap-1 sm:gap-3 h-full">
+                  <div className="flex flex-row items-center justify-between sm:justify-center gap-1 sm:gap-3 h-full sm:-translate-x-4">
                     {/* Event Image */}
                     <div className="relative h-[65%] sm:h-[85%] aspect-[1584/672] flex-shrink-0">
                       <Image 
