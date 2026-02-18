@@ -7,6 +7,7 @@ import { Calendar, Gift, CheckCircle2, AlertCircle } from 'lucide-react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
+import ScrollIndicator from '@/components/common/ScrollIndicator';
 
 export default function EventPage() {
   React.useEffect(() => {
@@ -17,11 +18,11 @@ export default function EventPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#F8F9FB]">
+    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB] scroll-smooth">
       <Navbar />
       
       {/* Hero Section - Image Background */}
-      <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
+      <section className="relative w-full h-[100dvh] snap-start flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -63,13 +64,16 @@ export default function EventPage() {
           </motion.div>
         </div>
         
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+          <ScrollIndicator targetId="prize-section" className="!static !translate-x-0" />
+        </div>
       </section>
 
       {/* Content Container - Unified background */}
-      <div className="w-full bg-[#F8F9FB]">
+      <div className="w-full">
 
         {/* Prize Showcase Section - Vertical focused layout */}
-        <section className="py-20 px-8">
+        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB]">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,7 +168,7 @@ export default function EventPage() {
         </section>
 
         {/* Steps Section - Vertical list for cleaner look */}
-        <section className="py-20 bg-[#F0F4F8]/50 px-8">
+        <section id="steps-section" className="h-[100dvh] snap-start flex items-center justify-center bg-[#F0F4F8]/50 px-8 relative">
           <div className="text-center max-w-md mx-auto">
             <h2 className="text-2xl font-bold text-zelly-text-primary mb-12 text-balance">단 3초면 끝! 참여 방법</h2>
             
@@ -188,7 +192,7 @@ export default function EventPage() {
           </div>
         </section>
 
-        <section className="py-24 px-8 bg-[#F8F9FB]">
+        <section id="form-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 bg-[#F8F9FB] relative">
           <div className="max-w-[720px] mx-auto">
             <h3 className="text-2xl font-bold text-center mb-10 text-zelly-text-primary">이벤트 신청하기</h3>
             <div className="bg-white rounded-3xl p-8 border border-zelly-border shadow-sm">
@@ -214,9 +218,11 @@ export default function EventPage() {
               </div>
             </div>
           </div>
+          
+          <div className="absolute bottom-0 left-0 w-full">
+            <Footer />
+          </div>
         </section>
-
-        <Footer />
       </div>
     </main>
   );
