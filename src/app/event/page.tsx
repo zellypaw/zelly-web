@@ -9,49 +9,75 @@ import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
 
 export default function EventPage() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8 }
-  };
+  React.useEffect(() => {
+    document.body.style.backgroundColor = '#F8F9FB';
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
 
   return (
-    <main className="min-h-screen bg-[#f8f9fa]">
+    <main className="min-h-screen bg-[#F8F9FB]">
       <Navbar />
       
-      {/* Content Container - Narrow layout like a product detail page */}
-      <div className="max-w-[720px] mx-auto bg-white min-h-screen shadow-sm">
-        
-        {/* Simple & Clean Hero */}
-        <section className="relative overflow-hidden pt-12">
-          <div className="px-6 text-center mb-10">
-            <motion.div {...fadeInUp}>
-              <span className="inline-block px-3 py-1 rounded-full bg-zelly-bg-primary text-zelly-pink text-[11px] font-bold tracking-widest mb-4 border border-zelly-pink/10 uppercase">
-                Launching Event
-              </span>
-              <h1 className="text-3xl md:text-4xl font-black text-zelly-text-primary mb-4 tracking-tight leading-tight">
-                ZELLY 사전 예약<br />
-                <span className="text-zelly-pink">펫 리조트 숙박권</span> 증정
-              </h1>
-              <p className="text-base text-zelly-text-secondary font-medium">
-                지금 사전 예약하고 소중한 아이와 함께하는<br />
-                특별한 펫 리조트 여행의 기회를 잡으세요.
+      {/* Hero Section - Image Background */}
+      <section className="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-[60px] pb-0">
+        {/* Background Image - Desktop */}
+        <div className="absolute inset-0 z-0 hidden md:block">
+          <Image
+            src="/assets/event_desktop_hero.webp"
+            alt="Hero Background Desktop"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        {/* Background Image - Mobile */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <Image
+            src="/assets/event_mobile_hero.webp"
+            alt="Hero Background Mobile"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+
+        <div className="relative z-10 px-6 text-center max-w-[800px] mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <span className="inline-block text-[#15181E] text-xs font-bold tracking-widest mb-6 opacity-60 uppercase">
+              Launching Event
+            </span>
+            
+            <h1 className="text-3xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
+              지금 ZELLY 시작 시<br />
+              <span className="text-zelly-pink">초특급 혜택</span> 증정
+            </h1>
+
+            <div className="flex flex-col items-center gap-4 mb-10">
+              <p className="text-lg md:text-xl text-[#15181E]/60 font-medium leading-relaxed">
+                소중한 아이와의 일상을 기록하는 새로운 방법,<br />
+                젤리와 함께 더 특별한 추억을 만들어보세요.
               </p>
-            </motion.div>
-          </div>
-          
-          <div className="relative h-[400px] w-full px-6">
-            <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/assets/event_hero.png"
-                alt="Luxury Pet Resort"
-                fill
-                className="object-cover"
-                priority
-              />
+              
+              {/* Date Range with Blue Accent */}
+              <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-2">
+                <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.17</span>
+                <div className="w-12 h-[2px] bg-[#00A3FF]/30" />
+                <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">Launch</span>
+              </div>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </div>
+        
+      </section>
+
+      {/* Content Container - Unified background */}
+      <div className="w-full bg-[#F8F9FB]">
 
         {/* Prize Showcase Section - Vertical focused layout */}
         <section className="py-20 px-8">
@@ -149,7 +175,7 @@ export default function EventPage() {
         </section>
 
         {/* Steps Section - Vertical list for cleaner look */}
-        <section className="py-20 bg-zelly-bg-primary/30 px-8">
+        <section className="py-20 bg-[#F0F4F8]/50 px-8">
           <div className="text-center max-w-md mx-auto">
             <h2 className="text-2xl font-bold text-zelly-text-primary mb-12 text-balance">단 3초면 끝! 참여 방법</h2>
             
@@ -173,11 +199,10 @@ export default function EventPage() {
           </div>
         </section>
 
-        {/* Form Section */}
-        <section className="py-24 px-8 bg-white border-t border-zelly-border">
-          <div className="max-w-md mx-auto">
+        <section className="py-24 px-8 bg-[#F8F9FB]">
+          <div className="max-w-[720px] mx-auto">
             <h3 className="text-2xl font-bold text-center mb-10 text-zelly-text-primary">이벤트 신청하기</h3>
-            <div className="bg-[#fcfcfc] rounded-3xl p-8 border border-zelly-border shadow-inner">
+            <div className="bg-white rounded-3xl p-8 border border-zelly-border shadow-sm">
               <Suspense fallback={<div className="flex justify-center py-10 text-zelly-text-tertiary">로딩 중...</div>}>
                 <LeadForm />
               </Suspense>

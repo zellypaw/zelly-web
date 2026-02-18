@@ -18,7 +18,11 @@ export default function Navbar() {
   return (
     <nav 
       data-testid="navbar"
-      className="sticky top-0 w-full z-50 bg-zelly-bg-secondary/80 backdrop-blur-lg"
+      className={`w-full z-50 transition-all duration-300 ${
+        pathname === '/event' 
+          ? 'absolute top-0 left-0 bg-transparent' 
+          : 'sticky top-0 bg-zelly-bg-secondary/80 backdrop-blur-lg'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[60px]">
@@ -87,7 +91,9 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden bg-zelly-bg-secondary/95 backdrop-blur-xl border-t border-zelly-border py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className={`md:hidden backdrop-blur-xl border-t border-zelly-border py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200 ${
+          pathname === '/event' ? 'bg-[#F8F9FB]/95' : 'bg-zelly-bg-secondary/95'
+        }`}>
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
