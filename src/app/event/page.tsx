@@ -21,29 +21,19 @@ export default function EventPage() {
       <Navbar />
       
       {/* Hero Section - Image Background */}
-      <section className="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-[60px] pb-0">
-        {/* Background Image - Desktop */}
-        <div className="absolute inset-0 z-0 hidden md:block">
+      <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
           <Image
             src="/assets/event_desktop_hero.webp"
-            alt="Hero Background Desktop"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-        {/* Background Image - Mobile */}
-        <div className="absolute inset-0 z-0 md:hidden">
-          <Image
-            src="/assets/event_mobile_hero.webp"
-            alt="Hero Background Mobile"
+            alt="Hero Background"
             fill
             className="object-cover object-center"
             priority
           />
         </div>
 
-        <div className="relative z-10 px-6 text-center max-w-[800px] mx-auto">
+        <div className="relative z-10 px-6 text-center max-w-[800px] mx-auto pt-12 md:pt-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,19 +43,18 @@ export default function EventPage() {
               Launching Event
             </span>
             
-            <h1 className="text-3xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
               지금 ZELLY 시작 시<br />
               <span className="text-zelly-pink">초특급 혜택</span> 증정
             </h1>
 
             <div className="flex flex-col items-center gap-4 mb-10">
-              <p className="text-lg md:text-xl text-[#15181E]/60 font-medium leading-relaxed">
-                소중한 아이와의 일상을 기록하는 새로운 방법,<br />
+              <p className="text-sm md:text-xl text-[#15181E]/60 font-medium leading-relaxed">
                 젤리와 함께 더 특별한 추억을 만들어보세요.
               </p>
               
               {/* Date Range with Blue Accent */}
-              <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-2">
+              <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-6 ">
                 <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.17</span>
                 <div className="w-12 h-[2px] bg-[#00A3FF]/30" />
                 <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">Launch</span>
