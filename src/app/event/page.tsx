@@ -18,69 +18,69 @@ export default function EventPage() {
   }, []);
 
   return (
-    <main className="h-[100dvh] overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB] scroll-smooth">
-      <Navbar />
-      
-      {/* Hero Section - Image Background */}
-      <section className="relative w-full h-[100dvh] snap-start flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/event_desktop_hero.webp"
-            alt="Hero Background"
-            fill
-            className="hidden min-[1600px]:block object-cover object-center"
-            priority
-          />
-          <Image
-            src="/assets/event_mobile_hero.webp"
-            alt="Hero Background Mobile"
-            fill
-            className="block min-[1600px]:hidden object-cover object-center"
-            priority
-          />
-        </div>
+    <>
+      <div className="fixed top-0 left-0 w-full z-50">
+        <Navbar />
+      </div>
 
-        <div className="relative z-10 px-6 text-center max-w-[800px] mx-auto pt-12 md:pt-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <span className="inline-block text-[#15181E] text-xs font-bold tracking-widest mb-6 opacity-60 uppercase">
-              Launching Event
-            </span>
-            
-            <h1 className="text-4xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
-              지금 ZELLY 시작 시<br />
-              <span className="text-zelly-pink">초특급 혜택</span> 증정
-            </h1>
+      <main className="h-[100dvh] overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB]">
+        {/* Hero Section */}
+        <section className="relative w-full h-[100dvh] snap-start flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/assets/event_desktop_hero.webp"
+              alt="Hero Background"
+              fill
+              className="hidden min-[1600px]:block object-cover object-center"
+              priority
+            />
+            <Image
+              src="/assets/event_mobile_hero.webp"
+              alt="Hero Background Mobile"
+              fill
+              className="block min-[1600px]:hidden object-cover object-center"
+              priority
+            />
+          </div>
 
-            <div className="flex flex-col items-center gap-4 mb-10">
-              <p className="text-sm md:text-xl text-[#15181E]/60 font-medium leading-relaxed">
-                젤리와 함께 더 특별한 추억을 만들어보세요.
-              </p>
+          <div className="relative z-10 px-6 text-center max-w-[800px] mx-auto pt-12 md:pt-20">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <span className="inline-block text-[#15181E] text-xs font-bold tracking-widest mb-6 opacity-60 uppercase">
+                Launching Event
+              </span>
               
-              {/* Date Range with Blue Accent */}
-              <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-6 ">
-                <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.17</span>
-                <div className="w-12 h-[2px] bg-[#00A3FF]/30" />
-                <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">Launch</span>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
+                지금 ZELLY 시작 시<br />
+                <span className="text-zelly-pink">초특급 혜택</span> 증정
+              </h1>
+
+              <div className="flex flex-col items-center gap-4 mb-10">
+                <p className="text-sm md:text-xl text-[#15181E]/60 font-medium leading-relaxed">
+                  젤리와 함께 더 특별한 추억을 만들어보세요.
+                </p>
+                
+                {/* Date Range with Blue Accent */}
+                <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-6 ">
+                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.17</span>
+                  <div className="w-12 h-[2px] bg-[#00A3FF]/30" />
+                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">Launch</span>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-        
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-          <ScrollIndicator targetId="prize-section" className="!static !translate-x-0" />
-        </div>
-      </section>
+            </motion.div>
+          </div>
+          
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+            <ScrollIndicator targetId="prize-section" className="!static !translate-x-0" />
+          </div>
+        </section>
 
-      {/* Content Container - Unified background */}
-      <div className="w-full">
-
-        {/* Prize Showcase Section - Vertical focused layout */}
-        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB] pt-20 md:pt-0">
+        {/* Prize Showcase Section */}
+        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB] overflow-hidden pt-20 md:pt-0">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -174,8 +174,8 @@ export default function EventPage() {
           </motion.div>
         </section>
 
-        {/* Steps Section - Vertical list for cleaner look */}
-        <section id="steps-section" className="h-[100dvh] snap-start flex items-center justify-center bg-[#F0F4F8]/50 px-8 relative">
+        {/* Steps Section */}
+        <section id="steps-section" className="h-[100dvh] snap-start flex items-center justify-center bg-[#F0F4F8]/50 px-8 relative overflow-hidden">
           <div className="text-center max-w-md mx-auto">
             <h2 className="text-2xl font-bold text-zelly-text-primary mb-12 text-balance">단 3초면 끝! 참여 방법</h2>
             
@@ -199,8 +199,9 @@ export default function EventPage() {
           </div>
         </section>
 
-        <section id="form-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 bg-[#F8F9FB] relative">
-          <div className="max-w-[720px] mx-auto">
+        {/* Form Section */}
+        <section id="form-section" className="h-[100dvh] snap-start flex flex-col items-center justify-center px-8 bg-[#F8F9FB] relative overflow-hidden">
+          <div className="max-w-[720px] mx-auto mb-auto pt-20">
             <h3 className="text-2xl font-bold text-center mb-10 text-zelly-text-primary">이벤트 신청하기</h3>
             <div className="bg-white rounded-3xl p-8 border border-zelly-border shadow-sm">
               <Suspense fallback={<div className="flex justify-center py-10 text-zelly-text-tertiary">로딩 중...</div>}>
@@ -226,11 +227,11 @@ export default function EventPage() {
             </div>
           </div>
           
-          <div className="absolute bottom-0 left-0 w-full">
+          <div className="w-full mt-auto">
             <Footer />
           </div>
         </section>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
