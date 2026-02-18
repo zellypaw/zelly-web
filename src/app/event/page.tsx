@@ -18,7 +18,7 @@ export default function EventPage() {
   }, []);
 
   return (
-    <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB] scroll-smooth">
+    <main className="h-[100dvh] overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB] scroll-smooth">
       <Navbar />
       
       {/* Hero Section - Image Background */}
@@ -29,7 +29,14 @@ export default function EventPage() {
             src="/assets/event_desktop_hero.webp"
             alt="Hero Background"
             fill
-            className="object-cover object-center"
+            className="hidden min-[1600px]:block object-cover object-center"
+            priority
+          />
+          <Image
+            src="/assets/event_mobile_hero.webp"
+            alt="Hero Background Mobile"
+            fill
+            className="block min-[1600px]:hidden object-cover object-center"
             priority
           />
         </div>
@@ -73,13 +80,13 @@ export default function EventPage() {
       <div className="w-full">
 
         {/* Prize Showcase Section - Vertical focused layout */}
-        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB]">
+        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB] pt-20 md:pt-0">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-center w-full"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-zelly-text-primary mb-12 leading-tight">
               사전 예약자만을 위한<br />
