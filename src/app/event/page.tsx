@@ -59,7 +59,7 @@ export default function EventPage() {
               </span>
               
               <h1 className="text-4xl md:text-6xl font-extrabold text-[#15181E] mb-8 tracking-tight leading-[1.15]">
-                지금 ZELLY 시작 시<br />
+                지금 사전 예약하면<br />
                 <span className="text-zelly-pink">초특급 혜택</span> 증정
               </h1>
 
@@ -70,9 +70,9 @@ export default function EventPage() {
                 
                 {/* Date Range with Blue Accent */}
                 <div className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/50 backdrop-blur-sm border border-[#00A3FF]/10 mt-6 ">
-                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.17</span>
+                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">02.15</span>
                   <div className="w-12 h-[2px] bg-[#00A3FF]/30" />
-                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">Launch</span>
+                  <span className="text-[#00A3FF] font-bold text-sm tracking-widest uppercase">03.15</span>
                 </div>
               </div>
             </motion.div>
@@ -108,7 +108,7 @@ export default function EventPage() {
                   title: "젤리 AI 프리미엄 플랜",
                   subtitle: "(1년 이용권)",
                   desc: "ZELLY AI를 1년 동안 자유롭게 경험해보세요.",
-                  image: "/assets/event_benefit_3.png",
+                  image: "/assets/event_benefit_3.jpg",
                   highlight: "프리미엄 플랜 1년"
                 }
               ].map((benefit, index, array) => (
