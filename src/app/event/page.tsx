@@ -182,13 +182,29 @@ export default function EventPage() {
                 <h4 className="text-sm font-bold">사전 예약 신청 주의사항</h4>
               </div>
               
-              <div className="space-y-3 text-[11px] text-zelly-text-tertiary leading-relaxed">
+              <div className="space-y-1 text-[11px] text-zelly-text-tertiary leading-relaxed">
                 <p>
-                  • 이메일 주소를 부정확하게 입력할 경우 당첨 안내를 받으실 수 없으며, 이에 따른 불이익은 신청자 본인에게 있습니다.
+                  • 본 서비스는 2026년 상반기 중 정식 출시될 예정입니다.
                 </p>
-                <p className="text-[10px] opacity-80">
-                  • [개인정보 수집 및 이용 동의] 수집 항목(이메일), 목적(서비스 출시 알림 및 경품 추첨), 보유 기간(경품 당첨자 안내 완료 시까지). 귀하는 동의를 거부할 권리가 있으나, 거부 시 이벤트 참여가 제한됩니다.
+                <p>
+                  • 본 이벤트는 당사 사정에 따라 예고 없이 조기 종료될 수 있습니다.
                 </p>
+                <p>
+                  • 이메일 주소를 부정확하게 입력할 경우 당첨 안내를 받으실 수 없으며, 경품 이벤트 결과는 입력하신 이메일로 개별 안내됩니다.
+                </p>
+                <p>
+                  • 경품으로 제공되는 펫 리조트 숙박권은 상황에 따라 변경될 수 있으며, 객실 등급 및 패키지 구성 등 상세 내용은 미정입니다.
+                </p>
+                <p>
+                  • 서비스 운영 중단 등 서비스 지속이 어려운 사유가 발생할 경우, 사전 예약 혜택 제공이 당사 사정에 의해 중단될 수 있습니다.
+                </p>
+                <div className="pt-4 border-t border-zelly-border mt-4">
+                  <p className="font-bold text-zelly-text-secondary mb-1">[개인정보 수집 및 이용 안내]</p>
+                  <p>• 수집 항목 : 이메일 주소</p>
+                  <p>• 수집 목적 : 서비스 출시 알림 제공 및 이벤트 경품 추첨/안내</p>
+                  <p>• 보유 기간 : <span className="text-zelly-pink font-medium">수집일로부터 6개월</span> (이후 즉시 파기)</p>
+                  <p>• 귀하는 본 개인정보 수집 및 이용에 동의를 거부할 권리가 있으며, 동의 거부 시 이벤트 참여 및 알림 수신이 제한됩니다.</p>
+                </div>
               </div>
             </div>
           </div>

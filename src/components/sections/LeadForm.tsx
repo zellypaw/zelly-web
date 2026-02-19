@@ -77,7 +77,7 @@ export default function LeadForm() {
       <div className="max-w-xl mx-auto w-full">
         <motion.div {...fadeInUp} className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
-            이벤트 신청하기
+            ZELLY 사전예약 신청하기
           </h2>
           <div className="flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zelly-pink/10 text-zelly-pink text-xs font-bold tracking-wider">
@@ -89,11 +89,8 @@ export default function LeadForm() {
             </div>
             
             <p className="text-zelly-text-secondary text-base md:text-lg max-w-lg mx-auto leading-relaxed">
-              지금 신청하시면 정식 런칭 소식과 함께 <br />
-              <span className="font-bold text-zelly-text-primary relative inline-block bg-gradient-to-r from-zelly-pink/10 to-transparent px-1">
-                30만원 상당의 펫 리조트 숙박권
-              </span>
-              의 추첨 기회를 드립니다.
+              지금 가장 먼저 신청하고 <br />
+              젤리의 런칭 소식을 받아 보세요.
             </p>
           </div>
         </motion.div>
@@ -241,10 +238,12 @@ export default function LeadForm() {
                 </label>
               </div>
               
-              <p className="text-zelly-text-tertiary text-[11px] leading-relaxed text-center opacity-60 break-keep text-balance">
-                * 입력하신 소중한 정보는 서비스 런칭 알림 외에 어떠한 목적으로도 사용되지 않으며,<br className="hidden md:block" />
-                런칭 알림 발송 직후 즉시 파기됩니다.
-              </p>
+              <div className="text-zelly-text-tertiary text-[10px] md:text-[11px] leading-relaxed opacity-70 text-center">
+                <p>
+                  입력하신 정보는 서비스 런칭 알림 및 이벤트 안내를 위해서만 사용됩니다.<br />
+                  하단의 <span className="font-semibold underline underline-offset-2">개인정보 수집 및 이용 안내</span>를 반드시 확인해 주세요.
+                </p>
+              </div>
             </div>
           </form>
 
@@ -286,8 +285,7 @@ export default function LeadForm() {
                         <h3 className="text-xl font-bold text-zelly-text-primary mb-3">신청이 완료되었습니다!</h3>
                         <p className="text-zelly-text-secondary text-sm leading-relaxed mb-8">
                           정식 런칭일에 <span className="font-semibold text-zelly-text-primary">{submittedEmail}</span>님께<br />
-                          가장 먼저 기쁜 소식을 전해드릴게요.<br />
-                          <span className="text-zelly-pink font-medium mt-2 inline-block">숙박권 당첨 결과도 메일로 안내해 드립니다!</span>
+                          가장 먼저 기쁜 소식을 전해드릴게요.
                         </p>
                       </>
                     ) : (
