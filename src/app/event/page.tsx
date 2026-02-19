@@ -7,11 +7,19 @@ import { AlertCircle } from 'lucide-react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
+import { trackEvent } from '@/lib/mixpanel';
+import { useEffect } from 'react';
 
 export default function EventPage() {
   const bgColor = '#F8F9FB';
 
-  React.useEffect(() => {
+  useEffect(() => {
+    trackEvent('Event Page Viewed', {
+      referrer: typeof document !== 'undefined' ? document.referrer : '',
+    });
+  }, []);
+
+  useEffect(() => {
     document.body.style.backgroundColor = bgColor;
     return () => {
       document.body.style.backgroundColor = '';
