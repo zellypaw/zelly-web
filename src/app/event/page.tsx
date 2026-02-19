@@ -29,7 +29,7 @@ export default function EventPage() {
         style={{ backgroundColor: bgColor }}
       >
         {/* Hero Section */}
-        <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0 border-b border-zelly-border md:border-b-0">
+        <section className="relative w-full h-screen flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0 border-b border-zelly-border md:border-b-0">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
