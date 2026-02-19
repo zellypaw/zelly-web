@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Calendar, Gift, CheckCircle2, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
@@ -23,23 +23,23 @@ export default function EventPage() {
         <Navbar />
       </div>
 
-      <main className="h-[100dvh] overflow-y-auto snap-y snap-mandatory bg-[#F8F9FB]">
+      <main className="min-h-screen overflow-y-auto bg-[#F8F9FB]">
         {/* Hero Section */}
-        <section className="relative w-full h-[100dvh] snap-start flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
+        <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
               src="/assets/event_desktop_hero.webp"
               alt="Hero Background"
               fill
-              className="hidden min-[1600px]:block object-cover object-center"
+              className="hidden min-[800px]:block object-cover object-center"
               priority
             />
             <Image
               src="/assets/event_mobile_hero.webp"
               alt="Hero Background Mobile"
               fill
-              className="block min-[1600px]:hidden object-cover object-center"
+              className="block min-[800px]:hidden object-cover object-center"
               priority
             />
           </div>
@@ -79,132 +79,90 @@ export default function EventPage() {
           </div>
         </section>
 
-        {/* Prize Showcase Section */}
-        <section id="prize-section" className="h-[100dvh] snap-start flex items-center justify-center px-8 relative bg-[#F8F9FB] overflow-hidden pt-20 md:pt-0">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center w-full"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-zelly-text-primary mb-12 leading-tight">
-              사전 예약자만을 위한<br />
-              <span className="text-zelly-pink">스페셜 베네핏</span>
-            </h2>
-
-            {/* Ticket UI - Centered */}
-            <div className="max-w-md mx-auto mb-16">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                <div className="bg-[#1c2e4a] p-8 rounded-[2rem] shadow-2xl relative overflow-hidden text-white border border-white/10 group">
-                  <div className="absolute top-0 right-0 p-8 opacity-10 scale-150 rotate-12">
-                    <Gift size={120} />
-                  </div>
-                  
-                  <div className="relative z-10 text-left">
-                    <div className="border-b border-white/10 pb-6 mb-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <p className="text-blue-300 text-[10px] font-bold tracking-widest uppercase mb-1">Invitation Ticket</p>
-                          <h4 className="text-xl font-black italic">PET RESORT STAY</h4>
-                        </div>
-                        <div className="px-2 py-0.5 bg-yellow-400 text-black text-[9px] font-black rounded italic">VIP ONLY</div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3 mb-8">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-white/50 font-medium">Benefit</span>
-                        <span className="font-bold">1 Night Voucher</span>
-                      </div>
-                      <div className="flex justify-between text-xs">
-                        <span className="text-white/50 font-medium">Location</span>
-                        <span className="font-bold">Sono Pet / Kensington</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 pt-6 border-t border-dashed border-white/20">
-                      <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-300" />
-                      </div>
-                      <p className="text-[11px] text-blue-300 font-medium tracking-tight">
-                        ZELLY 사전 예약자 추첨 증정
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded-full" />
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-8 h-8 bg-white rounded-full" />
-                </div>
-              </motion.div>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-6 text-left max-w-md mx-auto">
-              <div className="p-6 bg-zelly-bg-primary rounded-2xl flex gap-4 border border-zelly-border">
-                <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-zelly-pink">
-                  <Gift className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-zelly-text-primary mb-1">펫 리조트 1박 숙박권 (3명)</h3>
-                  <p className="text-sm text-zelly-text-secondary leading-relaxed">
-                    소노펫, 켄싱턴 등 국내 최고급 펫 프렌들리 리조트 숙박권을 드립니다.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 bg-zelly-bg-primary rounded-2xl flex gap-4 border border-zelly-border">
-                <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center flex-shrink-0 text-zelly-blue-primary">
-                  <Calendar className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-zelly-text-primary mb-1">이벤트 기간 및 발표</h3>
-                  <p className="text-sm text-zelly-text-secondary leading-relaxed">
-                    기간: 정식 출시 전까지<br />
-                    발표: 서비스 런칭 시 개별 이메일 안내 예정
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Steps Section */}
-        <section id="steps-section" className="h-[100dvh] snap-start flex items-center justify-center bg-[#F0F4F8]/50 px-8 relative overflow-hidden">
-          <div className="text-center max-w-md mx-auto">
-            <h2 className="text-2xl font-bold text-zelly-text-primary mb-12 text-balance">단 3초면 끝! 참여 방법</h2>
-            
-            <div className="space-y-8">
+        {/* Redesigned Benefits Section - Step Style */}
+        <section id="prize-section" className="pt-20 pb-4 md:pt-32 md:pb-6 px-6 bg-[#F8F9FB]">
+          <div className="max-w-2xl mx-auto">
+            {/* White Container for all benefits */}
+            <div className="bg-white rounded-2xl border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
               {[
-                { step: 1, title: '이메일 입력', desc: '알림을 받을 이메일 주소를\n입력해 주세요.' },
-                { step: 2, title: '개인정보 동의', desc: '약관 및 개인정보 수집에\n동의해 주세요.' },
-                { step: 3, title: '신청 완료', desc: '런칭 소식과 함께 숙박권\n당첨 기회를 기다려주세요!' }
-              ].map((item) => (
-                <div key={item.step} className="flex items-start gap-5 text-left bg-white p-6 rounded-2xl border border-zelly-border shadow-sm">
-                  <div className="w-10 h-10 rounded-full bg-zelly-pink/10 text-zelly-pink flex items-center justify-center text-lg font-black flex-shrink-0">
-                    {item.step}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-zelly-text-primary mb-1">{item.title}</h3>
-                    <p className="text-sm text-zelly-text-secondary leading-relaxed whitespace-pre-line">{item.desc}</p>
-                  </div>
+                {
+                  id: 1,
+                  title: "소노펫 리조트 숙박권",
+                  subtitle: "(추첨 1인)",
+                  desc: "소노펫 등 국내 최고급 펫 프렌들리 리조트 숙박권을 드립니다.",
+                  image: "/assets/event_benefit_1.png",
+                  highlight: "소노펫 리조트"
+                },
+                {
+                  id: 2,
+                  title: "클라우드 100G 평생 무료",
+                  subtitle: "",
+                  desc: "소중한 추억을 가득 담을 수 있는 넉넉한 저장 공간을 제공합니다.",
+                  image: "/assets/event_benefit_2.png",
+                  highlight: "100G 평생 무료"
+                },
+                {
+                  id: 3,
+                  title: "젤리 AI 프리미엄 플랜 1년 이용권",
+                  subtitle: "",
+                  desc: "ZELLY AI의 프리미엄 기능을 1년 동안 자유롭게 경험해보세요.",
+                  image: "/assets/event_benefit_3.png",
+                  highlight: "프리미엄 플랜 1년"
+                }
+              ].map((benefit, index, array) => (
+                <div key={benefit.id}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className="px-6 py-10 md:p-16 flex flex-col items-center text-center"
+                  >
+                    {/* Step Label - Matching Date Range Style (Increased Size) */}
+                    <span className="text-[#00A3FF] font-semibold text-base tracking-widest mb-4 uppercase">
+                      혜택 0{benefit.id}.
+                    </span>
+
+                    {/* Title - Lower font-weight and reduced mobile size */}
+                    <h3 className="text-xl md:text-3xl font-extrabold text-[#15181E] mb-8 leading-tight">
+                      {benefit.title}
+                      {benefit.subtitle && (
+                        <span className="block text-zelly-pink text-lg md:text-xl mt-1">{benefit.subtitle}</span>
+                      )}
+                    </h3>
+
+                    {/* Image Area - Consistent Ratio */}
+                    <div className="w-full max-w-md mx-auto relative aspect-[16/10] rounded-2xl overflow-hidden mb-8 border border-zelly-border/50">
+                      <Image
+                        src={benefit.image}
+                        alt={benefit.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-[#15181E]/50 font-medium leading-relaxed max-w-[280px] md:max-w-md">
+                      {benefit.desc}
+                    </p>
+                  </motion.div>
+
+                  {/* Divider - Distinct line slightly away from edges */}
+                  {index < array.length - 1 && (
+                    <div className="px-6 md:px-20">
+                      <div className="h-[1px] w-full bg-[#F1F3F5]" />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Form Section */}
-        <section id="form-section" className="h-[100dvh] snap-start flex flex-col items-center justify-center px-8 bg-[#F8F9FB] relative overflow-hidden">
-          <div className="max-w-[720px] mx-auto mb-auto pt-20">
-            <h3 className="text-2xl font-bold text-center mb-10 text-zelly-text-primary">이벤트 신청하기</h3>
-            <div className="bg-white rounded-3xl p-8 border border-zelly-border shadow-sm">
-              <Suspense fallback={<div className="flex justify-center py-10 text-zelly-text-tertiary">로딩 중...</div>}>
+        <section id="form-section" className="pt-4 pb-20 md:pt-6 md:pb-32 px-6 bg-[#F8F9FB]">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+              <Suspense fallback={<div className="flex justify-center py-20 text-zelly-text-tertiary">로딩 중...</div>}>
                 <LeadForm />
               </Suspense>
             </div>

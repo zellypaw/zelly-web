@@ -73,14 +73,13 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="flex-1 flex items-center bg-zelly-bg-primary pt-24 pb-0 md:pt-20 md:pb-12 min-h-[80vh] md:min-h-0">
-      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-4 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
-            Zelly의 정식 런칭 소식을<br />
-            가장 먼저 받아보시겠어요?
+    <div id="lead-form" className="px-6 py-10 md:p-16 flex flex-col items-center">
+      <div className="max-w-xl mx-auto w-full">
+        <motion.div {...fadeInUp} className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-zelly-text-primary mb-6 leading-snug tracking-tight">
+            이벤트 신청하기
           </h2>
-          <div className="flex flex-col items-center gap-4 mt-6">
+          <div className="flex flex-col items-center gap-4">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zelly-pink/10 text-zelly-pink text-xs font-bold tracking-wider">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zelly-pink opacity-75"></span>
@@ -90,11 +89,11 @@ export default function LeadForm() {
             </div>
             
             <p className="text-zelly-text-secondary text-base md:text-lg max-w-lg mx-auto leading-relaxed">
-              지금 신청하시면 추첨을 통해 <br />
+              지금 신청하시면 정식 런칭 소식과 함께 <br />
               <span className="font-bold text-zelly-text-primary relative inline-block bg-gradient-to-r from-zelly-pink/10 to-transparent px-1">
                 30만원 상당의 펫 리조트 숙박권
               </span>
-              을 드립니다.
+              의 추첨 기회를 드립니다.
             </p>
           </div>
         </motion.div>
@@ -102,7 +101,6 @@ export default function LeadForm() {
         <motion.div
           {...fadeInUp}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-xl mx-auto"
         >
           <Script 
             src="https://challenges.cloudflare.com/turnstile/v0/api.js" 
@@ -323,6 +321,6 @@ export default function LeadForm() {
           )}
         </AnimatePresence>
       </div>
-    </section>
+    </div>
   );
 }
