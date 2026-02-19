@@ -7,15 +7,16 @@ import { AlertCircle } from 'lucide-react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
-import ScrollIndicator from '@/components/common/ScrollIndicator';
 
 export default function EventPage() {
+  const bgColor = '#F8F9FB';
+
   React.useEffect(() => {
-    document.body.style.backgroundColor = '#F8F9FB';
+    document.body.style.backgroundColor = bgColor;
     return () => {
       document.body.style.backgroundColor = '';
     };
-  }, []);
+  }, [bgColor]);
 
   return (
     <>
@@ -23,9 +24,12 @@ export default function EventPage() {
         <Navbar />
       </div>
 
-      <main className="min-h-screen overflow-y-auto bg-[#F8F9FB]">
+      <main 
+        className="min-h-screen overflow-y-auto"
+        style={{ backgroundColor: bgColor }}
+      >
         {/* Hero Section */}
-        <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0">
+        <section className="relative w-full h-[100dvh] flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0 border-b border-zelly-border md:border-b-0">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -74,16 +78,13 @@ export default function EventPage() {
             </motion.div>
           </div>
           
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-            <ScrollIndicator targetId="prize-section" className="!static !translate-x-0" />
-          </div>
         </section>
 
         {/* Redesigned Benefits Section - Step Style */}
-        <section id="prize-section" className="pt-20 pb-4 md:pt-32 md:pb-6 px-6 bg-[#F8F9FB]">
+        <section id="prize-section" className="pt-8 pb-4 md:pt-12 md:pb-6 px-0 md:px-6">
           <div className="max-w-2xl mx-auto">
             {/* White Container for all benefits */}
-            <div className="bg-white rounded-2xl border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+            <div className="bg-white rounded-none md:rounded-2xl border-y md:border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
               {[
                 {
                   id: 1,
@@ -159,16 +160,16 @@ export default function EventPage() {
           </div>
         </section>
 
-        <section id="form-section" className="pt-4 pb-20 md:pt-6 md:pb-32 px-6 bg-[#F8F9FB]">
+        <section id="form-section" className="pt-4 pb-20 md:pt-6 md:pb-32 px-0 md:px-6">
           <div className="max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+            <div className="bg-white rounded-none md:rounded-2xl border-y md:border border-zelly-border shadow-[0_8px_40px_rgba(0,0,0,0.03)] overflow-hidden">
               <Suspense fallback={<div className="flex justify-center py-20 text-zelly-text-tertiary">로딩 중...</div>}>
                 <LeadForm />
               </Suspense>
             </div>
 
             {/* Simplified Privacy Notice */}
-            <div className="mt-12 p-6 bg-zelly-bg-primary/50 rounded-2xl border border-zelly-border">
+            <div className="mt-8 md:mt-12 p-6 bg-zelly-bg-primary/50 rounded-none md:rounded-2xl border-y md:border border-zelly-border">
               <div className="flex items-start gap-2 mb-3 text-zelly-text-secondary">
                 <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
                 <h4 className="text-sm font-bold">사전 예약 신청 주의사항</h4>
@@ -185,7 +186,7 @@ export default function EventPage() {
             </div>
           </div>
           
-          <div className="w-full mt-auto">
+          <div className="w-full mt-8 md:mt-12">
             <Footer />
           </div>
         </section>
