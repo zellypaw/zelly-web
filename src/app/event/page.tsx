@@ -90,23 +90,24 @@ export default function EventPage() {
                   id: 1,
                   title: "소노펫 리조트 숙박권",
                   subtitle: "(추첨 1인)",
-                  desc: "소노펫 등 국내 최고급 펫 프렌들리 리조트 숙박권을 드립니다.",
-                  image: "/assets/event_benefit_1.png",
+                  desc: "국내 최고급 펫 리조트 숙박권을 드립니다.",
+                  image: "https://www.sonohotelsresorts.com/api/hms/user/management/file/image/TdYVlUTFLHVqJo-s4E4M4A==/1",
+                  fallback: "/assets/event_benefit_1.png",
                   highlight: "소노펫 리조트"
                 },
                 {
                   id: 2,
-                  title: "클라우드 100G 평생 무료",
-                  subtitle: "",
+                  title: "클라우드 100G 저장 용량",
+                  subtitle: "(평생 무료)",
                   desc: "소중한 추억을 가득 담을 수 있는 넉넉한 저장 공간을 제공합니다.",
                   image: "/assets/event_benefit_2.png",
                   highlight: "100G 평생 무료"
                 },
                 {
                   id: 3,
-                  title: "젤리 AI 프리미엄 플랜 1년 이용권",
-                  subtitle: "",
-                  desc: "ZELLY AI의 프리미엄 기능을 1년 동안 자유롭게 경험해보세요.",
+                  title: "젤리 AI 프리미엄 플랜",
+                  subtitle: "(1년 이용권)",
+                  desc: "ZELLY AI를 1년 동안 자유롭게 경험해보세요.",
                   image: "/assets/event_benefit_3.png",
                   highlight: "프리미엄 플랜 1년"
                 }
@@ -139,6 +140,12 @@ export default function EventPage() {
                         alt={benefit.title}
                         fill
                         className="object-cover"
+                        onError={(e) => {
+                          if (benefit.fallback) {
+                            const target = e.target as HTMLImageElement;
+                            target.src = benefit.fallback;
+                          }
+                        }}
                       />
                     </div>
 
