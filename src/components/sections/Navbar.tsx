@@ -20,7 +20,7 @@ export default function Navbar() {
       data-testid="navbar"
       className={`w-full z-50 transition-all duration-300 sticky top-0 ${
         pathname === '/event' 
-          ? 'bg-white/10 backdrop-blur-md border-b border-white/10' 
+          ? (isOpen ? 'bg-white border-b border-zelly-border shadow-sm' : 'bg-transparent') 
           : 'bg-zelly-bg-secondary/80 backdrop-blur-lg'
       }`}
     >
@@ -91,8 +91,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className={`md:hidden backdrop-blur-2xl border-t border-white/10 py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200 ${
-          pathname === '/event' ? 'bg-white/20' : 'bg-zelly-bg-secondary/95'
+        <div className={`md:hidden border-t border-zelly-border py-4 px-4 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200 ${
+          pathname === '/event' ? 'bg-white' : 'bg-zelly-bg-secondary/95 backdrop-blur-2xl'
         }`}>
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => {
