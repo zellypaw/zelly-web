@@ -41,7 +41,7 @@ export default function EventBanner() {
                     {/* Event Image */}
                     <div className="relative h-[65%] sm:h-[85%] aspect-[1584/672] flex-shrink-0">
                       <Image 
-                        src="/assets/event_banner.png"
+                        src="/images/event/event_banner.png"
                         alt="Event Icon"
                         fill
                         className="object-contain"

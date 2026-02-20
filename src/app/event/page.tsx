@@ -53,14 +53,14 @@ export default function EventPage() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/assets/event_desktop_hero.webp"
+              src="/images/event/event_desktop_hero.webp"
               alt="Hero Background"
               fill
               className="hidden min-[800px]:block object-cover object-center"
               priority
             />
             <Image
-              src="/assets/event_mobile_hero.webp"
+              src="/images/event/event_mobile_hero.webp"
               alt="Hero Background Mobile"
               fill
               className="block min-[800px]:hidden object-cover object-center"
@@ -110,9 +110,9 @@ export default function EventPage() {
                   id: 1,
                   title: "소노펫 리조트 숙박권",
                   subtitle: "(추첨 1인)",
-                  desc: "국내 최고급 펫 리조트 숙박권을 드립니다.",
-                  image: "/assets/event_benefit_1.webp",
-                  fallback: "https://www.sonohotelsresorts.com/api/hms/user/management/file/image/TdYVlUTFLHVqJo-s4E4M4A==/1",
+                  desc: "소노펫클럽앤리조트 패밀리 스탠다드뷰 1박\n(주말 예약 및 룸 업그레이드 시 추가금 발생)",
+                  image: "https://www.sonohotelsresorts.com/api/hms/user/management/file/image/NRY1_R1PAOemG8pXQmmbVA==/1",
+                  fallback: "/images/event/event_benefit_1.webp",
                   highlight: "소노펫 리조트"
                 },
                 {
@@ -120,8 +120,8 @@ export default function EventPage() {
                   title: "클라우드 100G 저장 용량",
                   subtitle: "(평생 무료)",
                   desc: "소중한 추억을 가득 담을 수 있는 넉넉한 저장 공간을 제공합니다.",
-                  image: "/assets/event_benefit_2.webp",
-                  fallback: "/assets/event_benefit_2.png",
+                  image: "/images/event/event_benefit_2.webp",
+                  fallback: "/images/event/event_benefit_2.png",
                   highlight: "100G 평생 무료"
                 },
                 {
@@ -129,8 +129,7 @@ export default function EventPage() {
                   title: "젤리 AI 프리미엄 플랜",
                   subtitle: "(1년 이용권)",
                   desc: "ZELLY AI를 1년 동안 자유롭게 경험해보세요.",
-                  image: "/assets/event_benefit_3.webp",
-                  fallback: "/assets/event_benefit_3.jpg",
+                  image: "/images/event/event_benefit_3.webp",
                   highlight: "프리미엄 플랜 1년"
                 }
               ].map((benefit, index, array) => (
@@ -172,7 +171,7 @@ export default function EventPage() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm md:text-base text-[#15181E]/50 font-medium leading-relaxed max-w-[280px] md:max-w-md">
+                    <p className="text-sm md:text-base text-[#15181E]/50 font-medium leading-relaxed max-w-[280px] md:max-w-md whitespace-pre-line">
                       {benefit.desc}
                     </p>
                   </motion.div>
@@ -215,7 +214,7 @@ export default function EventPage() {
                   • 이메일 주소를 부정확하게 입력할 경우 당첨 안내를 받으실 수 없으며, 경품 이벤트 결과는 입력하신 이메일로 개별 안내됩니다.
                 </p>
                 <p>
-                  • 경품으로 제공되는 펫 리조트 숙박권은 상황에 따라 변경될 수 있으며, 객실 등급 및 패키지 구성 등 상세 내용은 미정입니다.
+                  • 경품으로 제공되는 소노펫 리조트 숙박권은 주말 이용 및 룸 업그레이드 시 추가 비용이 발생할 수 있습니다.
                 </p>
                 <p>
                   • 서비스 운영 중단 등 서비스 지속이 어려운 사유가 발생할 경우, 사전 예약 혜택 제공이 당사 사정에 의해 중단될 수 있습니다.

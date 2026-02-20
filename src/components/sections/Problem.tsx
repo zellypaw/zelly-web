@@ -40,7 +40,7 @@ export default function Problem() {
                 className="md:hidden relative w-[calc(100%+4rem)] -mx-8 aspect-[1041/1183] max-h-[72dvh]"
               >
                 <Image
-                  src="/images/problem_mobile.webp"
+                  src="/images/problem/problem_mobile.webp"
                   alt="Problem situations mobile"
                   fill
                   className="object-contain"
@@ -56,7 +56,7 @@ export default function Problem() {
                 className="hidden md:block relative w-full max-w-6xl aspect-[1696/721]"
               >
                 <Image
-                  src="/images/problem_desktop.webp"
+                  src="/images/problem/problem_desktop.webp"
                   alt="Problem situations desktop"
                   fill
                   className="object-contain"
