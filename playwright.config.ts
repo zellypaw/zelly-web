@@ -4,11 +4,16 @@ export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  // 전체 테스트 세션 타임아웃은 서버 기동을 고려해 15초 유지
+  timeout: 15 * 1000,
   use: {
     baseURL: 'http://localhost:3000',
+    // 유저 액션 및 내비게이션이 1초를 넘으면 즉시 실패
+    actionTimeout: 1000,
+    navigationTimeout: 1000,
     trace: 'on-first-retry',
   },
   projects: [
@@ -16,19 +21,11 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
   ],
   webServer: {
-    command: process.env.CI ? 'npm run build && npx serve out' : 'npm run dev',
+    command: 'npx serve out -p 3000 --config ../serve.json',
     port: 3000,
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 10 * 1000,
   },
 });

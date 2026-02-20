@@ -126,6 +126,10 @@ export default function LeadForm() {
 
               setIsLoading(true);
               
+              // 1-second timeout controller
+              const controller = new AbortController();
+              const timeoutId = setTimeout(() => controller.abort(), 1000);
+
               try {
                 const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/lead/`, {
                   method: 'POST',
@@ -148,7 +152,10 @@ export default function LeadForm() {
                       ...(document.referrer && { referrer: document.referrer }),
                     }
                   }),
+                  signal: controller.signal,
                 });
+
+                clearTimeout(timeoutId);
 
                 if (response.ok) {
                   setSubmittedEmail(email);
@@ -177,9 +184,13 @@ export default function LeadForm() {
                   console.error('API Error Detail:', errorData);
                   alert(typeof errorData.detail === 'string' ? errorData.detail : '신청 처리 중 오류가 발생했습니다.');
                 }
-              } catch (error) {
-                console.error('API Error:', error);
-                alert('서버와 통신 중 오류가 발생했습니다. 네트워크 상태를 확인해주세요.');
+              } catch (error: unknown) {
+                if (error instanceof Error && error.name === 'AbortError') {
+                  alert('요청 시간이 초과되었습니다. 서버 상태를 확인하거나 잠시 후 다시 시도해주세요.');
+                } else {
+                  console.error('API Error:', error);
+                  alert('서버와 통신 중 오류가 발생했습니다. 네트워크 상태를 확인해주세요.');
+                }
               } finally {
                 setIsLoading(false);
               }
