@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
@@ -12,6 +12,11 @@ import { useEffect } from 'react';
 
 export default function EventPage() {
   const bgColor = '#F8F9FB';
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     trackEvent('Event Page Viewed', {
@@ -25,6 +30,13 @@ export default function EventPage() {
       document.body.style.backgroundColor = '';
     };
   }, [bgColor]);
+
+  // Render minimal placeholder during SSR to avoid hydration mismatch on iOS WebKit
+  if (!isMounted) {
+    return (
+      <div className="min-h-screen" style={{ backgroundColor: bgColor }} />
+    );
+  }
 
   return (
     <>
