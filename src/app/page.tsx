@@ -29,7 +29,7 @@ export default function LandingPage() {
         <Solution />
         <Emotional />
         
-        <div className="snap-start bg-zelly-bg-primary">
+        <div className="snap-start snap-always bg-zelly-bg-primary">
           <Footer />
         </div>
       </div>
