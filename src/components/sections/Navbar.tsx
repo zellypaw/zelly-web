@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav 
       data-testid="navbar"
-      className={`w-full z-50 transition-all duration-300 sticky top-0 ${
+      className={`w-full z-50 transition-all duration-300 md:sticky md:top-0 ${
         pathname === '/event' 
           ? (isOpen ? 'bg-white border-b border-zelly-border shadow-sm' : 'bg-transparent') 
           : 'bg-zelly-bg-secondary/80 backdrop-blur-lg'

@@ -19,7 +19,7 @@ export default function LandingPage() {
       <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
         <EventBanner />
         
-        <div className="sticky top-0 z-50 h-0">
+        <div className="relative md:sticky md:top-0 z-50 md:h-0">
           <Navbar />
         </div>
 

@@ -40,14 +40,13 @@ export default function EventPage() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-50">
-        <Navbar />
-      </div>
-
       <main 
-        className="min-h-screen overflow-y-auto"
+        className="relative min-h-screen overflow-y-auto"
         style={{ backgroundColor: bgColor }}
       >
+        <div className="absolute md:fixed top-0 left-0 w-full z-50">
+          <Navbar />
+        </div>
         {/* Hero Section */}
         <section className="relative w-full h-screen flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0 border-b border-zelly-border md:border-b-0">
           {/* Background Image */}

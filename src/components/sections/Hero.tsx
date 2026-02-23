@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section 
       data-testid="hero-section"
-      className="relative h-[100dvh] bg-zelly-bg-secondary overflow-hidden flex flex-col items-center pt-[60px] snap-start snap-always"
+      className="relative h-[100dvh] bg-zelly-bg-secondary overflow-hidden flex flex-col items-center md:pt-[60px] snap-start snap-always"
     >
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
