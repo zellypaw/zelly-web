@@ -13,9 +13,12 @@ import { useEffect } from 'react';
 export default function EventPage() {
   const bgColor = '#F8F9FB';
   const [isMounted, setIsMounted] = useState(false);
+  const [heroHeight, setHeroHeight] = useState('100vh');
 
   useEffect(() => {
     setIsMounted(true);
+    // Lock hero height to actual pixels to prevent jumping on mobile scroll
+    setHeroHeight(`${window.innerHeight}px`);
   }, []);
 
   useEffect(() => {
@@ -40,17 +43,28 @@ export default function EventPage() {
 
   return (
     <>
+      <div className="absolute md:fixed top-0 left-0 w-full z-50">
+        <Navbar />
+      </div>
+
       <main 
-        className="relative min-h-screen overflow-y-auto"
+        className="min-h-screen"
         style={{ backgroundColor: bgColor }}
       >
-        <div className="absolute md:fixed top-0 left-0 w-full z-50">
-          <Navbar />
-        </div>
         {/* Hero Section */}
-        <section className="relative w-full h-screen flex flex-col items-center justify-start overflow-hidden pt-[40px] pb-0 border-b border-zelly-border md:border-b-0">
+        <section 
+          className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-12 md:pt-20 pb-0 border-b border-zelly-border md:border-b-0"
+          style={{ height: heroHeight }}
+        >
           {/* Background Image */}
-          <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 z-0"
+            style={{ 
+              transform: 'translateZ(0)', 
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
+          >
             <Image
               src="/images/event/event_desktop_hero.webp"
               alt="Hero Background"
