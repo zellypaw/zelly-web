@@ -121,7 +121,7 @@ export default function Solution() {
         <section 
           key={solution.id}
           id={index === 0 ? "solution-section" : undefined}
-          className={`h-screen flex items-center md:pt-[60px] pt-4 pb-6 md:pb-12 snap-start snap-always overflow-hidden ${
+          className={`h-[100svh] flex items-center md:pt-[60px] pt-4 pb-6 md:pb-12 snap-start snap-always overflow-hidden ${
             index % 2 === 0 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
         >

@@ -21,12 +21,12 @@ export default function Problem() {
   return (
     <>
       {/* 1st Page: Visual Summary - Newly Designed */}
-      <section id="problem-overview" className="relative h-screen flex items-center snap-start snap-always bg-zelly-bg-primary md:pt-[60px] pt-4 pb-2 md:pb-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center pb-2 md:pb-4 md:mt-0">
+      <section id="problem-overview" className="relative h-[100svh] flex items-center snap-start snap-always bg-zelly-bg-primary md:pt-[60px] pt-4 pb-2 md:pb-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-8 text-center pb-2 md:pb-4 mt-[-4vh] md:mt-0">
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center"
           >
@@ -34,10 +34,10 @@ export default function Problem() {
             <div className="w-full mb-4 md:mb-8 flex justify-center overflow-hidden">
               {/* Mobile Image: Slightly larger than screen width for better visibility */}
               <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="md:hidden relative w-[calc(100%+4rem)] -mx-8 aspect-[1041/1183] max-h-[85vh]"
+                className="md:hidden relative w-[calc(100%+4rem)] -mx-8 aspect-[1041/1183] max-h-[75svh]"
               >
                 <Image
                   src="/images/problem/problem_mobile.webp"
@@ -91,7 +91,7 @@ export default function Problem() {
       </section>
 
       {/* 2nd Page: Original Detailed Section - 100% Restored via Git Diff */}
-      <section id="problem-section" className="relative h-screen bg-white snap-start snap-always flex items-center justify-center md:pt-[60px] pt-4 pb-6 md:pb-12 overflow-hidden">
+      <section id="problem-section" className="relative h-[100svh] bg-white snap-start snap-always flex items-center justify-center md:pt-[60px] pt-4 pb-6 md:pb-12 overflow-hidden">
         <div className="max-w-4xl mx-auto w-full px-6 md:px-8 text-center pb-4 md:pb-0 mt-[-2dvh] md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
