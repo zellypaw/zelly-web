@@ -53,8 +53,8 @@ export default function EventBanner() {
                       <span className="hidden sm:inline-block text-[12px] sm:text-sm font-medium text-gray-400 mb-0.5 tracking-tight">
                         젤리 런칭 이벤트
                       </span>
-                      <p className="text-[#111827] font-bold text-[17px] sm:text-lg tracking-tight leading-tight sm:leading-none pr-6 sm:pr-0">
-                        지금 사전 예약하면 <span className="text-zelly-pink font-extrabold underline decoration-zelly-pink/30 underline-offset-4 whitespace-nowrap">펫 리조트 숙박권</span> 증정! 🎁
+                      <p className="text-[#111827] font-bold text-[16px] sm:text-lg tracking-tight leading-tight sm:leading-none pr-6 sm:pr-0 break-keep text-pretty">
+                        지금 사전 예약하면 <span className="text-zelly-pink font-bold underline decoration-zelly-pink/30 underline-offset-4 whitespace-nowrap">펫 리조트 숙박권</span> 증정! 🎁
                       </p>
                     </div>
                   </div>

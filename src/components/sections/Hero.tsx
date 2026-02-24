@@ -38,10 +38,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[2.65rem] md:text-6xl lg:text-7xl font-black text-zelly-text-primary mb-10 md:mb-12 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
+            className="text-[2.65rem] md:text-6xl lg:text-7xl font-extrabold text-zelly-text-primary mb-10 md:mb-12 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
           >
-            갤러리에 잠든 귀여움이<br />
-            기록이 되는 순간
+            갤러리에 잠든 귀여움이<br className="md:hidden" /> 기록이 되는 순간
           </motion.h2>
 
           {/* Sub-headline */}

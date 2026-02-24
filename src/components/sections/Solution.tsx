@@ -140,20 +140,10 @@ export default function Solution() {
               >
                 <div className="max-w-sm w-full text-center md:text-left">
                   <h3 className="text-2xl md:text-4xl font-bold text-zelly-text-primary mb-6 md:mb-8 leading-tight break-keep text-balance">
-                    {solution.title.split('\n').map((line, i) => (
-                      <React.Fragment key={i}>
-                        {line}
-                        <br className="hidden md:block" />
-                      </React.Fragment>
-                    ))}
+                    {solution.title}
                   </h3>
-                  <p className="text-sm md:text-lg text-zelly-text-secondary leading-relaxed break-keep font-medium opacity-90 px-6 md:px-0">
-                    {solution.description.split('\n').map((line, i) => (
-                      <React.Fragment key={i}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    ))}
+                  <p className="text-sm md:text-lg text-zelly-text-secondary leading-relaxed break-keep text-pretty font-medium opacity-90 px-6 md:px-0">
+                    {solution.description}
                   </p>
                 </div>
               </motion.div>

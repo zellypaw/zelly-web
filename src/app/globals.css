@@ -36,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -55,6 +56,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
 }
 
 /* Remove dark mode preference */
@@ -105,3 +109,17 @@ body {
 .pause-marquee:hover .animate-marquee2 {
   animation-play-state: paused;
 }
+
+/* Line Breaking & Typography Utilities */
+.break-keep {
+  word-break: keep-all;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
