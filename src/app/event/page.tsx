@@ -4,7 +4,7 @@ import React, { Suspense, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
-import Navbar from '@/components/sections/Navbar';
+import EventNavbar from '@/components/sections/EventNavbar';
 import Footer from '@/components/sections/Footer';
 import LeadForm from '@/components/sections/LeadForm';
 import { trackEvent } from '@/lib/mixpanel';
@@ -43,14 +43,13 @@ export default function EventPage() {
 
   return (
     <>
-      <div className="absolute md:fixed top-0 left-0 w-full z-50">
-        <Navbar />
-      </div>
-
       <main 
-        className="min-h-screen"
+        className="relative min-h-screen"
         style={{ backgroundColor: bgColor }}
       >
+        <div className="absolute md:fixed top-0 left-0 w-full z-50">
+          <EventNavbar />
+        </div>
         {/* Hero Section */}
         <section 
           className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-12 md:pt-20 pb-0 border-b border-zelly-border md:border-b-0"
