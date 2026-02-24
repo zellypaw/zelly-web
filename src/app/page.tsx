@@ -15,23 +15,22 @@ export const metadata: Metadata = {
 
 export default function LandingPage() {
   return (
-    <main className="h-[100dvh] flex flex-col bg-white overflow-hidden">
-      <div className="flex-1 snap-y snap-mandatory overflow-y-auto">
-        <EventBanner />
-        
-        <div className="relative md:sticky md:top-0 z-50 md:h-0">
-          <Navbar />
-        </div>
+    <main className="bg-white min-h-full">
+      <div className="snap-start h-0" /> {/* Invisible anchor for the very top */}
+      <EventBanner />
+      
+      <div className="relative md:sticky md:top-0 z-50 md:h-0">
+        <Navbar />
+      </div>
 
-        <Hero />
-        
-        <Problem />
-        <Solution />
-        <Emotional />
-        
-        <div className="snap-start snap-always bg-zelly-bg-primary">
-          <Footer />
-        </div>
+      <Hero />
+      
+      <Problem />
+      <Solution />
+      <Emotional />
+      
+      <div className="snap-start snap-always bg-zelly-bg-primary">
+        <Footer />
       </div>
     </main>
   );

@@ -23,7 +23,7 @@ export default function EventBanner() {
         opacity: { duration: 0.25 }
       }}
       style={{ overflow: 'hidden' }}
-      className="w-full snap-start"
+      className="w-full"
     >
       <div className="w-full pt-2.5 pb-2 sm:pb-3 px-2 sm:px-6">
             <div className="relative max-w-7xl mx-auto">
