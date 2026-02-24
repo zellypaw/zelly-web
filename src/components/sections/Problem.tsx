@@ -82,7 +82,7 @@ export default function Problem() {
 
             {/* Main Message */}
             <div className="mb-2">
-               <p className="text-xl md:text-2xl lg:text-2xl text-gray-900 leading-snug font-bold max-w-2xl mx-auto whitespace-pre-wrap break-keep">
+               <p className="text-xl md:text-2xl lg:text-2xl text-gray-900 leading-snug font-bold max-w-2xl mx-auto whitespace-pre-wrap break-keep px-4">
                 {"우리 아이와의 소중한 추억,\n혹시 방치되고 있지 않나요?"}
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function Problem() {
               transition={{ delay: 0.5, duration: 1 }}
               className="mb-4 md:mb-8"
             >
-               <p className="text-xl md:text-3xl lg:text-3xl text-gray-900 leading-tight font-bold max-w-4xl mx-auto whitespace-pre-wrap break-keep">
+               <p className="text-xl md:text-3xl lg:text-3xl text-gray-900 leading-tight font-bold max-w-4xl mx-auto whitespace-pre-wrap break-keep px-4">
                 {"우리 아이와의 소중한 추억들, \n이제 잊혀지지 않게 젤리가 도와드릴게요."}
               </p>
             </motion.div>

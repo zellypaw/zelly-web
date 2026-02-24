@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+        'short': { 'raw': '(max-height: 660px)' },
+      },
       colors: {
         // Zelly Brand Colors (Using CSS variables from globals.css)
         zelly: {

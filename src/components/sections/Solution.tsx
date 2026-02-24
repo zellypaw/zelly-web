@@ -33,7 +33,7 @@ const solutions: SolutionItem[] = [
   {
     id: 4,
     title: "사진 한 장으로 시작되는 우리 가족의 대화",
-    description: "함께 올리고, 댓글과 이모지로 실시간 반응을 나눠보세요. 젤리가 온가족이 웃고 소통하는 공간이 됩니다.",
+    description: "댓글과 이모지로 실시간 반응을 나눠보세요. 젤리가 온가족이 웃고 소통하는 공간이 됩니다.",
     images: ["/images/screen/family-01.webp", "/images/screen/family-02.webp", "/images/screen/family-03.webp"] // Placeholder
   },
   {
@@ -125,7 +125,7 @@ export default function Solution() {
             index % 2 === 0 ? 'bg-zelly-bg-secondary' : 'bg-zelly-bg-primary'
           }`}
         >
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-4 md:pb-0 mt-[-4dvh] md:mt-0">
+          <div className="max-w-7xl mx-auto w-full px-7 sm:px-6 lg:px-8 pb-4 md:pb-0 mt-[-2vh] md:mt-0">
             <div className={`flex flex-col md:flex-row items-center justify-center gap-0 lg:gap-20`}>
               {/* Text Content */}
               {/* Mobile: Always first | Desktop: Swaps to right if index is odd */}
@@ -139,10 +139,10 @@ export default function Solution() {
                 }`}
               >
                 <div className="max-w-sm w-full text-center md:text-left">
-                  <h3 className="text-2xl md:text-4xl font-bold text-zelly-text-primary mb-6 md:mb-8 leading-tight break-keep text-balance">
+                  <h3 className="text-[1.35rem] md:text-4xl font-bold text-zelly-text-primary mb-3 md:mb-8 leading-tight break-keep text-balance">
                     {solution.title}
                   </h3>
-                  <p className="text-sm md:text-lg text-zelly-text-secondary leading-relaxed break-keep text-pretty font-medium opacity-90 px-6 md:px-0">
+                  <p className="text-[0.925rem] md:text-lg text-zelly-text-secondary leading-relaxed break-keep text-pretty font-medium opacity-90 px-2 md:px-0">
                     {solution.description}
                   </p>
                 </div>
@@ -155,11 +155,11 @@ export default function Solution() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className={`flex-1 w-full flex justify-center mt-8 md:mt-0 ${
+                className={`flex-1 w-full flex justify-center mt-6 md:mt-0 ${
                   index % 2 === 1 ? 'md:order-1 md:justify-end' : 'md:justify-start'
                 }`}
               >
-                <div className="w-full max-w-[180px] md:max-w-sm flex justify-center md:scale-100">
+                <div className="w-full max-w-[150px] xs:max-w-[180px] md:max-w-sm flex justify-center md:scale-100">
                   <ImageSlider images={solution.images} />
                 </div>
               </motion.div>

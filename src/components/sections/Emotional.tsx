@@ -17,23 +17,23 @@ export default function Emotional() {
   const images = Array.from({ length: 20 }, (_, i) => i + 1);
 
   return (
-    <section className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-zelly-bg-secondary md:pt-[60px] pt-4 pb-4">
-      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-[-4vh] md:mt-0 mb-4 md:mb-16">
+    <section className="relative h-[100dvh] flex flex-col items-center justify-center snap-start snap-always bg-zelly-bg-secondary md:pt-[60px] pt-4 pb-4 overflow-hidden">
+      <div className="max-w-4xl mx-auto w-full px-7 sm:px-6 lg:px-8 mt-[-4vh] md:mt-0 mb-4 md:mb-16">
         <motion.div {...fadeInUp} className="text-center">
           {/* Icon */}
-          <div className="mb-4 md:mb-8 flex justify-center">
+          <div className="mb-6 md:mb-8 flex justify-center">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-zelly-bg-secondary shadow-md flex items-center justify-center">
               <Heart className="w-8 h-8 md:w-10 md:h-10 text-zelly-pink fill-zelly-pink" />
             </div>
           </div>
 
           {/* Emotional Message */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-zelly-text-primary mb-4 md:mb-6 leading-tight">
+          <h2 className="text-[1.65rem] md:text-4xl lg:text-5xl font-bold text-zelly-text-primary mb-6 md:mb-6 leading-tight">
             언젠가 사진밖에 남지 않을<br />
             순간이 옵니다.
           </h2>
 
-          <p className="text-lg md:text-2xl text-zelly-text-secondary leading-relaxed mb-6 md:mb-10">
+          <p className="text-[1.15rem] md:text-2xl text-zelly-text-secondary leading-relaxed mb-10 md:mb-10">
             소중한 순간이 잊혀지기 전에,<br />
             Zelly로 추억을 정리해 보세요.
           </p>
@@ -56,7 +56,7 @@ export default function Emotional() {
       <motion.div 
         {...fadeInUp}
         transition={{ ...fadeInUp.transition, delay: 0.2 }}
-        className="overflow-hidden relative w-full h-[220px] md:h-64 bg-zelly-bg-secondary/50"
+        className="overflow-hidden relative w-full h-[200px] md:h-64 bg-zelly-bg-secondary/50"
       >
         <div className="flex absolute whitespace-nowrap animate-marquee py-6 md:py-4">
           {[...Array(4)].map((_, i) => (

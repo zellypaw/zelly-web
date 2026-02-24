@@ -20,15 +20,15 @@ export default function Hero() {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zelly-green/10 rounded-full blur-3xl opacity-50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 flex-1 flex flex-col items-center justify-start md:justify-center pt-8 md:pt-4 pb-8 md:pb-32">
-        <div className="text-center max-w-4xl mx-auto pt-[6vh] md:pt-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-7 sm:px-8 flex-1 flex flex-col items-center justify-start md:justify-center pt-8 md:pt-4 pb-8 md:pb-32">
+        <div className="text-center max-w-4xl mx-auto pt-[7vh] md:pt-0">
           {/* Eyebrow Headline */}
           <motion.p
             layout
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-md md:text-lg font-semibold text-zelly-text-secondary tracking-[0.05em] mb-8 md:mb-10 uppercase"
+            className="text-sm md:text-lg font-semibold text-zelly-text-secondary tracking-[0.05em] mb-8 md:mb-10 uppercase"
           >
             반려동물 라이프로그 플랫폼, <span className="text-zelly-pink">젤리</span>
           </motion.p>
@@ -38,7 +38,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[2.65rem] md:text-6xl lg:text-7xl font-extrabold text-zelly-text-primary mb-10 md:mb-12 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
+            className="text-[2.25rem] md:text-6xl lg:text-7xl font-extrabold text-zelly-text-primary mb-10 md:mb-12 leading-[1.15] tracking-[-0.03em] md:tracking-tight break-keep text-balance"
           >
             갤러리에 잠든 귀여움이<br className="md:hidden" /> 기록이 되는 순간
           </motion.h2>
@@ -49,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-[1.075rem] lg:text-2xl text-zelly-text-secondary mb-10 md:mb-14 leading-relaxed max-w-3xl mx-auto font-medium break-keep text-balance"
+            className="text-[1.05rem] md:text-[1.075rem] lg:text-2xl text-zelly-text-secondary mb-10 md:mb-14 leading-relaxed max-w-3xl mx-auto font-medium break-keep text-balance px-4 md:px-0"
           >
             지우기 아까운 수많은 순간들. 젤리의 AI 기술이 갤러리 속 사진과 영상을 완성된 디지털 앨범으로 만들어 드립니다.
           </motion.p>
