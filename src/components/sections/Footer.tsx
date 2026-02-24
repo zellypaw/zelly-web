@@ -20,7 +20,7 @@ export default function Footer() {
                 <span className="text-zelly-text-tertiary/20 text-xs">|</span>
                 <div className="flex items-center gap-4">
                   <a 
-                    href="https://www.threads.net/@toyaji83" 
+                    href="https://www.threads.com/@zellypaw" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center transition-opacity active:opacity-60"
@@ -34,13 +34,21 @@ export default function Footer() {
                       className="opacity-40"
                     />
                   </a>
-                  <Image 
-                    src="/assets/instgram_logo.svg" 
-                    alt="Instagram" 
-                    width={20} 
-                    height={20} 
-                    className="opacity-40"
-                  />
+                  <a 
+                    href="https://www.instagram.com/zellypaw/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center transition-opacity active:opacity-60"
+                    aria-label="Instagram"
+                  >
+                    <Image 
+                      src="/assets/instgram_logo.svg" 
+                      alt="Instagram" 
+                      width={20} 
+                      height={20} 
+                      className="opacity-40"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -69,7 +77,7 @@ export default function Footer() {
               개인정보처리방침
             </Link>
             <a 
-              href="https://www.threads.net/@toyaji83" 
+              href="https://www.threads.com/@zellypaw" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-zelly-text-tertiary hover:text-zelly-text-primary transition-colors flex items-center justify-center"
@@ -83,15 +91,21 @@ export default function Footer() {
                 className="w-4 h-4 md:w-5 md:h-5 opacity-60 hover:opacity-100 transition-opacity"
               />
             </a>
-            <div className="flex items-center justify-center">
+            <a 
+              href="https://www.instagram.com/zellypaw/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-zelly-text-tertiary hover:text-zelly-text-primary transition-colors flex items-center justify-center"
+              aria-label="Instagram"
+            >
               <Image 
                 src="/assets/instgram_logo.svg" 
                 alt="Instagram" 
                 width={20} 
                 height={20} 
-                className="w-4 h-4 md:w-5 md:h-5 opacity-60 transition-opacity"
+                className="w-4 h-4 md:w-5 md:h-5 opacity-60 hover:opacity-100 transition-opacity"
               />
-            </div>
+            </a>
           </div>
         </div>
       </Container>
