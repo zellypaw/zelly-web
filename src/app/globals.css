@@ -45,7 +45,6 @@ body {
   height: 100%;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   
@@ -68,6 +67,10 @@ body {
   overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
   font-synthesis: none;
+}
+
+.snap-start {
+  scroll-snap-stop: always !important;
 }
 
 @media (max-width: 767px) {

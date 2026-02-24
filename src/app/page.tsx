@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function LandingPage() {
   return (
     <main className="bg-white min-h-full">
-      <div className="snap-start h-0" /> {/* Invisible anchor for the very top */}
+      <div className="snap-start snap-always h-0" /> {/* Invisible anchor for the very top */}
       <EventBanner />
       
       <div className="relative md:sticky md:top-0 z-50 md:h-0">
