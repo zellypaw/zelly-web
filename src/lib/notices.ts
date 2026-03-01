@@ -18,7 +18,7 @@ export const NOTICES: Notice[] = [
     date: '2026.02.11',
     content: `안녕하세요, <span style="font-weight: bold;">ZELLY</span> 팀입니다! 🐾
 
-저희 ZELLY가 경기도와 경기도경제과학진흥원(GBSA)에서 주관하는 <span style="font-weight: bold;">'2025년 경기도 AI 혁신크러스터'</span> 입주 지원 사업에 최종 선정되었다는 기쁜 소식을 전해드립니다. 
+저희 ZELLY가 경기도와 경기도경제과학진흥원(GBSA)에서 주관하는 <span style="font-weight: bold;">'2025년 경기도 AI 혁신클러스터'</span> 입주 지원 사업에 최종 선정되었다는 기쁜 소식을 전해드립니다. 
 
 이번 사업은 경기도 내 인공지능 기반 산업 생태계 구축을 위해 AI 관련 핵심 기술을 보유한 유망 스타트업을 발굴하고 육성하는 프로젝트입니다. ZELLY는 엄격한 요건 검토와 전문가 발표 평가를 거쳐, <span style="font-weight: bold;">의정부 AI 클러스터(의정부 기업지원센터)</span>를 거점으로 하는 혁신 기업으로 이름을 올리게 되었습니다. 
 

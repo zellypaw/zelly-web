@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+// TODO: 스토어 출시 후 주석 해제
+// import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ScrollIndicator from '@/components/common/ScrollIndicator';
@@ -62,8 +63,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            {/* Mobile: Single Pre-registration Button */}
-            <div className="block sm:hidden">
+            {/* Pre-registration Button (모든 화면 크기) */}
+            <div>
               <Link 
                 href="/event"
                 className="inline-block bg-zelly-pink text-white font-bold py-3 px-10 rounded-full hover:bg-zelly-pinkHover active:scale-95 transition-all duration-300 shadow-lg text-base"
@@ -72,7 +73,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Desktop: App Store Badges */}
+            {/* TODO: 스토어 출시 후 아래 주석 해제하고 위의 사전 예약 버튼을 모바일 전용(block sm:hidden)으로 변경
             <div className="hidden sm:flex flex-wrap items-center justify-center gap-8">
               <Link 
                 href="/event" 
@@ -101,6 +102,7 @@ export default function Hero() {
                 </div>
               </Link>
             </div>
+            */}
           </motion.div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function Footer() {
                 <span className="text-zelly-text-tertiary/20 text-xs">|</span>
                 <div className="flex items-center gap-4">
                   <a 
-                    href="https://www.threads.com/@zelly5297" 
+                    href="https://www.threads.com/@zelly.paul" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center transition-opacity active:opacity-60"
@@ -35,7 +35,7 @@ export default function Footer() {
                     />
                   </a>
                   <a 
-                    href="https://www.instagram.com/zellypaw/" 
+                    href="https://www.instagram.com/zelly.pet" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center transition-opacity active:opacity-60"
@@ -77,7 +77,7 @@ export default function Footer() {
               개인정보처리방침
             </Link>
             <a 
-              href="https://www.threads.com/@zelly5297" 
+              href="https://www.threads.com/@zelly.paul" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-zelly-text-tertiary hover:text-zelly-text-primary transition-colors flex items-center justify-center"
@@ -92,7 +92,7 @@ export default function Footer() {
               />
             </a>
             <a 
-              href="https://www.instagram.com/zellypaw/" 
+              href="https://www.instagram.com/zelly.pet" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-zelly-text-tertiary hover:text-zelly-text-primary transition-colors flex items-center justify-center"
